@@ -4,7 +4,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'ProFitOro',
+    title: 'AppPet',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,7 +21,9 @@ module.exports = {
     script: [
       { type: 'text/javascript', src: '/jquery.js' },
       { type: 'text/javascript', src: '/tether.js' },
-      { type: 'text/javascript', src: '/bootstrap.js' }
+      { type: 'text/javascript', src: '/bootstrap.js' },
+      { type: 'text/javascript', src: '/code.js' },
+      { type: 'text/javascript', src: '/search.js' }
     ]
   },
   /*

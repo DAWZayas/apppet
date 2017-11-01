@@ -16,14 +16,18 @@ module.exports = {
       { hid: 'ogdescription', property: 'og:description', name: 'og:description', content: 'ProFitOro is a Pomodoro timer implementation combined with office workouts. Take breaks during work. Exercise during breaks ' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
+
     ],
     script: [
-      { type: 'text/javascript', src: '/jquery.js' },
+      { type: 'text/javascript', src: '/jquery3.js' },
       { type: 'text/javascript', src: '/tether.js' },
       { type: 'text/javascript', src: '/bootstrap.js' },
       { type: 'text/javascript', src: '/code.js' },
       { type: 'text/javascript', src: '/search.js' }
+
+
     ]
   },
   /*

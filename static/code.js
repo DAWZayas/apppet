@@ -1,9 +1,9 @@
-$(document).ready(main);
- 
-var cont = 1;
- 
+$(document).ready(main)
+
+var cont = 1
+
 function main() {
-	$('.icon-menu').click(function() {
+	$('.div-menu').click(function() {
 		if(cont == 1) {
 			$('nav').animate({
 				left: '0'

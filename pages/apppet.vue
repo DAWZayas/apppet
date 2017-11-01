@@ -1,7 +1,6 @@
 <template>
   <div>
     <header-component></header-component>
-  
   </div>
 </template>
 <script>
@@ -17,4 +16,5 @@
   }
 </script>
 <style lang="scss">
+
 </style>

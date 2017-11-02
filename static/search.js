@@ -9,7 +9,7 @@ function init () {
 function render () {
   const menuButton = document.querySelector('.search-button')
   const navLateral = document.querySelector('.search-box')
-  const main = document.querySelector('.main')
+  const main = document.querySelector('h1')
   menuButton.addEventListener('click', () =>
       navLateral.classList.contains('none-search') ? showElement(navLateral) : hideElement(navLateral)
     )

@@ -1,17 +1,21 @@
 <template>
   <div>
     <header-component></header-component>
+    <main-component></main-component>
+    <footer-component></footer-component>
   </div>
 </template>
 <script>
-  import { HeaderComponent } from '~/components/common'
+  import { HeaderComponent, MainComponent, FooterComponent } from '~/components/common'
 
   export default {
     data () {
       return {}
     },
     components: {
-      HeaderComponent
+      HeaderComponent,
+      MainComponent,
+      FooterComponent
     }
   }
 </script>

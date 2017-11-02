@@ -3,12 +3,12 @@
 				<div class="header-flex">
 					<nav>
 						<ul>
-							<li> <a href="#"><span><i class="material-icons material-icons-style ">person</i></span>Perfil </a> </li>
-							<li> <a href="#"><i class="material-icons material-icons-style ">pets</i>Candidato </a> </li>
-							<li> <a href="#"><i class="material-icons material-icons-style ">message</i></span>Mensajes </a> </li>
-							<li> <a href="#"><i class="material-icons material-icons-style ">query_builder</i>Noticias </a> </li>
-							<li> <a href="#"><i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
-							<li> <a href="#"><i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">person</i>Perfil </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">pets</i>Candidato </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">message</i></span>Mensajes </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">query_builder</i>Noticias </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
+							<li> <a href="#"> <i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
 						</ul>
 					</nav> <!--/nav-->
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>

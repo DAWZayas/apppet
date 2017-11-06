@@ -1,10 +1,10 @@
 <<template>
-    <div class="element">
+    <div :class="element.classD" >
 	    <img :src="element.src">
         <div>
 		    <p class="nom">{{ element.name }}</p>
 		    <i class="material-icons material-icons-main "> share&nbsp&nbspfavorite&nbsp&nbspchat_bubble&nbsp&nbsppets </i>
-		    <button class="adoption"> {{ element.state }} </button>
+		    <button :class="element.classB"> {{ element.state }} </button>
 	    </div>	
 	</div>
 </template>
@@ -22,7 +22,7 @@
 <style>
 
 .main-elements .featured {
-	grid-row: span 2;
+	grid-row: span 1;
 	grid-column: span 2;
 }
 

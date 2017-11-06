@@ -3,93 +3,105 @@
 		<section class="main-elements">
 			<element-component v-for="element in elements" :key="element.name" :element="element"></element-component>
 		</section> <!--/section-->
-
-		<aside>
-
-			<div class="info">
-				<p>
-					Quisque lorem quam, vulputate ac accumsan sit amet, hendrerit in nisi. Maecenas molestie enim turpis, sed eleifend velit efficitur quis. In suscipit ac dolor vel ultricies. Integer nibh odio, tincidunt a odio at, congue posuere urna. In hac habitasse platea dictumst. Phasellus pretium venenatis ipsum. Praesent a lacinia lorem, ut porta diam. 
-				</p>
-			</div>
-			<div class="info">
-				<p>
-					Quisque lorem quam, vulputate ac accumsan sit amet, hendrerit in nisi. Maecenas molestie enim turpis, sed eleifend velit efficitur quis. In suscipit ac dolor vel ultricies. Integer nibh odio, tincidunt a odio at, congue posuere urna. In hac habitasse platea dictumst. Phasellus pretium venenatis ipsum. Praesent a lacinia lorem, ut porta diam. 
-				</p>
-			</div>
-
-		</aside> <!--/aside-->
+    <aside-component></aside-component>
+		
 
 	</div> <!--/main-->
 </template>
 
 <script>
 
-	import ElementComponent from '~/components/common/ElementComponent'
-
-	export default {
-	  data () {
-	    return {
-	      elements: [
-        {
-          name: 'Felix y Luis',
-          src: require('~/assets/candidatos/dogcat.jpg'),
-          state: 'En adopción'
-        },
-        {
-          name: 'Paco',
-          src: require('~/assets/candidatos/1.jpg'),
-          state: 'Perdido'
-        },
-        {
-          name: 'Peter',
-          src: require('~/assets/candidatos/6.jpg'),
-          state: 'Adoptado'
-        },
-        {
-          name: 'Luna',
-          src: require('~/assets/candidatos/3.jpg'),
-          state: 'En adopción'
-        },
-        {
-          name: 'Felix',
-          src: require('~/assets/candidatos/4.jpg'),
-          state: 'En adopción'
-        },
-        {
-          name: 'Arena',
-          src: require('~/assets/candidatos/5.jpg'),
-          state: 'En adopción'
-        },
-        {
-          name: 'Peoe',
-          src: require('~/assets/candidatos/2.jpg'),
-          state: 'Adoptado'
-        },
-        {
-          name: 'Nicky',
-          src: require('~/assets/candidatos/7.jpg'),
-          state: 'Perdido'
-        },
-        {
-          name: 'Zhara',
-          src: require('~/assets/candidatos/8.jpg'),
-          state: 'Adoptado'
-        },
-        {
-          name: 'Siba',
-          src: require('~/assets/candidatos/9.jpg'),
-          state: 'En adopción'
-        },
-        {
-          name: 'Milú',
-          src: require('~/assets/candidatos/10.jpg'),
-          state: 'Adoptado'
-        }
-      ]
+  import ElementComponent from '~/components/common/ElementComponent'
+  import AsideComponent from '~/components/common/AsideComponent'
+  
+export default {
+    data () {
+      return {
+        elements: [
+          {
+            name: 'Felix y Luis',
+            src: require('~/assets/candidatos/dogcat.jpg'),
+            state: 'En adopción',
+            classB: 'adoption',
+            classD: 'element featured'
+          },
+          {
+            name: 'Paco',
+            src: require('~/assets/candidatos/1.jpg'),
+            state: 'Perdido',
+            classB: 'lost',
+            classD: 'element'
+          },
+          {
+            name: 'Peter',
+            src: require('~/assets/candidatos/6.jpg'),
+            state: 'Adoptado',
+            classB: 'adopted',
+            classD: 'element featured'
+          },
+          {
+            name: 'Luna',
+            src: require('~/assets/candidatos/3.jpg'),
+            state: 'En adopción',
+            classB: 'adoption',
+            classD: 'element'
+          },
+          {
+            name: 'Felix',
+            src: require('~/assets/candidatos/4.jpg'),
+            state: 'En adopción',
+            classB: 'adoption',
+            classD: 'element'
+          },
+          {
+            name: 'Arena',
+            src: require('~/assets/candidatos/5.jpg'),
+            state: 'En adopción',
+            classB: 'adoption',
+            classD: 'element featured'
+          },
+          {
+            name: 'Peoe',
+            src: require('~/assets/candidatos/2.jpg'),
+            state: 'Adoptado',
+            classB: 'adopted',
+            classD: 'element'
+          },
+          {
+            name: 'Nicky',
+            src: require('~/assets/candidatos/7.jpg'),
+            state: 'Perdido',
+            classB: 'lost',
+            classD: 'element'
+          },
+          {
+            name: 'Zhara',
+            src: require('~/assets/candidatos/8.jpg'),
+            state: 'Adoptado',
+            classB: 'adopted',
+            classD: 'element'
+          },
+          {
+            name: 'Siba',
+            src: require('~/assets/candidatos/9.jpg'),
+            state: 'En adopción',
+            classB: 'adoption',
+            classD: 'element'
+          },
+          {
+            name: 'Milú',
+            src: require('~/assets/candidatos/10.jpg'),
+            state: 'Adoptado',
+            classB: 'adopted',
+            classD: 'element'
+          }
+        ]
+      }
+    },
+    components: {
+      ElementComponent,
+      AsideComponent
     }
-  },
-  components: { ElementComponent
-  }
 }
 </script>
 
@@ -108,14 +120,6 @@
 	grid-gap: 1em;
 	grid-auto-flow: dense;
 	padding: 0.5em;
-}
-
-/* ASIDE */
-aside  {
-	flex: 20%;
-	display: flex;    
-	flex-direction: column; 
-	margin-left: 1em;
 }
 
 .info {   
@@ -140,10 +144,6 @@ aside  {
 
 	.material-icons material-icons-main  {
 		margin: 0.2em;
-	}
-
-	aside {
-		display: none;
 	}
 }
 

@@ -27,6 +27,7 @@ export default {
             classButton: 'adoption',
             classDiv: 'element featured',
             user: 'paco123',
+            weight: '3,75',
             age: '2 años',
             microchip: 'Si',
             date: '06/11/2017'
@@ -37,72 +38,133 @@ export default {
             state: 'Perdido',
             classButton: 'lost',
             classDiv: 'element',
-            user: 'lucas3',
-            date: '07/11/2017'
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Peter',
             src: require('~/assets/candidatos/6.jpg'),
             state: 'Adoptado',
             classButton: 'adopted',
-            classDiv: 'element featured'
+            classDiv: 'element featured',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Luna',
             src: require('~/assets/candidatos/3.jpg'),
             state: 'En adopción',
             classButton: 'adoption',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Felix',
             src: require('~/assets/candidatos/4.jpg'),
             state: 'En adopción',
             classButton: 'adoption',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Arena',
             src: require('~/assets/candidatos/5.jpg'),
             state: 'En adopción',
             classButton: 'adoption',
-            classDiv: 'element featured'
+            classDiv: 'element featured',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Peoe',
             src: require('~/assets/candidatos/2.jpg'),
             state: 'Adoptado',
             classButton: 'adopted',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Nicky',
             src: require('~/assets/candidatos/7.jpg'),
             state: 'Perdido',
             classButton: 'lost',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Zhara',
             src: require('~/assets/candidatos/8.jpg'),
             state: 'Adoptado',
             classButton: 'adopted',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Siba',
             src: require('~/assets/candidatos/9.jpg'),
             state: 'En adopción',
             classButton: 'adoption',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Milú',
             src: require('~/assets/candidatos/10.jpg'),
             state: 'Adoptado',
             classButton: 'adopted',
-            classDiv: 'element'
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
+          },
+          {
+            name: 'Martínez',
+            src: require('~/assets/candidatos/11.jpg'),
+            state: 'Perdido',
+            classButton: 'lost',
+            classDiv: 'element',
+            user: 'paco123',
+            weight: '3,75',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           }
+
         ]
       }
     },

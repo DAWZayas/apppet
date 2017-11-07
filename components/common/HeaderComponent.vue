@@ -59,8 +59,8 @@
 }
 
 .search-box-input{
-	  width: 100%;
-	  height: 50px;
+	width: 100%;
+	height: 40px;
     font-size: 1.5rem;
     border: 3px solid white;
     background-color: white;
@@ -73,14 +73,12 @@
 	text-align: center;
 }
 .nom-app {
-	width: 120px;
+	width: 100px;
 	margin-right: -0.7em;
-  margin-top: 7px;
-
 }
 .logo {
-	width: 30px;
-  margin-top: 5px;
+	width: 20px;
+ 	margin-top: 10px;
 }
 
 .div-menu {
@@ -89,13 +87,13 @@
 }
 .material-icons-style {
 	font-size: 25px;
-  color:white;
+ 	color:white;
 }
 
 .material-icons-view{
-  font-size: 40px;
-  color:white;
-  padding: 0.3em;
+  	font-size: 40px;
+	color:white;
+  	padding: 0.1em;
 }
 
 /* HEADER MENU */

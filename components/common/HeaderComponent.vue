@@ -14,7 +14,7 @@
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
 					<div class="div-logo">
 						<img class="nom-app" src="~/assets/logos/nomApp.png">
-            <img class="logo" src="~/assets/logos/huella.png">
+            			<img class="logo" src="~/assets/logos/huella.png">
 					</div>
 
 					<div class="div-menu"> <i class="material-icons material-icons-view">menu</i></div>
@@ -127,9 +127,8 @@ header nav ul li span {
 
 header nav ul li a:hover {
 	background: #037E8C;
-  text-decoration: none;
-  color: white;
-  font-weight: 800;
+  	text-decoration: none;
+  	color: white;
 }
 
 

@@ -1,12 +1,14 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component v-for="element in elements" :key="element.name" :element="element"></element-component>
-		</section> <!--/section-->
+			<element-component v-for="element in elements" :key="element.name" :element="element">
+        
+      </element-component>
+		</section>
     <aside-component></aside-component>
 		
 
-	</div> <!--/main-->
+	</div>
 </template>
 
 <script>
@@ -22,78 +24,84 @@ export default {
             name: 'Felix y Luis',
             src: require('~/assets/candidatos/dogcat.jpg'),
             state: 'En adopción',
-            classB: 'adoption',
-            classD: 'element featured'
+            classButton: 'adoption',
+            classDiv: 'element featured',
+            user: 'paco123',
+            age: '2 años',
+            microchip: 'Si',
+            date: '06/11/2017'
           },
           {
             name: 'Paco',
             src: require('~/assets/candidatos/1.jpg'),
             state: 'Perdido',
-            classB: 'lost',
-            classD: 'element'
+            classButton: 'lost',
+            classDiv: 'element',
+            user: 'lucas3',
+            date: '07/11/2017'
           },
           {
             name: 'Peter',
             src: require('~/assets/candidatos/6.jpg'),
             state: 'Adoptado',
-            classB: 'adopted',
-            classD: 'element featured'
+            classButton: 'adopted',
+            classDiv: 'element featured'
           },
           {
             name: 'Luna',
             src: require('~/assets/candidatos/3.jpg'),
             state: 'En adopción',
-            classB: 'adoption',
-            classD: 'element'
+            classButton: 'adoption',
+            classDiv: 'element'
           },
           {
             name: 'Felix',
             src: require('~/assets/candidatos/4.jpg'),
             state: 'En adopción',
-            classB: 'adoption',
-            classD: 'element'
+            classButton: 'adoption',
+            classDiv: 'element'
           },
           {
             name: 'Arena',
             src: require('~/assets/candidatos/5.jpg'),
             state: 'En adopción',
-            classB: 'adoption',
-            classD: 'element featured'
+            classButton: 'adoption',
+            classDiv: 'element featured'
           },
           {
             name: 'Peoe',
             src: require('~/assets/candidatos/2.jpg'),
             state: 'Adoptado',
-            classB: 'adopted',
-            classD: 'element'
+            classButton: 'adopted',
+            classDiv: 'element'
           },
           {
             name: 'Nicky',
             src: require('~/assets/candidatos/7.jpg'),
             state: 'Perdido',
-            classB: 'lost',
-            classD: 'element'
+            classButton: 'lost',
+            classDiv: 'element'
           },
           {
             name: 'Zhara',
             src: require('~/assets/candidatos/8.jpg'),
             state: 'Adoptado',
-            classB: 'adopted',
-            classD: 'element'
+            classButton: 'adopted',
+            classDiv: 'element'
           },
           {
             name: 'Siba',
             src: require('~/assets/candidatos/9.jpg'),
             state: 'En adopción',
-            classB: 'adoption',
-            classD: 'element'
+            classButton: 'adoption',
+            classDiv: 'element'
           },
           {
             name: 'Milú',
             src: require('~/assets/candidatos/10.jpg'),
             state: 'Adoptado',
-            classB: 'adopted',
-            classD: 'element'
+            classButton: 'adopted',
+            classDiv: 'element'
           }
         ]
       }
@@ -129,8 +137,6 @@ export default {
 	padding: 1em;     
 }
 
-
-/* @MEDIA */
 @media screen and (max-width: 800px) {
 
 	.main-elements {
@@ -146,7 +152,6 @@ export default {
 		margin: 0.2em;
 	}
 }
-
 
 </style>
 

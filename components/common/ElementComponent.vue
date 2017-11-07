@@ -1,11 +1,28 @@
 <<template>
-    <div :class="element.classD" >
+    <div :class="element.classDiv" >
 	    <img :src="element.src">
         <div>
 		    <p class="nom">{{ element.name }}</p>
-		    <i class="material-icons material-icons-main "> share&nbsp&nbspfavorite&nbsp&nbspchat_bubble&nbsp&nbsppets </i>
-		    <button :class="element.classB"> {{ element.state }} </button>
-	    </div>	
+		   
+		    <button :class="element.classButton" @click="onToggleDetails"> {{ element.state }} </button>
+	    </div>
+		<div v-show="show"> 
+        <div class="card-block">
+        <p class="card-text">User: {{ element.user }} </p>
+        <p class="card-text">Peso del animal: {{ element.weight }} </p>
+        <p class="card-text">Edad del animal: {{ element.age }} </p>
+        <p class="card-text">Microchip: {{ element.microchip }} </p>
+        <hr>
+        <i class="material-icons">question_answer</i>
+        <i class="material-icons">pets</i>
+        <i class="material-icons">share</i>
+   
+  </div>
+   <div class="card-footer">
+      <small class="text-muted">Fecha de publicación:{{ element.date }}</small>
+    </div>
+
+      </div>
 	</div>
 </template>
 
@@ -14,6 +31,12 @@
     props: ['element'],
     data () {
       return {
+        show: false
+      }
+    },
+    methods: {
+      onToggleDetails: function () {
+        this.show = !this.show
       }
     }
   }
@@ -43,18 +66,17 @@ img {
 /* TARGETS */
 .nom {
 	font-size: 1.2rem;
-	margin-left: 0.4em;
 	color: #848484;
-
+	text-align: center;
+	font-weight: 800;
+	margin-top: 10px;
 }
 
 button {
 	width: 100%;
 	border: none;
 	padding: 0.2em;
-	margin-top: 0.3em;
 	font-family: 'Acme', sans-serif;
-	font-size: 1rem;
 	border-radius: 5px;
 }
 
@@ -77,4 +99,12 @@ button {
 	margin-right: 1em;
 	text-shadow: 1px 1px black;
 }
+
+.card-text{
+  margin: 0.2em 1.5em;
+  color: #848484;
+  font-family: Verdana;
+  font-size: 0.90rem;
+}
+
 </style>

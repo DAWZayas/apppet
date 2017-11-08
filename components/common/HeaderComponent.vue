@@ -29,7 +29,7 @@
 </template>
 <script>
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
 .header-flex {
 	background-color: #75ccb9;

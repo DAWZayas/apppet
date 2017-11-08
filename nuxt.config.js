@@ -1,5 +1,7 @@
 module.exports = {
-  css: ['~/assets/styles/main.scss'],
+  css: ['~/assets/styles/main.scss' ,
+        '~/node_modules/material-components-web/dist/material-components-web.css' 
+      ],
   /*
   ** Headers of the page
   */
@@ -19,6 +21,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Acme' }
+
 
     ],
     script: [
@@ -42,6 +45,11 @@ module.exports = {
     /*
     ** Run ESLINT on save
     */
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false
+      }
+    },
     extend (config, ctx) {
       if (ctx.isClient) {
         config.module.rules.push({

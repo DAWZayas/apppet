@@ -2,19 +2,20 @@
 	<div class="main">
 		<section class="main-elements">
 			<element-component v-for="element in elements" :key="element.name" :element="element">
-        
       </element-component>
 		</section>
     <aside-component></aside-component>
 		
-
+  <button-add-component></button-add-component>
 	</div>
+  
 </template>
 
 <script>
 
   import ElementComponent from '~/components/common/ElementComponent'
   import AsideComponent from '~/components/common/AsideComponent'
+  import ButtonAddComponent from '~/components/common/ButtonAddComponent'
   
 export default {
     data () {
@@ -170,12 +171,13 @@ export default {
     },
     components: {
       ElementComponent,
-      AsideComponent
+      AsideComponent,
+      ButtonAddComponent
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .main{
 	display: flex;

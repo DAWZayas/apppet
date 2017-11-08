@@ -67,7 +67,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 
 .main-elements .featured {
 	grid-row: span 1;

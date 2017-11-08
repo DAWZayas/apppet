@@ -2,149 +2,134 @@
     <div :class="element.classDiv" >
 	    <img :src="element.src">
         <div>
-		    	
-		    	<div class="button-element-more-info">
-						<i class="material-icons material-icons-more-info">arrow_downward</i>
-						(Click for more info...)
-						<i class="material-icons material-icons-more-info">arrow_downward</i>
+		    	<div class="element-info">
+						<div class="ubication-info">
+              <span class="material-icons material-icons-element-info">place</span>
+               {{ element.ubication }}
+            </div>
+            <div class="date-info">
+              <span class="material-icons material-icons-element-info">access_time</span>
+               {{ element.date }}
+            </div>
 					</div>
 		    	<button class="button-element" :class="element.classButton" data-toggle="modal" data-target="#myModal">
-						 <p class="nom">{{ element.name }}</p>
+						 <p class="name-pet">{{ element.name }}</p>
 						  </button>
 	    	</div>
-			 
-        
-   			
-				<!-- Trigger the modal with a button -->
-			
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Información</h4>
-      </div>
-      <div class="modal-body">
-        <p class="card-text">User: {{ element.user }} </p>
-        <p class="card-text">Peso del animal: {{ element.weight }} kg</p>
-        <p class="card-text">Edad del animal: {{ element.age }} </p>
-        <p class="card-text">Microchip: {{ element.microchip }} </p>
-        <hr>
-        <i class="material-icons material-icons-modal">question_answer</i>
-        <i class="material-icons material-icons-modal">pets</i>
-        <i class="material-icons material-icons-modal">share</i>
-      </div>
-      <div class="modal-footer">
-				<div class="card-footer">
-      		<small class="text-muted">Fecha de publicación: {{ element.date }}</small>
-    		</div>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Información</h4>
+              </div>
+              <div class="modal-body">
+                <p class="card-text">User: {{ element.user }} </p>
+                <p class="card-text">Peso del animal: {{ element.weight }} kg</p>
+                <p class="card-text">Edad del animal: {{ element.age }} </p>
+                <p class="card-text">Microchip: {{ element.microchip }} </p>
+                <hr>
+                <i class="material-icons material-icons-modal">question_answer</i>
+                <i class="material-icons material-icons-modal">pets</i>
+                <i class="material-icons material-icons-modal">share</i>
+              </div>
+              <div class="modal-footer">
+                <div class="card-footer">
+                  <small class="text-muted">Fecha de publicación: {{ element.date }}</small>
+                </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 		</div>
 </template>
 
 <script>
   export default {
-    props: ['element'],
-    data () {
-      return {
-        show: false
-      }
-    },
-    methods: {
-      onToggleDetails: function () {
-        this.show = !this.show
-      }
-    }
+    props: ['element']
   }
 </script>
 
 <style scoped>
 
-.main-elements .featured {
-	grid-row: span 1;
-	grid-column: span 2;
-}
-
-.main-elements > .element {
-	border: 0.5px solid #E6E6E6;
+.element {
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
+	justify-content:center;
+	width: 42%;
+	margin: 10px 8px 6px 8px;;
+  box-shadow: 0px 5px 10px #888888;
 }
 
 img {
 	flex: 1;
 	object-fit: cover;
-	max-width: 100%;
+  max-width: 100%;
+  height: 100px;
 	border-radius: 5px 5px 0px 0px;
 }
 
 /* TARGETS */
-.nom {
-	font-size: 1.2rem;
-	color: #392E2E;
+.name-pet {
+	font-size: 1rem;
+	color: white;
 	text-align: center;
-	margin: 3px 0 0 0;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 800;
 }
 
 .button-element {
-	font-size: 1.2rem;
 	color: #392E2E;
 	width: 100%;
 	border: none;
-	padding: 0.3em;
-	font-family: 'Acme', sans-serif;
+	font-family:  'Josefin Sans', sans-serif;
 	border-radius: 0px 0px 5px 5px;
 }
 
-.button-element-more-info{
-	font-size: 0.7rem;
+.element-info{
+	font-size: 0.6rem;
 	color: #C8C8C8;
-	text-align: center
+	margin-left: 5px;
 }
 
-.material-icons-more-info{
+.material-icons-element-info{
 	margin: 0;
-	font-size: 0.7rem;
+	font-size: 0.6rem;
 	color: #C8C8C8;
 }
 
 .adoption {
-	background-color: #D8F781;
-	box-shadow: inset 0 0 0 2px #C2E269;
+	background-color: #75ccb9;
+	border: 1px solid #6CBDAB;
 }
 .adoption:hover{
-	background-color: #C2E269;
-	box-shadow: inset 0 0 0 2px #D8F781;
+	background-color: #6CBDAB;
+  border: 1px solid #75ccb9;
 }
 
 .lost {
 	background-color: #FA5858;
-	box-shadow: inset 0 0 0 2px #D73B3B;
+	border: 1px solid #D73B3B;
 }
 .lost:hover{
 	background-color: #D73B3B;
-	box-shadow: inset 0 0 0 2px #FA5858;
+	border: 1px solid #FA5858;
 }
 
-
 .adopted {
-	background-color: #D8D8D8;
-	box-shadow: inset 0 0 0 2px #C7BDBD;
+	background-color: #959191;
+	border: 1px solid #807777;
 }
 
 .adopted:hover{
-	background-color: #C7BDBD;
-	box-shadow: inset 0 0 0 2px #D8D8D8;
+	background-color: #807777;
+	border: 1px solid #959191;
 }
 .material-icons-main  {
 	color: #75ccb9;
@@ -165,4 +150,54 @@ img {
 	margin-left: 20px;
 }
 
+
+@media screen and (min-width: 800px) {
+  .main-elements .featured {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  .main-elements > .element {
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  img {
+    height: 120px;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 120px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .element-info{
+    font-size: 0.7rem;
+  }
+  .material-icons-element-info{
+    font-size: 0.7rem;
+  }
+
+  .featured .element-info{
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+  }
+
+  .featured .material-icons-element-info{
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 450px){
+  img{
+    max-width: 100%;
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 650px){
+  img{
+    max-width: 100%;
+    height: 200px;
+  }
+}
 </style>

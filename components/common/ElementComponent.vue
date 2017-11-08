@@ -2,14 +2,14 @@
     <div :class="element.classDiv" >
 	    <img :src="element.src">
         <div>
-		    	<p class="nom">{{ element.name }}</p>
+		    	
 		    	<div class="button-element-more-info">
 						<i class="material-icons material-icons-more-info">arrow_downward</i>
 						(Click for more info...)
 						<i class="material-icons material-icons-more-info">arrow_downward</i>
 					</div>
 		    	<button class="button-element" :class="element.classButton" data-toggle="modal" data-target="#myModal">
-						 {{ element.state }}
+						 <p class="nom">{{ element.name }}</p>
 						  </button>
 	    	</div>
 			 
@@ -91,11 +91,9 @@ img {
 /* TARGETS */
 .nom {
 	font-size: 1.2rem;
-	color: #848484;
+	color: #392E2E;
 	text-align: center;
-	margin: 10px 0 0 0;
-	font-weight: 600;
-	text-shadow: 2px 2px #D6D6D6;
+	margin: 3px 0 0 0;
 }
 
 .button-element {

@@ -1,5 +1,5 @@
 <template>
-  <a href="/petform">
+  <a href="/addpet">
     <button class="mdc-fab material-icons app-fab--absolute" aria-label="Favorite">
       <span class="mdc-fab__icon">
         pets

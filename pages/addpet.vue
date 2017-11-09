@@ -1,12 +1,12 @@
 <template>
   <div>
     <header-component></header-component>
-    hola
+    <addpet-component></addpet-component>
     <footer-component></footer-component>
   </div>
 </template>
 <script>
-  import { HeaderComponent, FooterComponent } from '~/components/common'
+  import { HeaderComponent, FooterComponent, AddpetComponent } from '~/components/common'
 
   export default {
     data () {
@@ -14,7 +14,8 @@
     },
     components: {
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      AddpetComponent
     }
   }
 </script>

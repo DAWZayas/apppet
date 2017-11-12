@@ -3,34 +3,62 @@
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Nombre</label>
         <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Introduce nombre del animal" id="example-text-input">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Nombre del animal" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Ciudad</label>
+        <div class="col-10">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Ciudad" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="sel1" class="col-2 col-form-label">Animal</label>
+            <div class="col-10">
+            <select class="form-control" id="sel1">
+                <option>Perro</option>
+                <option>Gato</option>
+                <option>Otro</option>
+            </select>
+            </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Raza</label>
+        <div class="col-10">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Raza del animal" id="example-text-input">
         </div>
     </div>
     <div class="form-check">
         <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             Macho
             <br>
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             Hembra
         </label>
-    </div>
-    <div class="form-check form-check-inline">
-        <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            Si
-        </label>
-    </div>
-    <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Peso en kg</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" value="0.0" id="example-number-input" step=".1">
-        </div>
     </div>
     <div class="form-group row">
         <label for="example-number-input" class="col-2 col-form-label">Edad</label>
         <div class="col-10">
             <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" value="0" id="example-number-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-file-input" class="col-2 col-form-label">Imagen</label>
+        <div class="col-10">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="file" value="0" id="example-file-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="comment" class="col-2 col-form-label">Caracter:</label>
+        <div class="col-10">
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-number-input" class="col-2 col-form-label">Teléfono</label>
+        <div class="col-10">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" id="example-number-input">
         </div>
     </div>
 </form>
@@ -45,17 +73,16 @@ export default {
 
 form{
     width: 90%;
-    margin: 0 auto;
-    margin-top:20px; 
+    margin: 15px auto;
     border: 1px solid gray;
     border-radius: 5px;
     background-color: #75ccb9;
-    padding: 1em;
-    font-size: 0.8rem;
+    padding: 1.2em;
+    font-size: 1rem;
     color: white;
 }
 input{
-
+    font-size: 0.8rem;
 }
 
 </style>

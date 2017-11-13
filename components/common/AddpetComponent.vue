@@ -1,21 +1,21 @@
 <template>
-<form>
+<form class="form-horizontal">
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Nombre</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Nombre del animal" id="example-text-input">
+        <label for="text-input" class="control-label col-sm-2">Nombre:</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" placeholder="Nombre del animal" id="text-input">
         </div>
     </div>
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Ciudad</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Ciudad" id="example-text-input">
+        <label for="text-input" class="control-label col-sm-2">Ciudad:</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" placeholder="Ciudad" id="text-input">
         </div>
     </div>
     <div class="form-group row">
-        <label for="sel1" class="col-2 col-form-label">Animal</label>
-            <div class="col-10">
-            <select class="form-control" id="sel1">
+        <label for="select1" class="control-label col-sm-2">Animal:</label>
+            <div class="col-sm-10">
+            <select class="form-control" id="select1">
                 <option>Perro</option>
                 <option>Gato</option>
                 <option>Otro</option>
@@ -23,46 +23,53 @@
             </div>
     </div>
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Raza</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" value="Raza del animal" id="example-text-input">
+        <label for="text-input" class="control-label col-sm-2">Raza:</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" placeholder="Raza del animal" id="text-input">
         </div>
     </div>
-    <div class="form-check">
-        <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            Macho
-            <br>
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            Hembra
-        </label>
-    </div>
-    <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Edad</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" value="0" id="example-number-input">
+    <div class="form-group row"> 
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label><input type="checkbox">Macho</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">Hembra</label>
+            </div>
         </div>
     </div>
     <div class="form-group row">
-        <label for="example-file-input" class="col-2 col-form-label">Imagen</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="file" value="0" id="example-file-input">
+        <label for="number-input" class="control-label col-sm-2">Edad;</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" placeholder="En años" id="number-input">
         </div>
     </div>
     <div class="form-group row">
-        <label for="comment" class="col-2 col-form-label">Caracter:</label>
-        <div class="col-10">
+        <label for="file-input" class="control-label col-sm-2">Imagen</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="file" value="0" id="file-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="comment" class="control-label col-sm-2">Descripción:</label>
+        <div class="col-sm-10">
             <textarea class="form-control" rows="5" id="comment"></textarea>
         </div>
     </div>
     <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Teléfono</label>
-        <div class="col-10">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" id="example-number-input">
+        <label for="number-input" class="control-label col-sm-2">Teléfono:</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" id="number-input">
         </div>
     </div>
-    <input v-model="element.name" placeholder="edit me">
-    <p>Message is: {{ element.name }}</p>
+    <div class="btn-group inline"> 
+        <div class="col-sm-offset-2">
+            <button type="submit" class="btn btn-default">Enviar</button>
+        </div>
+         <div class="col-sm">
+            <button type="reset" class="btn btn-default">Cancelar</button>
+        </div>
+    </div>
 </form>
   
 </template>
@@ -101,9 +108,11 @@ form{
 }
 input{
     font-size: 0.8rem;
-    width: 90%;
-    margin-left: 10px;
-    
 }
 
+@media screen and (min-width: 768px){
+    
+    form {width:50%;
+    }
+}
 </style>

@@ -13,8 +13,10 @@
 					</nav> <!--/nav-->
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
 					<div class="div-logo">
-						<img class="nom-app" src="~/assets/logos/nomApp.png">
-            			<img class="logo" src="~/assets/logos/huella.png">
+						<a href="/">
+							<img class="nom-app" src="~/assets/logos/nomApp.png">
+            				<img class="logo" src="~/assets/logos/huella.png">
+						</a>
 					</div>
 
 					<div class="div-menu"> <i class="material-icons material-icons-view">menu</i></div>

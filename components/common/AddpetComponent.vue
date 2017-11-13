@@ -61,11 +61,29 @@
             <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" id="example-number-input">
         </div>
     </div>
+    <input v-model="element.name" placeholder="edit me">
+    <p>Message is: {{ element.name }}</p>
 </form>
   
 </template>
 <script>
 export default {
+  data () {
+    return {
+      element: {
+        name: '',
+        src: require('~/assets/candidatos/dogcat.jpg'),
+        classButton: 'adoption',
+        classDiv: 'element featured',
+        user: 'paco123',
+        weight: '3,75',
+        age: '2 años',
+        microchip: 'Si',
+        ubication: 'Villanueva del Pardillo',
+        date: '06/11/2017'
+      }
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -83,6 +101,9 @@ form{
 }
 input{
     font-size: 0.8rem;
+    width: 90%;
+    margin-left: 10px;
+    
 }
 
 </style>

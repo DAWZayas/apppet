@@ -80,11 +80,6 @@
 <script>
 import {mapGetters, mapActions} from 'vuex'
 export default {
-  computed: {
-    ...mapGetters({
-      animals: 'getAnimals'
-    })
-  },
   data () {
     return {
       name: '',
@@ -98,6 +93,11 @@ export default {
       ubication: '',
       date: ''
     }
+  },
+  computed: {
+    ...mapGetters({
+      animals: 'getAnimals'
+    })
   },
   methods: {
     addAnimal: function () {
@@ -114,7 +114,7 @@ export default {
         date: '06/11/2017'
       }
       this.setAddAnimal(newAnimal)
-      console.log('aaa')
+      console.log(newAnimal)
     },
     ...mapActions(['setAddAnimal'])
   }

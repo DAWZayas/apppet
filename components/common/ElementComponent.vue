@@ -1,19 +1,19 @@
 <template>
-    <div :class="element.classDiv" >
-	    <img :src="element.src">
+    <div :class="animal.classDiv" >
+	    <img :src="animal.src">
         <div>
 		    	<div class="element-info">
 						<div class="ubication-info">
               <span class="material-icons material-icons-element-info">place</span>
-               {{ element.ubication }}
+               {{ animal.ubication }}
             </div>
             <div class="date-info">
               <span class="material-icons material-icons-element-info">access_time</span>
-               {{ element.date }}
+               {{ animal.date }}
             </div>
 					</div>
-		    	<button class="button-element" :class="element.classButton" data-toggle="modal" data-target="#myModal">
-						 <p class="name-pet">{{ element.name }}</p>
+		    	<button class="button-element" :class="animal.classButton" data-toggle="modal" data-target="#myModal">
+						 <p class="name-pet">{{ animal.name }}</p>
 						  </button>
 	    	</div>
         <!-- Modal -->
@@ -26,10 +26,10 @@
                 <h4 class="modal-title">Información</h4>
               </div>
               <div class="modal-body">
-                <p class="card-text">User: {{ element.user }} </p>
-                <p class="card-text">Peso del animal: {{ element.weight }} kg</p>
-                <p class="card-text">Edad del animal: {{ element.age }} </p>
-                <p class="card-text">Microchip: {{ element.microchip }} </p>
+                <p class="card-text">User: {{ animal.user }} </p>
+                <p class="card-text">Peso del animal: {{ animal.weight }} kg</p>
+                <p class="card-text">Edad del animal: {{ animal.age }} </p>
+                <p class="card-text">Microchip: {{ animal.microchip }} </p>
                 <hr>
                 <i class="material-icons material-icons-modal">question_answer</i>
                 <i class="material-icons material-icons-modal">pets</i>
@@ -37,7 +37,7 @@
               </div>
               <div class="modal-footer">
                 <div class="card-footer">
-                  <small class="text-muted">Fecha de publicación: {{ element.date }}</small>
+                  <small class="text-muted">Fecha de publicación: {{ animal.date }}</small>
                 </div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
@@ -49,9 +49,13 @@
 </template>
 
 <script>
-  export default {
-    props: ['element']
+export default {
+  props: ['animal'],
+  data () {
+    return {
+    }
   }
+}
 </script>
 
 <style scoped>

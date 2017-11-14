@@ -14,6 +14,8 @@ footer {
 	padding: 1em;
 	color: #fff;
 	background-color: #000;
+	position: fixed;
+  	bottom: 0;
 }
 
 /* @MEDIA */

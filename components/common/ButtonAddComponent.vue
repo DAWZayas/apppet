@@ -21,7 +21,7 @@ export default {
 
 @media(min-width: 1024px) {
    .app-fab--absolute {
-    bottom: 1.5rem;
+    bottom: 5rem;
     right: 1.5rem;
   }
 }

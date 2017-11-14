@@ -112,7 +112,8 @@ input{
 
 @media screen and (min-width: 768px){
     
-    form {width:50%;
+    form {
+        width:50%;
     }
 }
 </style>

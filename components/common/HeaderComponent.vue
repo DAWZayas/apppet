@@ -162,6 +162,7 @@ header nav ul li a:hover {
 		left: -100%;
 		margin: 0;
 		position: fixed;
+		z-index: 900;
 	}
   header nav ul{
       padding: 0;

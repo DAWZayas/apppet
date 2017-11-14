@@ -1,4 +1,5 @@
 <template>
+<div>
 <form class="form-horizontal">
     <div class="form-group row">
         <label for="text-input" class="control-label col-sm-2">Nombre:</label>
@@ -64,21 +65,44 @@
     </div>
     <div class="btn-group inline"> 
         <div class="col-sm-offset-2">
-            <button type="submit" class="btn btn-default">Enviar</button>
+            <button class="btn btn-default">Enviar</button>
         </div>
          <div class="col-sm">
             <button type="reset" class="btn btn-default">Cancelar</button>
         </div>
     </div>
+    
 </form>
+<button @click="addAnimal" type="button">hhh</button>
+</div>
   
 </template>
 <script>
+import {mapGetters, mapActions} from 'vuex'
 export default {
+  computed: {
+    ...mapGetters({
+      animals: 'getAnimals'
+    })
+  },
   data () {
     return {
-      element: {
-        name: '',
+      name: '',
+      src: '',
+      classButton: '',
+      classDiv: '',
+      user: '',
+      weight: '',
+      age: '',
+      microchip: '',
+      ubication: '',
+      date: ''
+    }
+  },
+  methods: {
+    addAnimal: function () {
+      const newAnimal = {
+        name: 'paco de lusia',
         src: require('~/assets/candidatos/dogcat.jpg'),
         classButton: 'adoption',
         classDiv: 'element featured',
@@ -89,7 +113,10 @@ export default {
         ubication: 'Villanueva del Pardillo',
         date: '06/11/2017'
       }
-    }
+      this.setAddAnimal(newAnimal)
+      console.log('aaa')
+    },
+    ...mapActions(['setAddAnimal'])
   }
 }
 </script>

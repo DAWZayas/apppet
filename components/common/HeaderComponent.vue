@@ -13,10 +13,10 @@
 					</nav> <!--/nav-->
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
 					<div class="div-logo">
-						<a href="/">
+						<nuxt-link to="/">
 							<img class="nom-app" src="~/assets/logos/nomApp.png">
             				<img class="logo" src="~/assets/logos/huella.png">
-						</a>
+						</nuxt-link>
 					</div>
 
 					<div class="div-menu"> <i class="material-icons material-icons-view">menu</i></div>
@@ -162,6 +162,7 @@ header nav ul li a:hover {
 		left: -100%;
 		margin: 0;
 		position: fixed;
+		z-index: 900;
 	}
   header nav ul{
       padding: 0;

@@ -1,5 +1,5 @@
 export default {
-  setAnimal (state, animal) {
-    state.animals.push(animal)
+  setAddAnimal (state, newAnimal) {
+    state.animals.push(newAnimal)
   }
 }

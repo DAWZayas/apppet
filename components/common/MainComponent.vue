@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component v-for="element in elements" :key="element.name" :element="element">
+			<element-component v-for="animal in animals" :key="animal.name" :animal="animal">
       </element-component>
 		</section>
     <aside-component></aside-component>
@@ -20,7 +20,7 @@
 export default {
     computed: {
       ...mapGetters({
-        elements: 'getAnimals'
+        animals: 'getAnimals'
       })
     },
     data () {

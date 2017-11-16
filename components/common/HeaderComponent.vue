@@ -13,7 +13,7 @@
 					</nav> <!--/nav-->
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
 					<div class="div-logo">
-						<nuxt-link to="/">
+						<nuxt-link to="/apppet">
 							<img class="nom-app" src="~/assets/logos/nomApp.png">
             				<img class="logo" src="~/assets/logos/huella.png">
 						</nuxt-link>

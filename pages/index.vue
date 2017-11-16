@@ -1,15 +1,15 @@
 <template>
   <div>
-    <apppet></apppet>
+    <login></login>
   </div>
 </template>
 <script>
-  import apppet from '~/pages/apppet'
+  import login from '~/pages/login'
 
   export default {
     data () {
       return {}
     },
-    components: {apppet}
+    components: {login}
   }
 </script>

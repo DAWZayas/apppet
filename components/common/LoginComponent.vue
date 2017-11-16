@@ -35,7 +35,7 @@
 </template>
 <script>
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 	@font-face {	
 		font-family: "pokemonsolid";

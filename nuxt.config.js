@@ -28,9 +28,7 @@ module.exports = {
     script: [
       { type: 'text/javascript', src: '/jquery.js' },
       { type: 'text/javascript', src: '/tether.js' },
-      { type: 'text/javascript', src: '/bootstrap.js' },
-      { type: 'text/javascript', src: '/code.js' },
-      { type: 'text/javascript', src: '/search.js' }
+      { type: 'text/javascript', src: '/bootstrap.js' }
 
 
     ]

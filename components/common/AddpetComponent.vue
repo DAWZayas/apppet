@@ -1,16 +1,15 @@
 <template>
-<div>
-<form class="form-horizontal">
+<div class="form-horizontal">
     <div class="form-group row">
         <label for="text-input" class="control-label col-sm-2">Nombre:</label>
         <div class="col-sm-10">
-            <input class="form-control" type="text" placeholder="Nombre del animal" id="text-input">
+            <input class="form-control" v-model="name" type="text" placeholder="Nombre del animal" id="text-input">
         </div>
     </div>
     <div class="form-group row">
         <label for="text-input" class="control-label col-sm-2">Ciudad:</label>
         <div class="col-sm-10">
-            <input class="form-control" type="text" placeholder="Ciudad" id="text-input">
+            <input class="form-control" v-model="ubication" type="text" placeholder="Ciudad" id="text-input">
         </div>
     </div>
     <div class="form-group row">
@@ -42,7 +41,7 @@
     <div class="form-group row">
         <label for="number-input" class="control-label col-sm-2">Edad;</label>
         <div class="col-sm-10">
-            <input class="form-control" type="number" placeholder="En años" id="number-input">
+            <input class="form-control" v-model="age" type="number" placeholder="En años" id="number-input">
         </div>
     </div>
     <div class="form-group row">
@@ -65,17 +64,15 @@
     </div>
     <div class="btn-group inline"> 
         <div class="col-sm-offset-2">
-            <button class="btn btn-default">Enviar</button>
+           <nuxt-link to="/">
+                <button class="btn btn-default" @click="addAnimal" >Enviar</button>
+            </nuxt-link>
         </div>
          <div class="col-sm">
             <button type="reset" class="btn btn-default">Cancelar</button>
         </div>
     </div>
-    
-</form>
-<button @click="addAnimal" type="button">hhh</button>
 </div>
-  
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
@@ -102,19 +99,32 @@ export default {
   methods: {
     addAnimal: function () {
       const newAnimal = {
-        name: 'paco de lusia',
-        src: require('~/assets/candidatos/dogcat.jpg'),
+        name: this.name,
+        src: require('~/assets/candidatos/undefined.png'),
         classButton: 'adoption',
-        classDiv: 'element featured',
+        classDiv: 'element',
         user: 'paco123',
         weight: '3,75',
-        age: '2 años',
+        age: this.age,
         microchip: 'Si',
-        ubication: 'Villanueva del Pardillo',
-        date: '06/11/2017'
+        ubication: this.ubication,
+        date: this.getFecha()
       }
       this.setAddAnimal(newAnimal)
-      console.log(newAnimal)
+    },
+    getFecha: function () {
+      var today = new Date()
+      var dd = today.getDate()
+      var mm = today.getMonth() + 1
+      var yyyy = today.getFullYear()
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = dd + '/' + mm + '/' + yyyy
+      return today
     },
     ...mapActions(['setAddAnimal'])
   }
@@ -123,7 +133,7 @@ export default {
 <style lang="scss" scoped>
 
 
-form{
+.form-horizontal{
     width: 90%;
     margin: 15px auto;
     border: 1px solid gray;
@@ -139,8 +149,7 @@ input{
 
 @media screen and (min-width: 768px){
     
-    form {
-        width:50%;
+    .form-horizontal{width:50%;
     }
 }
 </style>

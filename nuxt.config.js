@@ -1,7 +1,8 @@
 module.exports = {
-  css: ['~/assets/styles/main.scss' ,
-        '~/node_modules/material-components-web/dist/material-components-web.css' 
-      ],
+  css: ['~/assets/styles/main.scss',
+    '~/node_modules/material-components-web/dist/material-components-web.css',
+    {src: '~/assets/css/app.styl'}
+  ],
   /*
   ** Headers of the page
   */
@@ -33,6 +34,7 @@ module.exports = {
 
     ]
   },
+  plugins: ['~plugins/vuetify.js'],
   /*
   ** Customize the progress-bar color
   */
@@ -41,6 +43,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['vuetify'],
     /*
     ** Run ESLINT on save
     */

@@ -28,7 +28,7 @@
             <input class="form-control" type="text" placeholder="Raza del animal" id="text-input">
         </div>
     </div>
-    <div class="form-group row"> 
+    <div class="form-group row">
         <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
                 <label><input type="checkbox">Macho</label>
@@ -62,7 +62,7 @@
             <input class="form-control" type="number" id="number-input">
         </div>
     </div>
-    <div class="btn-group inline"> 
+    <div class="btn-group inline">
         <div class="col-sm-offset-2">
            <nuxt-link to="/apppet/">
                 <button class="btn btn-default" @click="addAnimal" >Enviar</button>
@@ -148,7 +148,7 @@ input{
 }
 
 @media screen and (min-width: 768px){
-    
+
     .form-horizontal{width:50%;
     }
 }

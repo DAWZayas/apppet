@@ -1,7 +1,8 @@
 module.exports = {
-  css: ['~/assets/styles/main.scss' ,
-        '~/node_modules/material-components-web/dist/material-components-web.css' 
-      ],
+  css: ['~/assets/styles/main.scss',
+    '~/node_modules/material-components-web/dist/material-components-web.css',
+    {src: '~/assets/css/app.styl'}
+  ],
   /*
   ** Headers of the page
   */
@@ -28,13 +29,12 @@ module.exports = {
     script: [
       { type: 'text/javascript', src: '/jquery.js' },
       { type: 'text/javascript', src: '/tether.js' },
-      { type: 'text/javascript', src: '/bootstrap.js' },
-      { type: 'text/javascript', src: '/code.js' },
-      { type: 'text/javascript', src: '/search.js' }
+      { type: 'text/javascript', src: '/bootstrap.js' }
 
 
     ]
   },
+  plugins: ['~plugins/vuetify.js'],
   /*
   ** Customize the progress-bar color
   */
@@ -43,6 +43,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['vuetify'],
     /*
     ** Run ESLINT on save
     */

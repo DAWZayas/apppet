@@ -64,7 +64,7 @@
     </div>
     <div class="btn-group inline"> 
         <div class="col-sm-offset-2">
-           <nuxt-link to="/">
+           <nuxt-link to="/apppet/">
                 <button class="btn btn-default" @click="addAnimal" >Enviar</button>
             </nuxt-link>
         </div>

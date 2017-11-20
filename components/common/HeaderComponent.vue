@@ -13,7 +13,7 @@
 					</nav> <!--/nav-->
 					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
 					<div class="div-logo">
-						<nuxt-link to="/">
+						<nuxt-link to="/apppet/">
 							<img class="nom-app" src="~/assets/logos/nomApp.png">
             				<img class="logo" src="~/assets/logos/huella.png">
 						</nuxt-link>
@@ -21,9 +21,6 @@
 
 					<div class="div-menu"> <i class="material-icons material-icons-view">menu</i></div>
 				</div> <!--/header flex-->
-        <div class="search-box">
-					<input type="text" class="search-box-input" placeholder="Buscar animal...">
-				</div>
 			</header>
 
 

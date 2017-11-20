@@ -142,18 +142,6 @@ const animals = [
     microchip: 'Si',
     ubication: 'Villanueva del Pardillo',
     date: '06/11/2017'
-  },
-  {
-    name: 'Martínezee',
-    src: require('~/assets/candidatos/11.jpg'),
-    classButton: 'lost',
-    classDiv: 'element',
-    user: 'paco123',
-    weight: '3,75',
-    age: '2 años',
-    microchip: 'Si',
-    ubication: 'Villanueva del Pardillo',
-    date: '06/11/2017'
   }
 
 ]

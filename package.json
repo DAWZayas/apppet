@@ -9,7 +9,11 @@
     "material-components-web": "^0.24.0",
     "moment": "^2.18.1",
     "nuxt": "latest",
-    "uuid": "^3.1.0"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "uuid": "^3.1.0",
+    "vue-cli": "^2.9.1",
+    "vuetify": "^0.17.0"
   },
   "scripts": {
     "dev": "nuxt",

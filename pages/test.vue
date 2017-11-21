@@ -202,4 +202,11 @@
     }
   }
 </script>
+<style lang="scss" scoped>
 
+  .input-group{
+    width: 90%;
+    text-align: center;
+  }
+
+</style>

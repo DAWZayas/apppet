@@ -1,5 +1,5 @@
 const animals = []
-const configRef = null
+const animalsRef = null
 
 var images = [
   require('~/assets/candidatos/dogcat.jpg'),
@@ -19,7 +19,7 @@ var images = [
 
 export default {
   animals,
-  configRef,
+  animalsRef,
   images
 }
 

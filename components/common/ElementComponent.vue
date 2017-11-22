@@ -1,6 +1,6 @@
 <template>
     <div :class="animal.classDiv" >
-	    <img :src="animal.src">
+	    <img :src="img[this.images]">
         <div>
 		    	<div class="element-info">
 						<div class="ubication-info">
@@ -49,11 +49,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   props: ['animal'],
   data () {
     return {
+      images: this.animal.src
     }
+  },
+  computed: {
+    ...mapGetters({
+      img: 'getImages'
+    })
   }
 }
 </script>

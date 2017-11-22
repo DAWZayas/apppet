@@ -7,9 +7,8 @@ export default {
    * @param {object} newAnimal
  */
   setAddAnimal ({commit, state}, newAnimal) {
-    commit('setAddAnimal', newAnimal)
     if (state.configRef) {
-      state.configRef.update({newAnimal})
+      state.configRef.push(newAnimal)
     } else {
       commit('setAddAnimal', newAnimal)
     }

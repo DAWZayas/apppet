@@ -100,7 +100,7 @@ export default {
     addAnimal: function () {
       const newAnimal = {
         name: this.name,
-        src: require('~/assets/candidatos/undefined.png'),
+        src: '12',
         classButton: 'adoption',
         classDiv: 'element',
         user: 'paco123',

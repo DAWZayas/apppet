@@ -1,36 +1,76 @@
 <template>
-<header>
-				<div class="header-flex">
-					<nav>
-						<ul>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">person</i>Perfil </a> </li>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">pets</i>Candidato </a> </li>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">message</i></span>Mensajes </a> </li>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">query_builder</i>Noticias </a> </li>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
-							<li> <a href="#"> <i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
-						</ul>
-					</nav> <!--/nav-->
-					<div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
-					<div class="div-logo">
-						<nuxt-link to="/apppet/">
-							<img class="nom-app" src="~/assets/logos/nomApp.png">
-            				<img class="logo" src="~/assets/logos/huella.png">
-						</nuxt-link>
-					</div>
-
-					<div class="div-menu"> <i class="material-icons material-icons-view">menu</i></div>
-				</div> <!--/header flex-->
-			</header>
-
-
-
+  <div>
+    <header>
+      <div class="header-flex">
+        <nav>
+          <ul>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">person</i>Perfil </a> </li>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">pets</i>Candidato </a> </li>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">message</i></span>Mensajes </a> </li>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">query_builder</i>Noticias </a> </li>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
+            <li> <a href="#"> <i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
+          </ul>
+        </nav> <!--/nav-->
+        <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
+          <div class="div-logo">
+            <nuxt-link to="/apppet/">
+              <img class="nom-app" src="~/assets/logos/nomApp.png">
+              <img class="logo" src="~/assets/logos/huella.png">
+            </nuxt-link>
+          </div>
+          <div class="div-menu" @click.stop="drawer = !drawer">
+            <i class="material-icons material-icons-view">menu</i>
+          </div>
+        </div> <!--/header flex-->
+      </header>
+      <v-navigation-drawer
+        temporary
+        v-model="drawer"
+        light
+        absolute
+        style="background-color: white;"
+      >
+      <v-list class="pa-1">
+        <v-list-tile avatar>
+          <v-list-tile-avatar>
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title>Usuario no registrado</v-list-tile-title>
+          </v-list-tile-content>
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list>
+      <v-list class="pt-0" dense>
+        <v-divider></v-divider>
+        <v-list-tile v-for="item in items" :key="item.title" @click="">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 <script>
-	export default{
-	}
+  export default {
+    data () {
+      return {
+        drawer: null,
+        items: [
+          { title: 'Inicio', icon: 'dashboard' },
+          { title: 'Perfil', icon: 'question_answer' }
+        ]
+      }
+    }
+  }
 </script>
 <style lang="scss" scoped>
+
 
 .header-flex {
 	background-color: #75ccb9;
@@ -62,10 +102,10 @@
 .search-box-input{
 	width: 100%;
 	height: 40px;
-    font-size: 1.5rem;
-    border: 3px solid white;
-    background-color: white;
-    color: black;
+  font-size: 1.5rem;
+  border: 3px solid white;
+  background-color: white;
+  color: black;
 }
 
 /* HEADER ICONS-LOGO-MENU*/
@@ -92,17 +132,17 @@
 }
 
 .material-icons-view{
-  	font-size: 40px;
-	color:white;
-  	padding: 0.1em;
+  font-size: 40px;
+  color:white;
+  padding: 0.1em;
 }
 
 /* HEADER MENU */
 header nav {
+  left: -100%;
 	width: 100%;
-	max-width: 1240px;
 	margin: auto;
-	background-color: #00acc1;
+  position: fixed;
 }
 
 header nav ul {
@@ -125,9 +165,12 @@ header nav ul li span {
 }
 
 header nav ul li a:hover {
-	background: #037E8C;
-  	text-decoration: none;
-  	color: white;
+  text-decoration: none;
+  color: #00acc1;
+}
+
+.overlay {
+  z-index: 1070!important;
 }
 
 
@@ -136,9 +179,12 @@ header nav ul li a:hover {
 
 	header nav {
 		background-color: #75ccb9;
+    	left: 0;
+      position: relative;
+
 	}
 
-.search-button {
+  .search-button {
 		display: none;
 	}
 
@@ -151,28 +197,6 @@ header nav ul li a:hover {
 	.div-menu {
 		display: none;
 	}
-
 }
-
-@media screen and (max-width:800px ) {
-	header nav {
-		width: 80%;
-		height: 100%;
-		left: -100%;
-		margin: 0;
-		position: fixed;
-		z-index: 900;
-	}
-  header nav ul{
-      padding: 0;
-  }
-
-	header nav ul li {
-		display: block;
-		float: none;
-		border-bottom: 1px solid rgba(255,255,255, .3);
-	}
-}
-
 
 </style>

@@ -102,7 +102,7 @@ export default {
         name: this.name,
         src: '12',
         classButton: 'adoption',
-        classDiv: 'element',
+        classDiv: this.getSizeImage(),
         user: 'paco123',
         weight: '3,75',
         age: this.age,
@@ -125,6 +125,15 @@ export default {
       }
       today = dd + '/' + mm + '/' + yyyy
       return today
+    },
+    getSizeImage: function () {
+      var dado = Math.floor(Math.random() * 6) + 1
+      console.log(dado)
+      if (dado > 1) {
+        return 'element'
+      } else {
+        return 'element featured'
+      }
     },
     ...mapActions(['setAddAnimal'])
   }

@@ -1,6 +1,6 @@
-# Profitoro
+# AppPet :3
 
-> Take breaks during work. Exercise during breaks.
+> AppPet is a website for people who love's animals <3. Here you can adopt a pet or help to search lost animals
 
 ## Build Setup
 
@@ -23,4 +23,4 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 ## Licensing
 
-ProFitOro is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full license text.
+AppPet is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full license text.

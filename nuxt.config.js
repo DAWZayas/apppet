@@ -11,8 +11,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'ProFitOro is a Pomodoro timer implementation combined with office workouts. Take breaks during work. Exercise during breaks ' },
-      { hid: 'keywords', name: 'keywords', content: 'Pomodoro, workouts, fit, time management, office workouts, pomodoro technique' },
+      { hid: 'description', name: 'description', content: 'AppPet es una aplicación para la adopción de mascotas y para la búsqueda de estas en caso de pérdida ' },
+      { hid: 'keywords', name: 'keywords', content: 'AppPet, pet, pets, animals, animales, adopcion' },
       { hid: 'image', property: 'og:image', name: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/profitoro-ad0f0.appspot.com/o/assets%2Fsharing.png?alt=media&token=d8687d98-24a7-4a8a-b0c4-06a39b127443' },
       { hid: 'url', property: 'og:url', name: 'og:url', content: 'https://www.profitorolife.com' },
       { hid: 'title', property: 'og:title', name: 'og:title', content: 'ProFitOro' },

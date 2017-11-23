@@ -11,7 +11,7 @@
             <li> <a href="#"> <i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
             <li> <a href="#"> <i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
           </ul>
-        </nav> <!--/nav-->
+        </nav>
         <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
           <div class="div-logo">
             <nuxt-link to="/apppet/">
@@ -22,7 +22,7 @@
           <div class="div-menu" @click.stop="drawer = !drawer">
             <i class="material-icons material-icons-view">menu</i>
           </div>
-        </div> <!--/header flex-->
+        </div>
       </header>
       <v-navigation-drawer
         temporary
@@ -179,8 +179,8 @@ header nav ul li a:hover {
 
 	header nav {
 		background-color: #75ccb9;
-    	left: 0;
-      position: relative;
+    left: 0;
+    position: relative;
 
 	}
 

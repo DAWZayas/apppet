@@ -56,7 +56,7 @@
 						<a href="#login" class="btn btn-default buttons active" @click.prevent="toggleLog">Login</a>
 						<a href="#signup" class="btn btn-default buttons button-signup" @click.prevent="toggleLog">Sign Up</a>
 					</div>
-				<p class="home-forgot"><a href="/apppet/" class="go">Go AppPet</a></p>
+				<nuxt-link to="/apppet/"><p class="home-forgot">Go AppPet</p></nuxt-link>
 				</div>
 	
 			</div> <!--row-->
@@ -170,14 +170,14 @@
 	}
 	.home-forgot {
     cursor: pointer;
-		
-    padding-top: 1em;
+		color: white;
+		padding-top: 1em;
     margin: 0;
     text-align: right;
-  }
-	.go {
-		color: white;
 		z-index: 2;
+  }
+	a:hover {
+		text-decoration: none;
 	}
 	#check {
 		color: white;

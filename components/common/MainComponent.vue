@@ -57,7 +57,8 @@ export default {
 
   .main-elements {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
+    max-width: 900px;
     background-color: #fafafa;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));

@@ -127,7 +127,7 @@ export default {
       return today
     },
     getSizeImage: function () {
-      var dado = Math.floor(Math.random() * 6) + 1
+      var dado = Math.floor(Math.random() * 10) + 1
       console.log(dado)
       if (dado > 1) {
         return 'element'

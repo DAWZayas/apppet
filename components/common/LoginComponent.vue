@@ -4,42 +4,93 @@
 		<div class="login-form">
 			<div class="logo">
 				<div>App<span>Pet</span></div>
-			</div> 
+			</div>
 			<div class="row text-form">
-				<form role="form" class="form-horizontal">
-					<div class="form-group">
-						<div class="col-xs-10 col-xs-offset-1">
-							<input type="email" class="form-control input-text" placeholder="email">       
+        <div class="tab-content">
+
+          <div id="login">
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="email" class="form-control input-text" placeholder="email">       
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-10 col-xs-offset-1">
-							<input type="password" class="form-control input-text" placeholder="contraseña">
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="password" class="form-control input-text" placeholder="contraseña">
+							</div>
 						</div>
+						<div class="form-check">
+							<label id="check" class="form-check-label">
+								<input type="checkbox" class="form-check-input">
+								Recordar contraseña
+							</label>
+						</div>
+			    </div> <!--/login-->
+          <div id="signup" class="hide">
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="text" class="form-control input-text" placeholder="nombre">       
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="text" class="form-control input-text" placeholder="apellido">       
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="email" class="form-control input-text" placeholder="email">       
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-1">
+								<input type="password" class="form-control input-text" placeholder="contraseña">
+							</div>
+						</div>
+					</div> <!--/signup-->
+				</div> <!--/tab-content-->
+				<a href="#" class="btn btn-default buttons button-submit">Enviar</a>
+				<hr>
+				<div>
+					<div class="btn-group inline">
+						<a href="#login" class="btn btn-default buttons active" @click.prevent="toggleLog">Login</a>
+						<a href="#signup" class="btn btn-default buttons button-signup" @click.prevent="toggleLog">Sign Up</a>
 					</div>
-					<div class="form-check">
-						<label id="check" class="form-check-label">
-							<input type="checkbox" class="form-check-input">
-							Recordar contraseña
-						</label>
-					</div>
-					<hr>
-					<div class="form-group">
-						<button type="submit" id="in" class="btn btn-danger buttons">Ingresar</button><nuxt-link to="/apppet">&nbsp
-						<button id="no-login" class="col-xs-10 btn btn-danger buttons">Sin registro</button></nuxt-link>
-					</div>
-				</form>
-				</div> <!--row-->
+				<nuxt-link to="/apppet/"><p class="home-forgot">Go AppPet</p></nuxt-link>
+				</div>
+	
+			</div> <!--row-->
 		</div> <!--/login-form-->
 	</div>
 </template>
 <script>
+  export default {
+    methods: {
+      toggleLog (e) {
+        var formActive = document.querySelectorAll('.tab-content > div')
+        if (!e.currentTarget.classList.contains('active')) {
+          e.currentTarget.parentNode.childNodes.forEach(function (element) { element.classList.toggle('active') })
+          formActive.forEach(function (element) { element.classList.toggle('hide') })
+        }
+      }
+    }
+  }
 </script>
 <style lang="scss" scoped>
 	@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 	@font-face {	
 		font-family: "pokemonsolid";
 		src: url(~/assets/font/pokemonsolid.ttf) format("truetype");
+	}
+	a {
+		margin-left: 0;
+	}
+	hr {
+	width: 100%;
+	border: 0.5px solid #BDB8B6;
+	}
+	.hide {
+		display: none;
 	}
 	.container {
 		margin: 0;
@@ -56,19 +107,17 @@
 		height: auto;
 		background-image: url(~/assets/fondos/fondo-small.jpg);
 		background-size: cover;
-	/*	-webkit-filter: blur(4px); */
-		z-index: 0;
+  	z-index: 0;
 	}
 	.login-form {
+    transition: .8s;
 		position: absolute;
-    width: 100%;
-  }
-  .login-form:hover{
-		transition: .8s;
-    background-color: rgba(0,0,0,.5);
-		width: 100%;
+   	width: 100%;
 		height: 100%;
   }
+ 	.login-form:hover {
+		background-color: rgba(0,0,0,.5);
+	}
 	.logo {
 		margin-top:  3em;
 		margin-bottom: 1em;
@@ -88,41 +137,61 @@
 		margin: auto;
 		margin-bottom: 2em;
 	}
-	.input-text{
+	.input-text {
 		transition: .8s;
     background-color: rgba(0,0,0,.5);
     color: white;
-    border-color:#006;
-		border-bottom-color:white;
-    border-bottom-style:groove;
-		border-left:none;
-		border-right:none;
-		border-top:none;
+    border-color: #006;
+		border-bottom-color: white;
+    border-bottom-style: groove;
+		border-left: none;
+		border-right: none;
+		border-top: none;
 		border-width: 4px;
 	}
-	.buttons {
-		border: none;
-		font-size: 0.97rem;
+	.group-buttons {
+		margin-left: 0;
 	}
-	#in {
+	.buttons {
 		background-color: white;
 		color: #00acc1;
+		width: 100px;
+		height: 30px;
+		border-radius: 3px;
+		font-size: 0.8rem;
+		margin-right: 0;
 	}
-	#no-login {
+	.button-submit {
+		width: 80px;
+	}
+	.button-signup {
 		background-color: #00acc1;
 		color: white;
 	}
+	.home-forgot {
+    cursor: pointer;
+		color: white;
+		padding-top: 1em;
+    margin: 0;
+    text-align: right;
+		z-index: 2;
+  }
+	a:hover {
+		text-decoration: none;
+	}
 	#check {
 		color: white;
+		font-size: 0.8rem;
+		z-index: 2;
 	}
-  .input-text:hover{
+  .input-text:hover {
 		transition: .8s;
-		background-color:rgba(55,71,79 ,.5);
+		background-color: rgba(55,71,79 ,.5);
 		color: white;
-		box-shadow:inset;
-    border-bottom-color:#00acc1;
+		box-shadow: inset;
+    border-bottom-color: #00acc1;
 	}
-  .input-text:focus{
+  .input-text:focus {
 		transition: .8s;
 		border-bottom-color: white;
   }

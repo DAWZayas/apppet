@@ -25,6 +25,7 @@
 								Recordar contraseña
 							</label>
 						</div>
+						<a href="#" class="btn btn-default buttons button-submit">Ingresar</a>
 			    </div> <!--/login-->
           <div id="signup" class="hide">
 						<div class="form-group">
@@ -47,16 +48,17 @@
 								<input type="password" class="form-control input-text" placeholder="contraseña">
 							</div>
 						</div>
+						<a href="#" class="btn btn-default buttons button-submit">Registrar</a>
 					</div> <!--/signup-->
 				</div> <!--/tab-content-->
-				<a href="#" class="btn btn-default buttons button-submit">Enviar</a>
+				
 				<hr>
 				<div>
 					<div class="btn-group inline">
-						<a href="#login" class="btn btn-default buttons active" @click.prevent="toggleLog">Login</a>
-						<a href="#signup" class="btn btn-default buttons button-signup" @click.prevent="toggleLog">Sign Up</a>
+						<a href="#login" class="btn btn-default buttons active" @click.prevent="toggleLog">Identificarse</a>
+						<a href="#signup" class="btn btn-default buttons button-signup" @click.prevent="toggleLog">Registrarse</a>
 					</div>
-				<nuxt-link to="/apppet/"><p class="home-forgot">Go AppPet</p></nuxt-link>
+				<nuxt-link to="/apppet/"><p class="home-forgot">AppPet</p></nuxt-link>
 				</div>
 	
 			</div> <!--row-->
@@ -86,8 +88,8 @@
 		margin-left: 0;
 	}
 	hr {
-	width: 100%;
-	border: 0.5px solid #BDB8B6;
+		width: 100%;
+		border: 0.5px solid #BDB8B6;
 	}
 	.hide {
 		display: none;

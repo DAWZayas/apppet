@@ -1,4 +1,5 @@
 <template>
+<div>
 <v-app>
   <v-stepper v-model="e1">
       <v-stepper-header>
@@ -10,106 +11,102 @@
       </v-stepper-header>
       <v-stepper-items>
         <v-stepper-content step="1">
-          <v-card color="grey lighten-1" class="mb-5" height="300px">
-            Datos personales
-             <v-form v-model="valid">
+          <span class="form-title"> Datos personales </span>
+            <v-form v-model="valid">
+              <v-text-field
+                label="Nombre"
+                v-model="namePerson"
+                :rules="nameRules"
+                :counter="10"
+                required
+              ></v-text-field>
+              <v-text-field
+                label="Apellidos"
+                v-model="lastnamePerson"
+                :rules="nameRules"
+                :counter="20"
+                required
+              ></v-text-field>
                 <v-text-field
-                  label="Nombre"
-                  v-model="namePerson"
-                  :rules="nameRules"
-                  :counter="10"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  label="Apellidos"
-                  v-model="lastnamePerson"
-                  :rules="nameRules"
-                  :counter="20"
-                  required
-                ></v-text-field>
-                 <v-text-field
-                  label="E-mail"
-                  v-model="email"
-                  :rules="emailRules"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  label="Teléfono móvil"
-                  v-model="movil"
-                  :rules="emailRules"
-                  required
-                ></v-text-field>
-             </v-form>
-          </v-card>
+                label="E-mail"
+                v-model="email"
+                :rules="emailRules"
+                required
+              ></v-text-field>
+              <v-text-field
+                label="Teléfono móvil"
+                v-model="movil"
+                :rules="emailRules"
+                required
+              ></v-text-field>
+            </v-form>      
           <v-btn color="primary" @click.native="e1 = 2">Siguiente</v-btn>
-          <v-btn flat>Cancelar</v-btn>
         </v-stepper-content>
         <v-stepper-content step="2">
-          <v-card color="grey lighten-1" class="mb-5" height="250px">
-             <v-form v-model="valid">
-                <v-text-field
-                  label="Nombre de la mascota"
-                  v-model="nameAnimal"
-                  :rules="nameRules"
-                  :counter="10"
-                  required
-                ></v-text-field>
-                <v-layout row wrap>
-                  <v-flex xs6>
-                    <v-subheader>Tipo de mascota</v-subheader>
-                  </v-flex>
-                  <v-flex xs6>
-                    <v-select
-                      v-bind:items="selectTypeAnimal"
-                      v-model="typeAnimal"
-                      label="Select"
-                      single-line
-                      bottom
-                  ></v-select>
-                </v-flex>
+          <span class="form-title"> Datos del animal </span>
+            <v-form v-model="valid">
+              <v-text-field
+                label="Nombre de la mascota"
+                v-model="nameAnimal"
+                :rules="nameRules"
+                :counter="10"
+                required
+              ></v-text-field>
+              <v-layout row wrap>
                 <v-flex xs6>
-                  <v-subheader>Edad de la mascota</v-subheader>
+                  <v-subheader>Tipo de mascota</v-subheader>
                 </v-flex>
                 <v-flex xs6>
                   <v-select
-                    v-bind:items="selectAnimalAge"
-                    v-model="animalAge"
-                    label="Select"
+                    v-bind:items="selectTypeAnimal"
+                    v-model="typeAnimal"
+                    label="Selecciona"
                     single-line
                     bottom
                 ></v-select>
-                </v-flex>
-              </v-layout>
-                Hembra <input type="radio" name="gender" value="female">
-                Macho <input type="radio" name="gender" value="male">
-            </v-form>
-          </v-card>
-          <v-btn color="primary" @click.native="e1 = 3">Siguiente</v-btn>
-          <v-btn flat>Cancelar</v-btn>
-        </v-stepper-content>
-        <v-stepper-content step="3">
-          <v-card color="grey lighten-1" class="mb-5" height="200px">
-            <v-layout row wrap>
+              </v-flex>
               <v-flex xs6>
-                <v-subheader>Tipo de alerta:</v-subheader>
+                <v-subheader>Edad de la mascota</v-subheader>
               </v-flex>
               <v-flex xs6>
                 <v-select
-                  v-bind:items="typeAnimalsAlert"
-                  v-model="selectAnimalAlert"
-                  label="Select"
+                  v-bind:items="selectAnimalAge"
+                  v-model="animalAge"
+                  label="Selecciona"
                   single-line
                   bottom
-                ></v-select>
+              ></v-select>
               </v-flex>
             </v-layout>
-          </v-card>
+              <label for="one" class="form-span"> Hembra </label> <input type="radio" name="gender" value="female" v-model="checkSexo" id="one">
+              <label for="two" class="form-span"> Macho </label> <input type="radio" name="gender" value="male" v-model="checkSexo" id="two">
+          </v-form> 
+          <v-btn color="primary" @click.native="e1 = 3">Siguiente</v-btn>
+          <v-btn flat @click.native="e1 = 1">Atrás</v-btn></v-btn>
+        </v-stepper-content>
+        <v-stepper-content step="3">
+          <span class="form-title"> Otros datos </span>
+          <v-layout row wrap>
+            <v-flex xs6>
+              <v-subheader>Tipo de alerta:</v-subheader>
+            </v-flex>
+            <v-flex xs6>
+              <v-select
+                v-bind:items="typeAnimalsAlert"
+                v-model="selectAnimalAlert"
+                label="Selecciona"
+                single-line
+                bottom
+              ></v-select>
+            </v-flex>
+          </v-layout>
           <v-btn color="primary" @click.native="e1 = 1">Enviar</v-btn>
-          <v-btn flat>Cancelar</v-btn>
+          <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
 </v-app>
+</div>
 </template>
 <script>
   import {mapGetters, mapActions} from 'vuex'
@@ -151,10 +148,11 @@
         ],
         selectAnimalAlert: null,
         typeAnimalsAlert: [
-          { text: 'Perdido' },
-          { text: 'En adopción' },
-          { text: 'Cuidar' }
-        ]
+          { text: 'Perdido', value: 'lost' },
+          { text: 'En adopción', value: 'adoption' },
+          { text: 'Cuidar', value: 'adopted' }
+        ],
+        checkSexo: ''
       }
     },
     computed: {
@@ -170,11 +168,13 @@
           email: this.email,
           movil: this.movil,
           nameAnimal: this.nameAnimal,
-          typeAnimal: this.typeAnimal,
-          animalAge: this.animalAge,
+          typeAnimal: this.typeAnimal.text,
+          animalAge: this.animalAge.text,
+          checkSexo: this.checkSexo,
+          selectAnimalAlert: this.selectAnimalAlert.value,
           src: require('~/assets/candidatos/undefined.png'),
           classButton: 'adoption',
-          classDiv: 'element',
+          classDiv: this.getSizeImage(),
           user: 'paco123',
           weight: '3,75',
           age: this.age,
@@ -198,6 +198,15 @@
         today = dd + '/' + mm + '/' + yyyy
         return today
       },
+      getSizeImage: function () {
+        var dado = Math.floor(Math.random() * 10) + 1
+        console.log(dado)
+        if (dado > 1) {
+          return 'element'
+        } else {
+          return 'element featured'
+        }
+      },
       ...mapActions(['setAddAnimal'])
     }
   }
@@ -208,5 +217,23 @@
     width: 90%;
     text-align: center;
   }
+
+  .form-title{
+    color: rgba(0,0,0,.54);
+    font-size: 20px;
+  }
+
+  .form-span{
+    color: rgba(0,0,0,.54);
+    font-size: 14px;
+  }
+
+@media screen and (min-width: 800px) {
+ .stepper{
+   width: 50%;
+   margin: 0 auto;
+   margin-top: 100px;
+ }
+}
 
 </style>

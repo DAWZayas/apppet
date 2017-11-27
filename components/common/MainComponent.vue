@@ -4,19 +4,16 @@
 			<element-component v-for="animal in animals" :key="animal.name" :animal="animal">
       </element-component>
 		</section>
-    <aside-component></aside-component>
   <button-add-component></button-add-component>
 	</div>
-  
 </template>
 
 <script>
 
   import {mapGetters} from 'vuex'
   import ElementComponent from '~/components/common/ElementComponent'
-  import AsideComponent from '~/components/common/AsideComponent'
   import ButtonAddComponent from '~/components/common/ButtonAddComponent'
-  
+
 export default {
     computed: {
       ...mapGetters({
@@ -29,7 +26,6 @@ export default {
     },
     components: {
       ElementComponent,
-      AsideComponent,
       ButtonAddComponent
     }
 }
@@ -37,11 +33,11 @@ export default {
 
 <style lang="scss" scoped>
 
-.info {   
+.info {
 	background-color: #ccc;
 	border-radius: 8px;
 	margin-bottom: 1em;
-	padding: 1em;     
+	padding: 1em;
 }
 
 .main-elements {
@@ -60,14 +56,18 @@ export default {
   }
 
   .main-elements {
-    width: 70%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
     background-color: #fafafa;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     grid-auto-rows: 1fr;
     grid-gap: 1em;
     grid-auto-flow: dense;
-    padding: 0.5em;
+    padding: 1em;
+    padding-right:2em;
+
   }
 
 }

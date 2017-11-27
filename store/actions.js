@@ -7,9 +7,8 @@ export default {
    * @param {object} newAnimal
  */
   setAddAnimal ({commit, state}, newAnimal) {
-    commit('setAddAnimal', newAnimal)
-    if (state.configRef) {
-      state.configRef.update({newAnimal})
+    if (state.animalsRef) {
+      state.animalsRef.push(newAnimal)
     } else {
       commit('setAddAnimal', newAnimal)
     }
@@ -20,10 +19,10 @@ export default {
    */
   bindFirebaseReferences: firebaseAction(({state, commit, dispatch}) => {
     let db = firebaseApp.database()
-    let configRef = db.ref('/animals')
+    let animalsRef = db.ref('/animals')
 
-    dispatch('bindFirebaseReference', {reference: configRef, toBind: 'animals'}).then(() => {
-      commit('setConfigRef', configRef)
+    dispatch('bindFirebaseReference', {reference: animalsRef, toBind: 'animals'}).then(() => {
+      commit('setAnimalsRef', animalsRef)
     })
   }),
   /**
@@ -43,7 +42,7 @@ export default {
    * Undbinds firebase references
    */
   unbindFirebaseReferences: firebaseAction(({unbindFirebaseRef, commit}) => {
-    commit('setConfigRef', null)
+    commit('setAnimalsRef', null)
     try {
       unbindFirebaseRef('animals')
     } catch (error) {

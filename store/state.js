@@ -14,7 +14,8 @@ var images = [
   require('~/assets/candidatos/9.jpg'),
   require('~/assets/candidatos/10.jpg'),
   require('~/assets/candidatos/11.jpg'),
-  require('~/assets/candidatos/undefined.png')
+  require('~/assets/candidatos/undefined.png'),
+  require('~/assets/candidatos/neo.jpeg')
 ]
 
 export default {

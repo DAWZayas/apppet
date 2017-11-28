@@ -13,31 +13,31 @@
           </ul>
         </nav>
         <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
-          <div class="div-logo">
-            <nuxt-link to="/apppet/">
-              <img class="nom-app" src="~/assets/logos/nomApp.png">
-              <img class="logo" src="~/assets/logos/huella.png">
-            </nuxt-link>
-          </div>
-          <div class="div-menu" @click.stop="drawer = !drawer">
-            <i class="material-icons material-icons-view">menu</i>
-          </div>
+        <div class="div-logo">
+          <nuxt-link to="/apppet/">
+            <img class="nom-app" src="~/assets/logos/nomApp.png">
+            <img class="logo" src="~/assets/logos/huella.png">
+          </nuxt-link>
         </div>
-      </header>
-      <v-navigation-drawer
-        temporary
-        v-model="drawer"
-        light
-        absolute
-        style="background-color: white;"
-      >
-      <v-list class="pa-1">
-        <v-list-tile avatar>
+        <div class="div-menu" @click.stop="drawer = !drawer">
+          <i class="material-icons material-icons-view">menu</i>
+        </div>
+      </div>
+    </header>
+    <v-navigation-drawer
+      temporary
+      v-model="drawer"
+      light
+      absolute
+      style="background-color: white; width:80%;"
+     >
+      <v-list class="pa-1 menu">
+        <v-list-tile avatar >
           <v-list-tile-avatar>
             <img src="https://randomuser.me/api/portraits/men/85.jpg" />
           </v-list-tile-avatar>
-          <v-list-tile-content>
-            <v-list-tile-title>Usuario no registrado</v-list-tile-title>
+          <v-list-tile-content class="nom-user">
+            <v-list-tile-title>Benito Pérez</v-list-tile-title>
           </v-list-tile-content>
           </v-list-tile-action>
         </v-list-tile>
@@ -62,8 +62,12 @@
       return {
         drawer: null,
         items: [
-          { title: 'Inicio', icon: 'dashboard' },
-          { title: 'Perfil', icon: 'question_answer' }
+          { title: 'Perfil', icon: 'dashboard' },
+          { title: 'Candidato', icon: 'pets' },
+          { title: 'Mensajes', icon: 'question_answer' },
+          { title: 'Noticias', icon: 'radio' },
+          { title: 'Ayuda', icon: 'help' },
+          { title: 'Busqueda', icon: 'search' }
         ]
       }
     }
@@ -71,34 +75,37 @@
 </script>
 <style lang="scss" scoped>
 
-
 .header-flex {
 	background-color: #75ccb9;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 }
+.menu {
+  background-color: #75ccb9;
+  width: 100%;
+  margin-bottom: -1em;
+}
+.nom-user {
+  color: white;
+  font-weight: 800;
+}
+
 /* SEARCH */
-
-
 .none-search {
 	display: none;
 }
-
 .search-button {
 	width: 20%;
 	text-align: center;
 }
-
 .icon-search {
 	width: 23px;
 	margin-top: 0.8em;
 }
-
 .search-box{
 	background-color: #75ccb9;
 }
-
 .search-box-input{
 	width: 100%;
 	height: 40px;
@@ -121,7 +128,6 @@
 	width: 20px;
  	margin-top: 10px;
 }
-
 .div-menu {
 	width: 20%;
 	text-align: center;
@@ -130,7 +136,6 @@
 	font-size: 25px;
  	color:white;
 }
-
 .material-icons-view{
   font-size: 40px;
   color:white;
@@ -144,35 +149,28 @@ header nav {
 	margin: auto;
   position: fixed;
 }
-
 header nav ul {
 	list-style: none;
 }
-
 header nav ul li {
 	float: left;
 }
-
 header nav ul li a {
 	color: #fff;
 	padding: 20px;
 	display: block;
 	text-decoration: none;
 }
-
 header nav ul li span {
 	margin-right: 10px;
 }
-
 header nav ul li a:hover {
   text-decoration: none;
   color: #00acc1;
 }
-
 .overlay {
   z-index: 1070!important;
 }
-
 
 /* @MEDIA */
 @media screen and (min-width: 800px) {
@@ -183,20 +181,18 @@ header nav ul li a:hover {
     position: relative;
 
 	}
-
   .search-button {
 		display: none;
 	}
-
 	.div-logo {
 		width: 30%;
 		text-align: center;
 		padding-top: 0.5em;
 	}
-
 	.div-menu {
 		display: none;
 	}
+
 }
 
 </style>

@@ -4,12 +4,11 @@
       <div class="header-flex">
         <nav>
           <ul>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">person</i>Perfil </a> </li>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">pets</i>Candidato </a> </li>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">message</i></span>Mensajes </a> </li>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">query_builder</i>Noticias </a> </li>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">help</i></span>Ayuda </a> </li>
-            <li> <a href="#"> <i class="material-icons material-icons-style ">search</i>Búsqueda </a> </li>
+            <li> <a href="#">Perfil </a> </li>
+            <li> <a href="#">Candidato </a> </li>
+            <li> <a href="#">Mensajes </a> </li>
+            <li> <a href="#">Noticias </a> </li>
+            <li> <a href="#">Ayuda </a> </li>
           </ul>
         </nav>
         <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
@@ -115,6 +114,10 @@
   color: black;
 }
 
+.search-input{
+  display: none;
+}
+
 /* HEADER ICONS-LOGO-MENU*/
 .div-logo {
 	width: 60%;
@@ -132,10 +135,7 @@
 	width: 20%;
 	text-align: center;
 }
-.material-icons-style {
-	font-size: 25px;
- 	color:white;
-}
+
 .material-icons-view{
   font-size: 40px;
   color:white;
@@ -160,13 +160,17 @@ header nav ul li a {
 	padding: 20px;
 	display: block;
 	text-decoration: none;
+  transition:all 0.3s ease;
+  font-weight: 800;
 }
+
+
 header nav ul li span {
 	margin-right: 10px;
 }
 header nav ul li a:hover {
   text-decoration: none;
-  color: #00acc1;
+  color: darkcyan;
 }
 .overlay {
   z-index: 1070!important;
@@ -179,14 +183,18 @@ header nav ul li a:hover {
 		background-color: #75ccb9;
     left: 0;
     position: relative;
+    width: 60%;
 
 	}
   .search-button {
 		display: none;
 	}
+  .search-input{
+    display:true;
+  }
 	.div-logo {
-		width: 30%;
-		text-align: center;
+		width: 20%;
+		text-align: left;
 		padding-top: 0.5em;
 	}
 	.div-menu {

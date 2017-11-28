@@ -56,7 +56,7 @@ export default {
   .main{
 	  display: flex;
     background-image: url("~assets/fondos/fondo-main.jpg");
-    -webkit-background-composite: 100%;
+    background-size: 180%;
 
   }
 

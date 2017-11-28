@@ -76,6 +76,7 @@ export default {
   height: 160px;
 	margin: 10px 8px 6px 8px;;
   box-shadow: 0px 5px 10px #888888;
+  background-color: white;
 }
 
 img {

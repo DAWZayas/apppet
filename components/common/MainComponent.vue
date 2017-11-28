@@ -33,6 +33,8 @@ export default {
 
 <style lang="scss" scoped>
 
+
+
 .info {
 	background-color: #ccc;
 	border-radius: 8px;
@@ -53,13 +55,17 @@ export default {
 @media screen and (min-width: 800px) {
   .main{
 	  display: flex;
+    background-image: url("~assets/fondos/fondo-main.jpg");
+    -webkit-background-composite: 100%;
+
   }
+
 
   .main-elements {
     margin: 0 auto;
     width: 100%;
     max-width: 850px;
-    background-color: #fafafa;
+    background-color: rgba(255, 255, 255, 0.5);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     grid-auto-rows: 1fr;

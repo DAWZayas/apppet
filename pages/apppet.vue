@@ -21,7 +21,8 @@
     computed: {
       ...mapState(['user']),
       getUser () {
-        return this.user
+        // return this.user
+        return false
       }
     }
   }

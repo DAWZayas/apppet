@@ -43,12 +43,12 @@
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider></v-divider>
-        <v-list-tile v-for="item in items" :key="item.title" @click="">
+        <v-list-tile v-for="item in items" :key="item.title" @click="onClick(item.methods)">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title >{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -56,18 +56,31 @@
   </div>
 </template>
 <script>
+  import {mapActions, mapGetters} from 'vuex'
   export default {
     data () {
       return {
         drawer: null,
         items: [
-          { title: 'Perfil', icon: 'dashboard' },
-          { title: 'Candidato', icon: 'pets' },
-          { title: 'Mensajes', icon: 'question_answer' },
-          { title: 'Noticias', icon: 'radio' },
-          { title: 'Ayuda', icon: 'help' },
-          { title: 'Busqueda', icon: 'search' }
+          { title: 'Perfil', icon: 'dashboard', methods: '' },
+          { title: 'Candidato', icon: 'pets', methods: '' },
+          { title: 'Mensajes', icon: 'question_answer', methods: '' },
+          { title: 'Noticias', icon: 'radio', methods: '' },
+          { title: 'Ayuda', icon: 'help', methods: '' },
+          { title: 'Busqueda', icon: 'search', methods: '' },
+          { title: 'logout', icon: 'close', methods: 'logout' }
         ]
+      }
+    },
+    computed: {
+      ...mapGetters({name: 'getDisplayName', isAuthenticated: 'isAuthenticated'})
+    },
+    methods: { ...mapActions(['logout']),
+      onClick (f) {
+        if (f === 'logout') {
+          this.logout()
+          this.$router.push('/')
+        }
       }
     }
   }

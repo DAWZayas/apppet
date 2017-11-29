@@ -87,7 +87,9 @@
       toggleLog (e) {
         var formActive = document.querySelectorAll('.tab-content > div')
         if (!e.currentTarget.classList.contains('active')) {
-          e.currentTarget.parentNode.childNodes.forEach(function (element) { element.classList.toggle('active') })
+          e.currentTarget.parentNode.childNodes.forEach(function (element) {
+            element.classList.toggle('active')
+          })
           formActive.forEach(function (element) { element.classList.toggle('hide') })
         }
       },
@@ -101,7 +103,6 @@
       },
       onDisposeErrorAlert (ev) {
         this.resetAuthError()
-        ev.stopPropagation()
       }
     }
   }

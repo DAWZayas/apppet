@@ -1,17 +1,17 @@
 <template>
   <div>
-    <login-component></login-component>
+    <authentication></authentication>
   </div>
 </template>
 <script>
-  import { LoginComponent } from '~/components/common'
+  import { Authentication } from '~/components/landing'
 
   export default {
     data () {
       return {}
     },
     components: {
-      LoginComponent
+      Authentication
     }
   }
 </script>

@@ -1,22 +1,30 @@
 <template>
   <div>
-    <login></login>
+    <login v-if="!isAuthenticated"></login>
+    <apppet v-if="isAuthenticated"></apppet>
   </div>
 </template>
 <script>
   import login from '~/pages/login'
-  import { mapActions } from 'vuex'
+  import apppet from '~/pages/apppet'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     data () {
       return {}
     },
-    components: {login},
+    components: {login, apppet},
     methods: {
-      ...mapActions(['bindFirebaseReferences'])
+      ...mapActions(['bindAuth'])
+    },
+    computed: {
+      ...mapState(['user']),
+      isAuthenticated () {
+        return this.user
+      }
     },
     created () {
-      this.bindFirebaseReferences()
+      this.bindAuth()
     }
   }
 </script>

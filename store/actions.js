@@ -83,7 +83,7 @@ export default {
    */
   bindFirebaseReferences: firebaseAction(({state, commit, dispatch}, user) => {
     let db = firebaseApp.database()
-    let animalsRef = db.ref(`/animals/`)
+    let animalsRef = db.ref(`/animals`)
 
     dispatch('bindFirebaseReference', {reference: animalsRef, toBind: 'animals'}).then(() => {
       commit('setAnimalsRef', animalsRef)

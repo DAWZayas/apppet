@@ -11,12 +11,12 @@
           <div id="login">
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="email" class="form-control input-text" placeholder="email">       
+								<input type="email" v-model="email" class="form-control input-text" placeholder="email">       
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="password" class="form-control input-text" placeholder="contraseña">
+								<input type="password" v-model="password" class="form-control input-text" placeholder="contraseña">
 							</div>
 						</div>
 						<div class="form-check">
@@ -25,30 +25,30 @@
 								Recordar contraseña
 							</label>
 						</div>
-						<a href="#" class="btn btn-default buttons button-submit">Ingresar</a>
+						<a @click="login" class="btn btn-default buttons button-submit">Ingresar</a>
 			    </div> <!--/login-->
           <div id="signup" class="hide">
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="text" class="form-control input-text" placeholder="nombre">       
+								<input type="text" v-model="name" class="form-control input-text" placeholder="nombre">       
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="text" class="form-control input-text" placeholder="apellido">       
+								<input type="text" v-model="fullName" class="form-control input-text" placeholder="apellido">       
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="email" class="form-control input-text" placeholder="email">       
+								<input type="email" v-model="emailSignUp" class="form-control input-text" placeholder="email">       
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-10 col-xs-offset-1">
-								<input type="password" class="form-control input-text" placeholder="contraseña">
+								<input type="password" v-model="passwordSignUp" class="form-control input-text" placeholder="contraseña">
 							</div>
 						</div>
-						<a href="#" class="btn btn-default buttons button-submit">Registrar</a>
+						<a @click="signUp" class="btn btn-default buttons button-submit">Registrar</a>
 					</div> <!--/signup-->
 				</div> <!--/tab-content-->
 				
@@ -66,14 +66,42 @@
 	</div>
 </template>
 <script>
+  import {mapActions, mapGetters} from 'vuex'
   export default {
+    data () {
+      return {
+        isLogin: true,
+        email: '',
+        password: '',
+        name: '',
+        fullName: '',
+        emailSignUp: '',
+        passwordSignUp: ''
+      }
+    },
+    computed: {
+      ...mapGetters(['authError'])
+    },
     methods: {
+      ...mapActions(['createUser', 'authenticate', 'authenticateAnonymous', 'resetAuthError']),
       toggleLog (e) {
         var formActive = document.querySelectorAll('.tab-content > div')
         if (!e.currentTarget.classList.contains('active')) {
           e.currentTarget.parentNode.childNodes.forEach(function (element) { element.classList.toggle('active') })
           formActive.forEach(function (element) { element.classList.toggle('hide') })
         }
+      },
+      login () {
+        let method = this.authenticate
+        method({email: this.email, password: this.password})
+      },
+      signUp () {
+        let method = this.createUser
+        method({email: this.emailSignUp, password: this.passwordSignUp})
+      },
+      onDisposeErrorAlert (ev) {
+        this.resetAuthError()
+        ev.stopPropagation()
       }
     }
   }

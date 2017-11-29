@@ -1,7 +1,6 @@
 const animals = []
 const animalsRef = null
-
-var images = [
+const images = [
   require('~/assets/candidatos/dogcat.jpg'),
   require('~/assets/candidatos/1.jpg'),
   require('~/assets/candidatos/6.jpg'),
@@ -17,10 +16,12 @@ var images = [
   require('~/assets/candidatos/undefined.png'),
   require('~/assets/candidatos/neo.jpeg')
 ]
+const user = null
 
 export default {
   animals,
   animalsRef,
-  images
+  images,
+  user
 }
 

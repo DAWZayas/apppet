@@ -23,14 +23,11 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Acme' }
-      
     ],
     script: [
       { type: 'text/javascript', src: '/jquery.js' },
       { type: 'text/javascript', src: '/tether.js' },
       { type: 'text/javascript', src: '/bootstrap.js' }
-
-
     ]
   },
   plugins: ['~plugins/vuetify.js'],

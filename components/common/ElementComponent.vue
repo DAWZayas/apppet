@@ -111,16 +111,18 @@ iframe{
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
-	width: 42%;
+	width: 160px;
+  height: 160px;
 	margin: 10px 8px 6px 8px;;
   box-shadow: 0px 5px 10px #888888;
+  background-color: white;
 }
 
 img {
 	flex: 1;
 	object-fit: cover;
-  max-width: 100%;
-  height: 100px;
+  width: auto;
+  height: 110px;
 	border-radius: 5px 5px 0px 0px;
 }
 
@@ -203,6 +205,7 @@ img {
 
 
 @media screen and (min-width: 800px) {
+
   .main-elements .featured {
     grid-row: span 2;
     grid-column: span 2;
@@ -211,6 +214,7 @@ img {
   .main-elements > .element {
     border-radius: 5px;
     width: 100%;
+    height: auto;
   }
 
   img {
@@ -239,16 +243,36 @@ img {
 }
 
 @media screen and (min-width: 450px){
+
+  .element{
+  width: 200px;
+  height: 200px;
+
+  }
   img{
-    max-width: 100%;
     height: 150px;
   }
 }
 
-@media screen and (min-width: 650px){
+@media screen and (min-width: 550px){
+   .element{
+    width: 250px;
+    height: 250px;
+
+  }
   img{
-    max-width: 100%;
+
     height: 200px;
+  }
+}
+  @media screen and (min-width: 650px){
+   .element{
+    width: 300px;
+    height: 300px;
+
+  }
+  img{
+    height: 250px;
   }
 }
 </style>

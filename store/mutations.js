@@ -4,5 +4,11 @@ export default {
   },
   setAnimalsRef (state, value) {
     state.animalsRef = value
+  },
+  setUser (state, value) {
+    state.user = value
+  },
+  setAuthError (state, value) {
+    state.authError = value
   }
 }

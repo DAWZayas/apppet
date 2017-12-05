@@ -139,9 +139,8 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
-
-
 .form-horizontal{
     width: 90%;
     margin: 15px auto;

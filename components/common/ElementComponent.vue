@@ -18,14 +18,34 @@
 	    	</div>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Información</h4>
               </div>
               <div class="modal-body">
+                <div id="carouselExampleControls" class="carousel slide one" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/3.jpg" alt="Third slide">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
                 <p class="card-text">User: {{ animal.user }} </p>
                 <p class="card-text">Peso del animal: {{ animal.weight }} kg</p>
                 <p class="card-text">Edad del animal: {{ animal.age }} </p>
@@ -35,6 +55,8 @@
                 <i class="material-icons material-icons-modal">pets</i>
                 <i class="material-icons material-icons-modal">share</i>
               </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24282.692450300816!2d-3.8091676999999655!3d40.46781880000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418697ba950673%3A0x56241a6ef78b3ee9!2sMillenium+Bodas+y+Eventos!5e0!3m2!1ses!2ses!4v1496704200697" width="80%" height="200px" frameborder="5" style="border:0" allowfullscreen></iframe>
+
               <div class="modal-footer">
                 <div class="card-footer">
                   <small class="text-muted">Fecha de publicación: {{ animal.date }}</small>
@@ -66,7 +88,24 @@ export default {
 </script>
 
 <style scoped>
+.one {
+  height: 250px;
+  width: 400px;
+  margin: auto;
+  margin-bottom: 1em;
+}
 
+.two {
+  width: 100%;
+  height: 250px;
+}
+.modal-title{
+  margin: auto;
+}
+iframe{
+  margin: auto;
+  margin-bottom: 1em;
+}
 .element {
 	border-radius: 5px;
 	display: flex;
@@ -151,14 +190,15 @@ img {
 }
 
 .card-text{
-  margin: 0.2em 0.5em;
+  margin: 0.2em 2.5em;
   color: #848484;
   font-family: Verdana;
-  font-size: 0.90rem;
+  font-size: 1rem;
 }
 
 .material-icons-modal{
-	margin-left: 20px;
+	margin-left: 35px;
+  color: #75ccb9;
 }
 
 

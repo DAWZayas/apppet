@@ -23,8 +23,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Acme' }
-
-
+      
     ],
     script: [
       { type: 'text/javascript', src: '/jquery.js' },

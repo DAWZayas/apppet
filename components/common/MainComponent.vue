@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
   import {mapGetters} from 'vuex'
   import ElementComponent from '~/components/common/ElementComponent'
   import ButtonAddComponent from '~/components/common/ButtonAddComponent'
@@ -32,9 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-
 .info {
 	background-color: #ccc;
 	border-radius: 8px;

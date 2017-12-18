@@ -22,19 +22,19 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Información</h4>
+                <h4 class="modal-title">Información Detallada</h4>
               </div>
               <div class="modal-body">
                 <div id="carouselExampleControls" class="carousel slide one" data-ride="carousel">
                   <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                      <img class="d-block img-fluid two" src="~/assets/candidatos/1.jpg" alt="First slide">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block img-fluid two" src="~/assets/candidatos/2.jpg" alt="Second slide">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block img-fluid two" src="~/assets/candidatos/3.jpg" alt="Third slide">
+                      <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="Third slide">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -50,18 +50,15 @@
                 <p class="card-text">Peso del animal: {{ animal.weight }} kg</p>
                 <p class="card-text">Edad del animal: {{ animal.age }} </p>
                 <p class="card-text">Microchip: {{ animal.microchip }} </p>
+                <p class="card-text">Fecha de publicación: {{ animal.date }} </p>
                 <hr>
                 <i class="material-icons material-icons-modal">question_answer</i>
                 <i class="material-icons material-icons-modal">pets</i>
                 <i class="material-icons material-icons-modal">share</i>
               </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24282.692450300816!2d-3.8091676999999655!3d40.46781880000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418697ba950673%3A0x56241a6ef78b3ee9!2sMillenium+Bodas+y+Eventos!5e0!3m2!1ses!2ses!4v1496704200697" width="80%" height="200px" frameborder="5" style="border:0" allowfullscreen></iframe>
-
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3035.0488274840054!2d-3.8722730606964113!3d40.4741847895883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1513067699202" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
               <div class="modal-footer">
-                <div class="card-footer">
-                  <small class="text-muted">Fecha de publicación: {{ animal.date }}</small>
-                </div>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -192,8 +189,8 @@ img {
 }
 
 .card-text{
-  margin: 0.2em 2.5em;
-  color: #848484;
+  margin: 0.1em 2.5em;
+  color: #000000;
   font-family: Verdana;
   font-size: 1rem;
 }
@@ -201,6 +198,11 @@ img {
 .material-icons-modal{
 	margin-left: 35px;
   color: #75ccb9;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: #75ccb9;
 }
 
 
@@ -273,6 +275,10 @@ img {
   }
   img{
     height: 250px;
+  }
+  .modal {
+    width: 500px;
+    margin: auto;
   }
 }
 </style>

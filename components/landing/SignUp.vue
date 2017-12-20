@@ -2,12 +2,12 @@
   <div id="signup">
     <div class="form-group">
       <div class="col-xs-10 col-xs-offset-1">
-        <input type="text" v-model="name" class="form-control input-text" placeholder="nombre">
+        <input type="text" v-model="nameSignUp" class="form-control input-text" placeholder="nombre">
       </div>
     </div>
     <div class="form-group">
       <div class="col-xs-10 col-xs-offset-1">
-        <input type="text" v-model="fullName" class="form-control input-text" placeholder="apellido">
+        <input type="text" v-model="lastNameSignUp" class="form-control input-text" placeholder="apellido">
       </div>
     </div>
     <div class="form-group">
@@ -28,8 +28,8 @@
   export default {
     data () {
       return {
-        name: '',
-        fullName: '',
+        nameSignUp: '',
+        lastNameSignUp: '',
         emailSignUp: '',
         passwordSignUp: ''
       }

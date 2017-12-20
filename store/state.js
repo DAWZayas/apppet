@@ -17,11 +17,13 @@ const images = [
   require('~/assets/candidatos/neo.jpeg')
 ]
 const user = null
+const displayName = ''
 
 export default {
   animals,
   animalsRef,
   images,
-  user
+  user,
+  displayName
 }
 

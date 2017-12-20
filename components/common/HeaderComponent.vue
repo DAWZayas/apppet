@@ -4,11 +4,16 @@
       <div class="header-flex">
         <nav>
           <ul>
-            <li> <a href="#">Perfil </a> </li>
-            <li> <a href="#">Candidato </a> </li>
-            <li> <a href="#">Mensajes </a> </li>
-            <li> <a href="#">Noticias </a> </li>
-            <li> <a href="#">Ayuda </a> </li>
+            <li> <span>Perfil </span> </li>
+            <li> <span>Candidato </span> </li>
+            <li> <span>Mensajes </span> </li>
+            <li> <span>Noticias </span> </li>
+            <li> <span>Ayuda </span> </li>
+            <li> <span @click="onClick">Logout 
+              <template v-if="isAuthenticated">
+                ( {{ name }} )
+              </template> </span> 
+            </li>
           </ul>
         </nav>
         <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
@@ -29,14 +34,18 @@
       light
       absolute
       style="background-color: white; width:80%;"
-     >
+    >
       <v-list class="pa-1 menu">
         <v-list-tile avatar >
           <v-list-tile-avatar>
             <img src="https://randomuser.me/api/portraits/men/85.jpg" />
           </v-list-tile-avatar>
           <v-list-tile-content class="nom-user">
-            <v-list-tile-title>Benito Pérez</v-list-tile-title>
+            <v-list-tile-title>
+              <template v-if="isAuthenticated">
+                {{ name }}
+              </template>
+             </v-list-tile-title>
           </v-list-tile-content>
           </v-list-tile-action>
         </v-list-tile>
@@ -76,11 +85,9 @@
       ...mapGetters({name: 'getDisplayName', isAuthenticated: 'isAuthenticated'})
     },
     methods: { ...mapActions(['logout']),
-      onClick (f) {
-        if (f === 'logout') {
-          this.logout()
-          this.$router.push('/')
-        }
+      onClick () {
+        this.logout()
+        this.$router.push('/')
       }
     }
   }
@@ -134,7 +141,7 @@
 /* HEADER ICONS-LOGO-MENU*/
 .div-logo {
 	width: 60%;
-	text-align: center;
+  text-align: center;
 }
 .nom-app {
 	width: 100px;
@@ -168,20 +175,16 @@ header nav ul {
 header nav ul li {
 	float: left;
 }
-header nav ul li a {
+header nav ul li span {
 	color: #fff;
 	padding: 20px;
 	display: block;
 	text-decoration: none;
   transition:all 0.3s ease;
   font-weight: 800;
+  margin-right: 10px;
 }
-
-
-header nav ul li span {
-	margin-right: 10px;
-}
-header nav ul li a:hover {
+header nav ul li span:hover {
   text-decoration: none;
   color: darkcyan;
 }
@@ -198,7 +201,7 @@ header nav ul li a:hover {
     position: relative;
     width: 60%;
 
-	}
+  }
   .search-button {
 		display: none;
 	}

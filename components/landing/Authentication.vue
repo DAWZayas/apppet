@@ -7,21 +7,17 @@
 			</div>
 			<div class="row text-form">
         <div class="tab-content">
-
           <log-in v-if="visible"></log-in>
           <sign-up v-if="!visible"></sign-up>
-
 				</div> <!--/tab-content-->
-
 				<hr>
 				<div>
 					<div class="btn-group inline">
-						<button href="#login" class="btn btn-default buttons active" @click.prevent="toggleLogIn">Identificarse</button>
-						<button href="#signup" class="btn btn-default buttons button-signup" @click.prevent="toggleSignUp">Registrarse</button>
+						<button href="#login" class="btn btn-default buttons" @click.prevent="toggleLogIn" v-if="!visible">Identificarse</button>
+						<button href="#signup" class="btn btn-default buttons" @click.prevent="toggleSignUp" v-if="visible">Registrarse</button>
 					</div>
 				<nuxt-link to="/apppet/"><p class="home-forgot">AppPet</p></nuxt-link>
 				</div>
-
 			</div> <!--row-->
 		</div> <!--/login-form-->
 	</div>
@@ -63,9 +59,6 @@
 	hr {
 		width: 100%;
 		border: 0.5px solid #BDB8B6;
-	}
-	.hide {
-		display: none;
 	}
 	.container {
 		margin: 0;
@@ -114,18 +107,13 @@
 	}
 
 	.buttons {
-		background-color: white;
-		color: #00acc1;
-		width: 100px;
+		background-color: #00acc1;
+		color: white;
+		width: 200px;
 		height: 30px;
 		border-radius: 3px;
 		font-size: 0.8rem;
 		margin-right: 0;
-	}
-
-	.button-signup {
-		background-color: #00acc1;
-		color: white;
 	}
 	.home-forgot {
     cursor: pointer;

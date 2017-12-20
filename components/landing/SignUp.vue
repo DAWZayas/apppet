@@ -2,12 +2,7 @@
   <div id="signup">
     <div class="form-group">
       <div class="col-xs-10 col-xs-offset-1">
-        <input type="text" v-model="nameSignUp" class="form-control input-text" placeholder="nombre">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-xs-10 col-xs-offset-1">
-        <input type="text" v-model="lastNameSignUp" class="form-control input-text" placeholder="apellido">
+        <input type="text" v-model="userSignUp" class="form-control input-text" placeholder="usuario">
       </div>
     </div>
     <div class="form-group">
@@ -20,7 +15,7 @@
         <input type="password" v-model="passwordSignUp" class="form-control input-text" placeholder="contraseña">
       </div>
     </div>
-    <button @click="signUp" class="btn btn-default buttons button-submit">Registrar</button>
+    <button @click="signUp" class="btn btn-default button-submit">Registrar</button>
   </div>
 </template>
 <script>
@@ -28,8 +23,7 @@
   export default {
     data () {
       return {
-        nameSignUp: '',
-        lastNameSignUp: '',
+        userSignUp: '',
         emailSignUp: '',
         passwordSignUp: ''
       }
@@ -67,17 +61,14 @@
 	.group-buttons {
 		margin-left: 0;
 	}
-	.buttons {
-		background-color: white;
+	.button-submit {
+    background-color: white;
 		color: #00acc1;
-		width: 100px;
+		width: 100%;
 		height: 30px;
 		border-radius: 3px;
 		font-size: 0.8rem;
-		margin-right: 0;
-	}
-	.button-submit {
-		width: 80px;
+		margin-left: 0;
 	}
   .input-text:hover {
 		transition: .8s;

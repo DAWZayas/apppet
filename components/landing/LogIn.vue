@@ -59,17 +59,14 @@
 		border-top: none;
 		border-width: 4px;
 	}
-	.buttons {
-		background-color: white;
+	.button-submit {
+    background-color: white;
 		color: #00acc1;
-		width: 100px;
+		width: 100%;
 		height: 30px;
 		border-radius: 3px;
 		font-size: 0.8rem;
-		margin-right: 0;
-	}
-	.button-submit {
-		width: 80px;
+		margin-left: 0;
 	}
   #check {
 		color: white;

@@ -69,7 +69,7 @@
             </nuxt-link>
         </div>
          <div class="col-sm">
-            <button type="reset" class="btn btn-default">Cancelar</button>
+            <button type="reset" class="btn btn-default" @click="cancel">Cancelar</button>
         </div>
     </div>
 </div>
@@ -134,6 +134,9 @@ export default {
       } else {
         return 'element featured'
       }
+    },
+    cancel () {
+      this.$router.push('/apppet')
     },
     ...mapActions(['setAddAnimal'])
   }

@@ -16,7 +16,7 @@
 						<button href="#login" class="btn btn-default buttons" @click.prevent="toggleLogIn" v-if="!visible">Identificarse</button>
 						<button href="#signup" class="btn btn-default buttons" @click.prevent="toggleSignUp" v-if="visible">Registrarse</button>
 					</div>
-				<nuxt-link to="/apppet/"><p class="home-forgot">AppPet</p></nuxt-link>
+				<nuxt-link class="home-forgot" to="/apppet/"><p>AppPet</p></nuxt-link>
 				</div>
 			</div> <!--row-->
 		</div> <!--/login-form-->
@@ -105,7 +105,6 @@
 		margin: auto;
 		margin-bottom: 2em;
 	}
-
 	.buttons {
 		background-color: #00acc1;
 		color: white;
@@ -115,23 +114,22 @@
 		font-size: 0.8rem;
 		margin-right: 0;
 	}
+	p{
+		text-align: right;
+		padding-top: 1em;
+	}
 	.home-forgot {
     cursor: pointer;
 		color: white;
-		padding-top: 1em;
-    margin: 0;
-    text-align: right;
+	  margin: 0;
+    text-decoration: none;
 		z-index: 2;
   }
 
-
-
 	@media screen and (min-width:1050px) {
-
 		.body {
 			background-image: url(~/assets/fondos/fondo-large.jpg);
 		}
-
 	}
 
 </style>

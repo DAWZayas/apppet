@@ -1,39 +1,30 @@
 <template>
   <div>
-    <header>
-      <div class="header-flex">
-        <nav>
-          <ul>
-            <li> <nuxt-link class="menu-link" to="../apppet"> Home  </nuxt-link> </li>
-            <li> <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="../candidates" > <span>Candidato </span> </nuxt-link> </li>
-            <li> <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="" >Mensajes </nuxt-link> </li>
-            <li> <nuxt-link class="menu-link" to="" >Noticias </nuxt-link> </li>
-            <li> <nuxt-link class="menu-link" to="" >Ayuda </nuxt-link> </li>
-            <li v-if="isAuthenticated"> 
-              <span class="menu-link" @click="onClick(out.methods)">Logout <template > ( {{ name }} ) </template> </span> 
-            </li>
-            <li v-if="!isAuthenticated"> 
-              <span class="menu-link" @click="onClick(login.methods)">Login </span> 
-            </li>
-          </ul>
-        </nav>
-        <div class="search-button"> <i class="material-icons material-icons-view ">search</i> </div>
-        <div class="div-logo">
-          <nuxt-link to="/apppet/">
-            <img class="nom-app" src="~/assets/logos/nomApp.png">
-            <img class="logo" src="~/assets/logos/huella.png">
-          </nuxt-link>
-        </div>
-        <div class="div-menu" @click.stop="drawer = !drawer">
-          <i class="material-icons material-icons-view">menu</i>
-        </div>
+   <v-toolbar fixed scroll-off-screen dark color="teal lighten-2">
+      <v-toolbar-side-icon class="hidden-lg-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+       <v-spacer></v-spacer>
+      <nuxt-link to="/apppet/" class="logo">
+        <img class="nom-app" src="~/assets/logos/nomApp.png">
+      </nuxt-link>
+      <v-spacer></v-spacer>
+      <v-btn icon class="hidden-lg-and-up">
+        <v-icon>search</v-icon>
+      </v-btn>
+      <div class="hidden-sm-and-down header-menu">
+      <nuxt-link class="menu-link" to="../apppet"> Inicio  </nuxt-link>
+      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="../candidates" > <span>Candidatos </span> </nuxt-link>
+      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="" >Mensajes </nuxt-link>
+      <nuxt-link class="menu-link" to="" >Noticias </nuxt-link>
+      <nuxt-link class="menu-link" to="" >Ayuda </nuxt-link>
+      <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)">Salir <template > ( {{ name }} ) </template> </span>
+      <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
       </div>
-    </header>
+    </v-toolbar>
     <v-navigation-drawer
       temporary
       v-model="drawer"
       light
-      absolute
+      fixed
       style="background-color: white; width:80%;"
     >
       <v-list class="pa-1 menu">
@@ -94,8 +85,8 @@
           { title: 'Ayuda', icon: 'help', methods: '' },
           { title: 'Busqueda', icon: 'search', methods: '' }
         ],
-        out: { title: 'Logout', icon: 'close', methods: 'logout' },
-        login: { title: 'Login', icon: 'power_settings_new', methods: 'logout' }
+        out: { title: 'Salir', icon: 'close', methods: 'logout' },
+        login: { title: 'Identificarse', icon: 'power_settings_new', methods: 'logout' }
       }
     },
     computed: {
@@ -118,131 +109,36 @@
   }
 </script>
 <style lang="scss" scoped>
-  .header-flex {
-    background-color: #75ccb9;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .menu {
-    background-color: #75ccb9;
-    width: 100%;
-    margin-bottom: -1em;
-  }
-  .nom-user {
-    color: white;
-    font-weight: 800;
-  }
 
-  /* SEARCH */
-  .none-search {
-    display: none;
-  }
-  .search-button {
-    width: 20%;
-    text-align: center;
-  }
-  .icon-search {
-    width: 23px;
-    margin-top: 0.8em;
-  }
-  .search-box {
-    background-color: #75ccb9;
-  }
-  .search-box-input{
-    width: 100%;
-    height: 40px;
-    font-size: 1.5rem;
-    border: 3px solid white;
-    background-color: white;
-    color: black;
-  }
-  .search-input {
-    display: none;
-  }
+  body{
+  overflow: hidden;
+}
 
-  /* HEADER ICONS-LOGO-MENU*/
-  .div-logo {
-    width: 60%;
-    text-align: center;
-  }
-  .nom-app {
-    width: 100px;
-    margin-right: -0.7em;
-  }
-  .logo {
-    width: 20px;
-    margin-top: 10px;
-  }
-  .div-menu {
-    width: 20%;
-    text-align: center;
-  }
-  .material-icons-view{
-    font-size: 40px;
-    color:white;
-    padding: 0.1em;
-  }
+.nom-app {
+	width: 120px;
 
-  /* HEADER MENU */
-  header nav {
-    left: -100%;
-    width: 100%;
-    margin: auto;
-    position: fixed;
-  }
-  header nav ul {
-    list-style: none;
-  }
-  header nav ul li {
-    float: left;
-  }
-  header nav ul li .menu-link {
-    color: #fff;
-    padding: 20px;
-    display: block;
-    text-decoration: none;
-    transition:all 0.3s ease;
-    font-weight: 800;
-    margin-right: 10px;
-    cursor: pointer;
-    &.disabled {
-      cursor: default;
-      color: #787c7b;
-      &:hover {
-        color: #787c7b;
-      }
-    }
-  }
-  header nav ul li .menu-link:hover {
-    text-decoration: none;
-    color: darkcyan;
-  }
-  .overlay {
-    z-index: 1070!important;
-  }
+}
+.header-menu{
+  text-decoration: none;
+  color: white;
+}
+.menu-link {
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  transition:all 0.3s ease;
+  font-weight: 800;
+  margin-right: 10px;
+}
 
-  /* @MEDIA */
-  @media screen and (min-width: 800px) {
-    header nav {
-      background-color: #75ccb9;
-      left: 0;
-      position: relative;
-      width: 60%;
-    }
-    .search-button {
-      display: none;
-    }
-    .search-input {
-      display:true;
-    }
-    .div-logo {
-      width: 20%;
-      text-align: left;
-      padding-top: 0.5em;
-    }
-    .div-menu {
-      display: none;
-    }
-  }
+.menu-link:hover {
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.menu {
+  background-color: #4db6ac;
+  width: 100%;
+  margin-bottom: -1em;
+}
 </style>

@@ -34,6 +34,7 @@
     padding: 1em;
   }
   .main-elements {
+    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -49,7 +50,7 @@
 
     }
     .main-elements {
-      margin: 0 auto;
+      margin: 50px auto;
       width: 100%;
       max-width: 850px;
       background-color: rgba(255, 255, 255, 0.5);

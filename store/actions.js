@@ -90,7 +90,8 @@ export default {
         dispatch('bindFirebaseReferences', user)
       }
       if (!user) {
-        dispatch('unbindFirebaseReferences')
+    /*  dispatch('unbindFirebaseReferences') */
+        dispatch('bindFirebaseReferencesAnonymous')
       }
     })
   },
@@ -99,6 +100,15 @@ export default {
    * @param {object} store
    */
   bindFirebaseReferences: firebaseAction(({state, commit, dispatch}, user) => {
+    let db = firebaseApp.database()
+    let animalsRef = db.ref(`/animals`)
+
+    dispatch('bindFirebaseReference', {reference: animalsRef, toBind: 'animals'}).then(() => {
+      commit('setAnimalsRef', animalsRef)
+    })
+  }),
+  /* Binds for anonymous */
+  bindFirebaseReferencesAnonymous: firebaseAction(({state, commit, dispatch}) => {
     let db = firebaseApp.database()
     let animalsRef = db.ref(`/animals`)
 

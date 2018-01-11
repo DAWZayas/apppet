@@ -1,6 +1,7 @@
 <template>
   <div :class="animal.classDiv">
-    <img :src="img[this.images]">
+    <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey"></v-progress-circular>
+    <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="img[this.images]">
     <div>
       <div class="element-info">
         <div class="ubication-info">
@@ -36,7 +37,7 @@
                 <div class="carousel-item">
                   <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="Third slide">
                 </div>
-              </div>
+              </div>:loading="loadedWorkoutImage" 
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -71,13 +72,21 @@
     props: ['animal'],
     data () {
       return {
-        images: this.animal.src
+        images: this.animal.src,
+        loadingWorkoutImage: true,
+        loadedWorkoutImage: false
       }
     },
     computed: {
       ...mapGetters({
         img: 'getImages'
       })
+    },
+    methods: {
+      handleLoadedImage () {
+        this.loadingWorkoutImage = false
+        this.loadedWorkoutImage = true
+      }
     }
   }
 </script>

@@ -3,7 +3,7 @@
 		<section class="main-elements">
 			<element-component v-for="animal in animals" :key="animal.name" :animal="animal"></element-component>
 		</section>
-    <button-add-component></button-add-component>
+    <button-add-component v-if="isAuthenticated"></button-add-component>
 	</div>
 </template>
 <script>
@@ -12,9 +12,7 @@
   import ButtonAddComponent from '~/components/common/ButtonAddComponent'
   export default {
     computed: {
-      ...mapGetters({
-        animals: 'getAnimals'
-      })
+      ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated'})
     },
     data () {
       return {

@@ -12,8 +12,8 @@
       </v-btn>
       <div class="hidden-sm-and-down header-menu">
       <nuxt-link class="menu-link" to="../apppet"> Inicio  </nuxt-link>
-      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="../candidates" > <span>Candidatos </span> </nuxt-link>
-      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" to="" >Mensajes </nuxt-link>
+      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> <span>Candidatos </span> </nuxt-link>
+      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" >Mensajes </nuxt-link>
       <nuxt-link class="menu-link" to="" >Noticias </nuxt-link>
       <nuxt-link class="menu-link" to="" >Ayuda </nuxt-link>
       <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)">Salir <template > ( {{ name }} ) </template> </span>
@@ -30,11 +30,11 @@
       <v-list class="pa-1 menu">
         <v-list-tile avatar >
           <v-list-tile-avatar>
-            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
+            <img :src="picProfile" />
           </v-list-tile-avatar>
           <v-list-tile-content class="nom-user">
             <v-list-tile-title>
-              <template v-if="isAuthenticated">
+              <template>
                 {{ name }}
               </template>
              </v-list-tile-title>
@@ -90,7 +90,7 @@
       }
     },
     computed: {
-      ...mapGetters({name: 'getDisplayName', isAuthenticated: 'isAuthenticated'})
+      ...mapGetters({name: 'getDisplayName', picProfile: 'getPhotoURL', isAuthenticated: 'isAuthenticated'})
     },
     methods: { ...mapActions(['logout']),
       onClick (f) {
@@ -113,7 +113,6 @@
   body{
   overflow: hidden;
 }
-
 .nom-app {
 	width: 120px;
 
@@ -129,16 +128,25 @@
   transition:all 0.3s ease;
   font-weight: 800;
   margin-right: 10px;
+  cursor: pointer;
+  &.disabled {
+    cursor: default;
+    color: #787c7b;
+    &:hover {
+      color: #787c7b;
+    }
+  }
 }
-
 .menu-link:hover {
-  text-decoration: none;
-  text-decoration: underline;
-}
-
+    text-decoration: none;
+    color: darkcyan;
+  }
 .menu {
   background-color: #4db6ac;
   width: 100%;
   margin-bottom: -1em;
+}
+.nom-user {
+  color: white;
 }
 </style>

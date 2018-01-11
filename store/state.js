@@ -16,14 +16,18 @@ const images = [
   require('~/assets/candidatos/undefined.png'),
   require('~/assets/candidatos/neo.jpeg')
 ]
+const profilePic = 'https://i.pinimg.com/474x/3c/2e/40/3c2e40a16ffb34f93f4b9b6153b03ea9.jpg'
 const user = null
 const displayName = ''
+const noUser = 'Usuario no registrado'
 
 export default {
   animals,
   animalsRef,
   images,
   user,
-  displayName
+  displayName,
+  profilePic,
+  noUser
 }
 

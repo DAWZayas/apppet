@@ -5,4 +5,3 @@ export {default as ButtonAddComponent} from '~/components/common/ButtonAddCompon
 export {default as AddpetComponent} from '~/components/common/AddpetComponent'
 export {default as FavoritesComponent} from '~/components/common/FavoritesComponent'
 export {default as RedesignComponent} from '~/components/common/RedesignComponent'
-

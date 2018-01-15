@@ -1,7 +1,7 @@
 <template>
   <div :class="animal.classDiv">
     <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey"></v-progress-circular>
-    <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="img[this.images]">
+    <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
     <div>
       <div class="element-info">
         <div class="ubication-info">

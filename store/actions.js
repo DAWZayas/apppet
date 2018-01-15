@@ -1,7 +1,31 @@
 import firebaseApp from '~/firebaseapp'
 import {firebaseAction} from 'vuexfire'
+import uuidv1 from 'uuid/v1'
+
+/**
+ * Uploads individual file
+ * @param file
+ * @returns {firebase.Promise}
+ * @private
+ */
+function _uploadImage (file) {
+  let ref = firebaseApp.storage().ref().child('animals')
+  return ref.child(uuidv1()).child(file.name).put(file).then(snapshot => {
+    return snapshot.downloadURL
+  })
+}
 
 export default {
+  _uploadImage,
+  /**
+   * Uploads images to the firebase datastore
+   * @param state
+   * @param files
+   * @returns {Promise}
+   */
+  uploadImages ({state}, files) {
+    return Promise.all(files.map(_uploadImage))
+  },
   /**
    * @param {object} store
    * @param {object} newAnimal

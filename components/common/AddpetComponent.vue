@@ -47,7 +47,7 @@
     <div class="form-group row">
         <label for="file-input" class="control-label col-sm-2">Imagen</label>
         <div class="col-sm-10">
-            <input class="form-control" type="file" value="0" id="file-input">
+            <input class="form-control" type="file" value="0" @change="filesChange($event.target.files)" id="file-input">
         </div>
     </div>
     <div class="form-group row">
@@ -88,7 +88,8 @@ export default {
       age: '',
       microchip: '',
       ubication: '',
-      date: ''
+      date: '',
+      pictures: []
     }
   },
   computed: {
@@ -97,20 +98,27 @@ export default {
     })
   },
   methods: {
+    filesChange (files) {
+      this.pictures = [...files]
+      console.log(this.pictures)
+    },
     addAnimal: function () {
-      const newAnimal = {
-        name: this.name,
-        src: '12',
-        classButton: 'adoption',
-        classDiv: this.getSizeImage(),
-        user: 'paco123',
-        weight: '3,75',
-        age: this.age,
-        microchip: 'Si',
-        ubication: this.ubication,
-        date: this.getFecha()
-      }
-      this.setAddAnimal(newAnimal)
+      this.uploadImages(this.pictures).then(picUrls => {
+        const newAnimal = {
+          name: this.name,
+          src: '12',
+          classButton: 'adoption',
+          classDiv: this.getSizeImage(),
+          user: 'paco123',
+          weight: '3,75',
+          age: this.age,
+          microchip: 'Si',
+          animalPhoto: picUrls,
+          ubication: this.ubication,
+          date: this.getFecha()
+        }
+        this.setAddAnimal(newAnimal)
+      })
     },
     getFecha: function () {
       var today = new Date()
@@ -138,7 +146,7 @@ export default {
     cancel () {
       this.$router.push('/apppet')
     },
-    ...mapActions(['setAddAnimal'])
+    ...mapActions(['setAddAnimal', 'uploadImages'])
   }
 }
 </script>

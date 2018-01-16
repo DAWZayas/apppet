@@ -1,12 +1,12 @@
 <template>
   <div>
     <header-component></header-component>
-    <favorites-component></favorites-component>     
-    <footer-component></footer-component>
+    <main-component></main-component>
+    <footer-component></footer-component>    
   </div>
 </template>
 <script>
-  import { HeaderComponent, FavoritesComponent, FooterComponent } from '~/components/common'
+  import { HeaderComponent, MainComponent, FooterComponent } from '~/components/common'
   import { mapState } from 'vuex'
   export default {
     data () {
@@ -14,7 +14,7 @@
     },
     components: {
       HeaderComponent,
-      FavoritesComponent,
+      MainComponent,
       FooterComponent
     },
     computed: {

@@ -3,15 +3,15 @@
       <h1>Nuestras Mascotas</h1>
       <div class="categories">
         <div class="category">
-          <img src="~/assets/candidatos/modal3.jpg">
+          <nuxt-link to="/mainpets/adoption"><img src="~/assets/candidatos/modal3.jpg"></nuxt-link>
           <h2>En adopción</h2>
         </div>   
         <div class="category">  
-          <img src="~/assets/candidatos/modal4.jpg">
+          <nuxt-link to="/mainpets/lost"><img src="~/assets/candidatos/modal4.jpg"></nuxt-link>
           <h2>Perdidos</h2>
         </div>  
         <div class="category">  
-          <img src="~/assets/candidatos/modal2.jpg">
+          <nuxt-link to="/mainpets/adopted"><img src="~/assets/candidatos/modal2.jpg"></nuxt-link>
           <h2>Adoptados</h2> 
         </div>
       </div>

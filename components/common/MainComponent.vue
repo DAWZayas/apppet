@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component v-for="animal in animals" :key="animal.name" :animal="animal"></element-component>
+			<element-component v-for="animal in animals" :key="animal.name" :animal="animal" v-if="animal.classButton === $route.params.catagory"></element-component>
 		</section>
     <button-add-component v-if="isAuthenticated"></button-add-component>
 	</div>

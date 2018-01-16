@@ -28,7 +28,4 @@
   box-sizing: border-box;
 }
 
-.main {
-  background-color: rgb(233, 236, 235);
-}
 </style>

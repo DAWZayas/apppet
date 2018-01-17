@@ -22,7 +22,8 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/icono.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Acme' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Acme' },
+      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' }
     ],
     script: [
       { type: 'text/javascript', src: '/jquery.js' },

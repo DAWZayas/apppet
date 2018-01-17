@@ -1,68 +1,21 @@
 <template>
-  <div :class="animal.classDiv">
-    <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey"></v-progress-circular>
+  <div class="element">
+    <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey" class="spinner"></v-progress-circular>
     <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
     <div>
       <div class="element-info">
         <div class="ubication-info">
           <span class="material-icons material-icons-element-info">place</span>
-          {{ animal.ubication }}
+          majadahonda
         </div>
         <div class="date-info">
           <span class="material-icons material-icons-element-info">access_time</span>
           {{ animal.date }}
         </div>
       </div>
-      <button class="button-element" :class="animal.classButton" data-toggle="modal" data-target="#myModal">
-        <p class="name-pet"> {{ animal.name }} </p>
+      <button class="button-element" :class="animal.selectAnimalAlert">
+        <p class="name-pet"> {{ animal.nameAnimal }} </p>
       </button>
-    </div>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Información Detallada</h4>
-          </div>
-          <div class="modal-body">
-            <div id="carouselExampleControls" class="carousel slide one" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                  <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid two" src="~/assets/candidatos/modal1.jpg" alt="Third slide">
-                </div>
-              </div>:loading="loadedWorkoutImage" 
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-            <p class="card-text">User: {{ animal.user }} </p>
-            <p class="card-text">Peso del animal: {{ animal.weight }} kg</p>
-            <p class="card-text">Edad del animal: {{ animal.age }} </p>
-            <p class="card-text">Microchip: {{ animal.microchip }} </p>
-            <p class="card-text">Fecha de publicación: {{ animal.date }} </p>
-            <hr>
-            <i class="material-icons material-icons-modal">question_answer</i>
-            <i class="material-icons material-icons-modal">pets</i>
-            <i class="material-icons material-icons-modal">share</i>
-          </div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3035.0488274840054!2d-3.8722730606964113!3d40.4741847895883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1513067699202" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -127,6 +80,10 @@
     border-radius: 5px 5px 0px 0px;
   }
 
+  .spinner{
+    margin: 40px auto;
+  }
+
   /* TARGETS */
   .name-pet {
     font-size: 1rem;
@@ -169,11 +126,11 @@
     background-color: #D73B3B;
     border: 1px solid #FA5858;
   }
-  .adopted {
+  .takeCare {
     background-color: #959191;
     border: 1px solid #807777;
   }
-  .adopted:hover{
+  .takeCare:hover{
     background-color: #807777;
     border: 1px solid #959191;
   }

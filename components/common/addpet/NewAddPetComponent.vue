@@ -88,7 +88,7 @@
               <div class="image-box">
                   <v-subheader class="image-box-subheader m-auto p-0">Imagen de la mascota:</v-subheader>                
                 <div>
-                  <input class="d-none" type="file" ref="inputFile">
+                  <input class="d-none" type="file" ref="inputFile" value="0" @change="filesChange($event.target.files)">
                   <v-btn color="primary" @click="inputFile">Subir</v-btn>
                 </div>
               </div>
@@ -127,7 +127,6 @@
               <v-subheader>Fecha perdida:</v-subheader>
             </v-flex>
               <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
-                
                  <v-menu
         lazy
         :close-on-content-click="false"
@@ -150,8 +149,85 @@
         </v-date-picker>
       </v-menu>
               </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
+              <v-subheader>Motivo:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
+                <v-text-field
+                label="Motivo:"
+                v-model="motiveAdoptionAnimal"
+                :rules="nameRules"
+                :counter="10"
+                required
+              ></v-text-field>
+              </v-flex>
+               <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+              <v-subheader>Motivo:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                <v-text-field
+                label="Motivo:"
+                v-model="motiveTakeCareAnimal"
+                :rules="nameRules"
+                :counter="10"
+                required
+              ></v-text-field>
+
+              </v-flex>
+               <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+              <v-subheader>Desde:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                 <v-menu
+        lazy
+        :close-on-content-click="false"
+        v-model="menuSince"
+        transition="scale-transition"
+        offset-y
+        full-width
+        :nudge-right="40"
+        max-width="290px"
+        min-width="290px"
+      >
+        <v-text-field
+          slot="activator"
+          label="Picker in menu"
+          v-model="sinceDateAnimal"
+          prepend-icon="event"
+          readonly
+        ></v-text-field>
+        <v-date-picker v-model="sinceDateAnimal" no-title scrollable actions autosave>
+        </v-date-picker>
+      </v-menu>
+              </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+              <v-subheader>Hasta:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                 <v-menu
+        lazy
+        :close-on-content-click="false"
+        v-model="menuUntil"
+        transition="scale-transition"
+        offset-y
+        full-width
+        :nudge-right="40"
+        max-width="290px"
+        min-width="290px"
+      >
+        <v-text-field
+          slot="activator"
+          label="Picker in menu"
+          v-model="untilDateAnimal"
+          prepend-icon="event"
+          readonly
+        ></v-text-field>
+        <v-date-picker v-model="untilDateAnimal" no-title scrollable actions autosave>
+        </v-date-picker>
+      </v-menu>
+              </v-flex>
           </v-layout>
-          <v-btn color="primary" @click.native="e1 = 1">Enviar</v-btn>
+          <v-btn color="primary"  @click="addAnimal">Enviar</v-btn>
           <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
         </v-stepper-content>
       </v-stepper-items>
@@ -168,8 +244,8 @@
         valid: false,
         namePerson: '',
         nameRules: [
-          (v) => !!v || 'Name is required',
-          (v) => v.length <= 10 || 'Name must be less than 10 characters'
+          (v) => !!v || 'El nombre es necesario',
+          (v) => v.length <= 10 || 'Debe de tener menos de 10 letras'
         ],
         lastnamePerson: '',
         email: '',
@@ -189,25 +265,30 @@
           { text: 'State 6' },
           { text: 'State 7' }
         ],
-        animalAge: null,
+        animalAge: '',
         selectAnimalAge: [
           { text: 'Menor de 6 meses' },
-          { text: 'Entre 6 meses y 1  año' },
+          { text: 'Entre 6 meses y 1 año' },
           { text: 'Entre 1 año y 3 años' },
           { text: 'Entre 3 y 10 años' },
           { text: 'Más de 10 años' }
         ],
-        selectAnimalAlert: null,
+        selectAnimalAlert: '',
         typeAnimalsAlert: [
           { text: 'Perdido', value: 'lost' },
           { text: 'En adopción', value: 'adoption' },
-          { text: 'Cuidar', value: 'adopted' }
+          { text: 'Cuidar', value: 'takeCare' }
         ],
         checkSexo: '',
         placeMissingAnimal: '',
         dateMissingAnimal: '',
         menu: false,
-        modal: false
+        modal: false,
+        motiveAdoptionAnimal: '',
+        motiveTakeCareAnimal: '',
+        sinceDateAnimal: '',
+        untilDateAnimal: '',
+        pictures: []
       }
     },
     computed: {
@@ -221,30 +302,34 @@
       })
     },
     methods: {
+      filesChange (files) {
+        this.pictures = [...files]
+        console.log(this.pictures)
+      },
       addAnimal: function () {
-        const newAnimal = {
-          namePerson: this.name,
-          lastnamePerson: this.lastnamePerson,
-          email: this.email,
-          movil: this.movil,
-          nameAnimal: this.nameAnimal,
-          typeAnimal: this.typeAnimal.text,
-          animalAge: this.animalAge.text,
-          checkSexo: this.checkSexo,
-          selectAnimalAlert: this.selectAnimalAlert.value,
-          src: require('~/assets/candidatos/undefined.png'),
-          classButton: 'adoption',
-          classDiv: this.getSizeImage(),
-          user: 'paco123',
-          weight: '3,75',
-          age: this.age,
-          microchip: 'Si',
-          ubication: this.ubication,
-          date: this.getFecha(),
-          placeMissingAnimal: this.placeMissingAnimal,
-          dateMissingAnimal: ''
-        }
-        this.setAddAnimal(newAnimal)
+        this.uploadImages(this.pictures).then(picUrls => {
+          const newAnimal = {
+            namePerson: this.namePerson,
+            lastnamePerson: this.lastnamePerson,
+            email: this.email,
+            movil: this.movil,
+            nameAnimal: this.nameAnimal,
+            typeAnimal: this.typeAnimal.text,
+            animalAge: this.animalAge.text,
+            checkSexo: this.checkSexo,
+            selectAnimalAlert: this.selectAnimalAlert,
+            classButton: 'adoption',
+            date: this.getFecha(),
+            placeMissingAnimal: this.placeMissingAnimal,
+            dateMissingAnimal: this.dateMissingAnimal,
+            motiveAdoptionAnimal: this.motiveAdoptionAnimal,
+            motiveTakeCareAnimal: this.motiveTakeCareAnimal,
+            sinceDateAnimal: this.sinceDateAnimal,
+            untilDateAnimal: this.untilDateAnimal,
+            animalPhoto: picUrls
+          }
+          this.setAddAnimal(newAnimal)
+        })
       },
       getFecha: function () {
         var today = new Date()
@@ -269,7 +354,6 @@
           return 'element featured'
         }
       },
-      ...mapActions(['setAddAnimal']),
       inputFile () {
         this.$refs.inputFile.click()
       },
@@ -286,14 +370,15 @@
         }
         const [month, day, year] = date.split('/')
         return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-      }
+      },
+      ...mapActions(['setAddAnimal', 'uploadImages'])
     }
   }
 </script>
 <style lang="scss" scoped>
-
-  .stepper__step__step{
-    background-color:red!important;
+  .stepper{
+    margin-top: 56px;
+    z-index: 0;
   }
 
   .input-group{

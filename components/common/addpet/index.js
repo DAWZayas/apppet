@@ -1,1 +1,1 @@
-export {default as AddpetComponent} from '~/components/common/addpet/AddpetComponent'
+export {default as AddPetComponent} from '~/components/common/addpet/NewAddPetComponent'

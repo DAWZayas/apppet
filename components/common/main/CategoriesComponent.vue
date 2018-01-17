@@ -11,8 +11,8 @@
           <h2>Perdidos</h2>
         </div>  
         <div class="category">  
-          <nuxt-link to="/mainpets/adopted"><img src="~/assets/candidatos/modal2.jpg"></nuxt-link>
-          <h2>Adoptados</h2> 
+          <nuxt-link to="/mainpets/takeCare"><img src="~/assets/candidatos/modal2.jpg"></nuxt-link>
+          <h2>Cuidar</h2> 
         </div>
       </div>
     </div>

@@ -1,13 +1,14 @@
 <template>
   <div>
     <header-component></header-component>
-    <redesign-component></redesign-component>
+    <app-pet-component></app-pet-component>
     <footer-component></footer-component>
     <div v-if="getUser">{{this.user.uid}}</div>
   </div>
 </template>
 <script>
-  import { HeaderComponent, RedesignComponent, FooterComponent } from '~/components/common'
+  import { HeaderComponent, FooterComponent } from '~/components/common/layout'
+  import { AppPetComponent } from '~/components/common/main'
   import { mapState } from 'vuex'
   export default {
     data () {
@@ -15,7 +16,7 @@
     },
     components: {
       HeaderComponent,
-      RedesignComponent,
+      AppPetComponent,
       FooterComponent
     },
     computed: {

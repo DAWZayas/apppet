@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-  import { HeaderComponent, FooterComponent } from '~/components/common'
+  import { HeaderComponent, FooterComponent } from '~/components/common/layout'
 
   export default {
     data () {

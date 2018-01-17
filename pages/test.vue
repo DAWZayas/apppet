@@ -7,7 +7,7 @@
         <v-divider></v-divider>
         <v-stepper-step step="2" :complete="e1 > 2">Datos del animal 2</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step step="3">Otros datos 3</v-stepper-step>
+        <v-stepper-step step="3">Tipo de alerta 3</v-stepper-step>
       </v-stepper-header>
       <v-stepper-items>
         <v-stepper-content step="1">
@@ -40,10 +40,10 @@
                 required
               ></v-text-field>
             </v-form>      
-          <v-btn color="primary" @click.native="e1 = 2">Siguiente</v-btn>
+          <v-btn color="primary"  @click.native="e1 = 2">Siguiente</v-btn>
         </v-stepper-content>
         <v-stepper-content step="2">
-          <span class="form-title"> Datos del animal </span>
+          <span class="form-title"> Datos del animal:</span>
             <v-form v-model="valid">
               <v-text-field
                 label="Nombre de la mascota"
@@ -54,7 +54,7 @@
               ></v-text-field>
               <v-layout row wrap>
                 <v-flex xs6>
-                  <v-subheader>Tipo de mascota</v-subheader>
+                  <v-subheader>Tipo de mascota:</v-subheader>
                 </v-flex>
                 <v-flex xs6>
                   <v-select
@@ -78,11 +78,23 @@
               ></v-select>
               </v-flex>
             </v-layout>
-              <label for="one" class="form-span"> Hembra </label> <input type="radio" name="gender" value="female" v-model="checkSexo" id="one">
-              <label for="two" class="form-span"> Macho </label> <input type="radio" name="gender" value="male" v-model="checkSexo" id="two">
+             <v-flex xs6 >
+                  <v-subheader class="genero-l">Género mascota:</v-subheader>
+                </v-flex>
+            <div class="genero">
+              <div class="genero-p"><label for="one" class="form-span"> Hembra </label> <v-checkbox name="genderrr" value="female" v-model="checkSexo" id="one"></v-checkbox></div>
+              <div class="genero-p"><label for="two" class="form-span"> Macho </label> <v-checkbox  name="gender" value="male" v-model="checkSexo" id="two"></v-checkbox></div>
+            </div>
+              <div class="image-box">
+                  <v-subheader class="image-box-subheader m-auto p-0">Imagen de la mascota:</v-subheader>                
+                <div>
+                  <input class="d-none" type="file" ref="inputFile">
+                  <v-btn color="primary" @click="inputFile">Subir</v-btn>
+                </div>
+              </div>
           </v-form> 
           <v-btn color="primary" @click.native="e1 = 3">Siguiente</v-btn>
-          <v-btn flat @click.native="e1 = 1">Atrás</v-btn></v-btn>
+          <v-btn flat @click.native="e1 = 1">Atrás</v-btn>
         </v-stepper-content>
         <v-stepper-content step="3">
           <span class="form-title"> Otros datos </span>
@@ -99,6 +111,45 @@
                 bottom
               ></v-select>
             </v-flex>
+            <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+              <v-subheader>Lugar perdida:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+                <v-text-field
+                label="Lugar desaparecido"
+                v-model="placeMissingAnimal"
+                :rules="nameRules"
+                :counter="10"
+                required
+              ></v-text-field>
+              </v-flex>
+               <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+              <v-subheader>Fecha perdida:</v-subheader>
+            </v-flex>
+              <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+                
+                 <v-menu
+        lazy
+        :close-on-content-click="false"
+        v-model="menu"
+        transition="scale-transition"
+        offset-y
+        full-width
+        :nudge-right="40"
+        max-width="290px"
+        min-width="290px"
+      >
+        <v-text-field
+          slot="activator"
+          label="Picker in menu"
+          v-model="dateMissingAnimal"
+          prepend-icon="event"
+          readonly
+        ></v-text-field>
+        <v-date-picker v-model="dateMissingAnimal" no-title scrollable actions autosave>
+        </v-date-picker>
+      </v-menu>
+              </v-flex>
           </v-layout>
           <v-btn color="primary" @click.native="e1 = 1">Enviar</v-btn>
           <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
@@ -152,12 +203,21 @@
           { text: 'En adopción', value: 'adoption' },
           { text: 'Cuidar', value: 'adopted' }
         ],
-        checkSexo: ''
+        checkSexo: '',
+        placeMissingAnimal: '',
+        dateMissingAnimal: '',
+        menu: false,
+        modal: false
       }
     },
     computed: {
       ...mapGetters({
         animals: 'getAnimals'
+      })
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        this.$vuetify.theme.primary = '#4db6ac'
       })
     },
     methods: {
@@ -180,7 +240,9 @@
           age: this.age,
           microchip: 'Si',
           ubication: this.ubication,
-          date: this.getFecha()
+          date: this.getFecha(),
+          placeMissingAnimal: this.placeMissingAnimal,
+          dateMissingAnimal: ''
         }
         this.setAddAnimal(newAnimal)
       },
@@ -207,11 +269,32 @@
           return 'element featured'
         }
       },
-      ...mapActions(['setAddAnimal'])
+      ...mapActions(['setAddAnimal']),
+      inputFile () {
+        this.$refs.inputFile.click()
+      },
+      formatDate: function (date) {
+        if (!date) {
+          return null
+        }
+        const [year, month, day] = date.split('-')
+        return `${month}/${day}/${year}`
+      },
+      parseDate: function (date) {
+        if (!date) {
+          return null
+        }
+        const [month, day, year] = date.split('/')
+        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
+
+  .stepper__step__step{
+    background-color:red!important;
+  }
 
   .input-group{
     width: 90%;
@@ -226,6 +309,28 @@
   .form-span{
     color: rgba(0,0,0,.54);
     font-size: 14px;
+    
+  }
+  .genero{
+    display: flex;
+  }
+  .genero-p{
+    margin: 0 auto;
+
+  }
+  .genero-l{
+    padding: 0;
+  }
+
+  .image-box{
+    display: flex;
+  }
+
+  
+
+  .image-box-subheader{
+    width: 100%;
+    
   }
 
 @media screen and (min-width: 800px) {

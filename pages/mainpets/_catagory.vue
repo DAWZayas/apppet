@@ -6,7 +6,8 @@
   </div>
 </template>
 <script>
-  import { HeaderComponent, MainComponent, FooterComponent } from '~/components/common'
+  import { HeaderComponent, FooterComponent } from '~/components/common/layout'
+  import { MainComponent } from '~/components/common/main'
   import { mapState } from 'vuex'
   export default {
     data () {

@@ -8,8 +8,8 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import ElementComponent from '~/components/common/ElementComponent'
-  import ButtonAddComponent from '~/components/common/ButtonAddComponent'
+  import ElementComponent from '~/components/common/main/ElementComponent'
+  import ButtonAddComponent from '~/components/common/buttons/ButtonAddComponent'
   export default {
     computed: {
       ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated'})

@@ -7,9 +7,9 @@
 </template>
 
 <script>
-	import CarouselComponent from '~/components/common/CarouselComponent'
-	import CategoriesComponent from '~/components/common/CategoriesComponent'
-	import StoriesComponent from '~/components/common/StoriesComponent'
+	import CarouselComponent from '~/components/common/main/CarouselComponent'
+	import CategoriesComponent from '~/components/common/main/CategoriesComponent'
+	import StoriesComponent from '~/components/common/main/StoriesComponent'
 	export default {
   data () {
     return {

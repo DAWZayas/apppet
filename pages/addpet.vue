@@ -6,7 +6,8 @@
   </div>
 </template>
 <script>
-  import { HeaderComponent, FooterComponent, AddpetComponent } from '~/components/common'
+  import { HeaderComponent, FooterComponent } from '~/components/common/layout'
+  import { AddpetComponent } from '~/components/common/addpet'
 
   export default {
     data () {

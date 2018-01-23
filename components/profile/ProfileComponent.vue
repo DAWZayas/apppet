@@ -7,15 +7,12 @@
           <v-card-media src="http://papers.co/wallpaper/papers.co-ag77-google-lollipop-january-background-25-wallpaper.jpg" height="330px">
             <v-layout column class="media align-center">
               <v-card-title>
-                <v-btn dark icon class="mr-4">
+                <v-btn dark icon>
                   <v-icon>chevron_left</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn dark icon>
-                  <v-icon>edit</v-icon>
-                </v-btn>
-                <v-btn dark icon>
-                  <v-icon>more_vert</v-icon>
+                <v-btn dark icon class="">
+                  <v-icon class="">more_vert</v-icon>
                 </v-btn>
               </v-card-title>
               
@@ -26,7 +23,7 @@
                </v-spacer>
                <v-spacer>
               <v-card-title class="white--text pb-5 mb-5 " >
-                <div class="title">Programador Webp</div>
+                <div class="title">Programador Web</div>
               </v-card-title>
                </v-spacer>
             </v-layout>
@@ -49,7 +46,7 @@
               </v-avatar>
                </v-flex>
                <v-list two-line class="name">
-          <v-list-tile @click="">
+          <v-list-tile>
             <v-list-tile-action>
               <v-icon color="indigo">person</v-icon>
             </v-list-tile-action>
@@ -58,19 +55,20 @@
               <v-list-tile-sub-title>Nombre</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-icon>edit</v-icon>
+              <change-name-component></change-name-component>
             </v-list-tile-action>
           </v-list-tile>
+          <hr class="ml-5 mr-5 mt-0 mb-0">
           <v-list-tile @click="">
             <v-list-tile-action>
               <v-icon color="indigo">mail</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>carlos@gmail.com</v-list-tile-title>
-              <v-list-tile-sub-title>Emilio</v-list-tile-sub-title>
+              <v-list-tile-sub-title>Email</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-icon>edit</v-icon>
+              <v-icon  @click="">edit</v-icon>
             </v-list-tile-action>
           </v-list-tile>
                </v-list>
@@ -79,11 +77,16 @@
       </v-flex>
     </v-layout>
   </v-app>
+  
 </div>
 
 </template>
 <script>
+import ChangeNameComponent from '~/components/profile/ChangeNameComponent'
 export default {
+  components: {
+    ChangeNameComponent
+  }
 }
 </script>
 <style  scoped>
@@ -96,15 +99,12 @@ export default {
 }
 .avatar-border{
   border: 4px solid white;
-
-  
-  
   border-radius: 50%;
 }
 
 .avatar-pepe{
   margin-top: -75px;
-  z-index: 50;
+  z-index: 1;
 }
 
 .name{

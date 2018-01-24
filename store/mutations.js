@@ -11,6 +11,9 @@ export default {
   setDisplayName (state, value) {
     state.displayName = value
   },
+  setEmail (state, value) {
+    state.email = value
+  },
   setAuthError (state, value) {
     state.authError = value
   }

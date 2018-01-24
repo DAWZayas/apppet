@@ -57,11 +57,35 @@ export default {
   * @param commit
   * @param {string} displayName
   */
-  updateUserName ({state, commit}, displayName) {
+  updateUserNameFirst ({state, commit}, displayName) {
     state.user.updateProfile({
       displayName
     })
     commit('setDisplayName', displayName)
+  },
+  /**
+  * Updates user display name auth
+  * @param state
+  * @param commit
+  * @param {string} displayName
+  */
+  updateUserName ({state, commit}, {newDisplayName}) {
+    firebaseApp.auth().currentUser.updateProfile({displayName: newDisplayName})
+    .then(() => {
+      commit('setDisplayName', newDisplayName)
+    })
+  },
+  /**
+  * Updates user email auth
+  * @param state
+  * @param commit
+  * @param {string} displayName
+  */
+  updateUserEmail ({state, commit}, {newEmail}) {
+    firebaseApp.auth().currentUser.updateEmail(newEmail)
+    .then(() => {
+      commit('setEmail', newEmail)
+    })
   },
   /**
    * Authenticates a new user with given email and password
@@ -108,9 +132,10 @@ export default {
       if (user && !user.isAnonymous) {
         let displayName = user.displayName || user.email.split('@')[0]
         if (!user.displayName) {
-          dispatch('updateUserName', displayName)
+          dispatch('updateUserNameFirst', displayName)
         }
         commit('setDisplayName', displayName)
+        commit('setEmail', user.email)
         dispatch('bindFirebaseReferences', user)
       }
       if (!user) {

@@ -35,9 +35,12 @@
     >
       <v-list class="pa-1 menu">
         <v-list-tile avatar >
+          <nuxt-link to="/profile">
           <v-list-tile-avatar>
             <img :src="picProfile" />
           </v-list-tile-avatar>
+          </nuxt-link>
+          <nuxt-link to="/profile">
           <v-list-tile-content class="nom-user">
             <v-list-tile-title>
               <template>
@@ -45,6 +48,7 @@
               </template>
              </v-list-tile-title>
           </v-list-tile-content>
+          </nuxt-link>
         </v-list-tile>
       </v-list>
       <v-list class="pt-0" dense>

@@ -114,6 +114,7 @@
   /* login with network socials */
   .loginBtn {
     position: relative;
+    margin-bottom: 0.2em;
     width: 100%;
     height: 30px;
     padding-left: 2.5em;

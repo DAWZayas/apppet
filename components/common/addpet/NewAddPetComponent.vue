@@ -28,10 +28,12 @@
                 required
               ></v-text-field>
                 <v-text-field
-                label="E-mail"
+                :label="user.email"
+                disabled
                 v-model="email"
                 :rules="emailRules"
                 required
+                :value="user.email"
               ></v-text-field>
               <v-text-field
                 label="Teléfono móvil"
@@ -227,7 +229,7 @@
       </v-menu>
               </v-flex>
           </v-layout>
-          <v-btn color="primary"  @click="addAnimal">Enviar</v-btn>
+          <nuxt-link to="/candidates"><v-btn color="primary"  @click="addAnimal">Enviar</v-btn></nuxt-link>
           <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
         </v-stepper-content>
       </v-stepper-items>
@@ -292,9 +294,7 @@
       }
     },
     computed: {
-      ...mapGetters({
-        animals: 'getAnimals'
-      })
+      ...mapGetters({ animals: 'getAnimals', user: 'getUser' })
     },
     mounted: function () {
       this.$nextTick(function () {
@@ -311,14 +311,14 @@
           const newAnimal = {
             namePerson: this.namePerson,
             lastnamePerson: this.lastnamePerson,
-            email: this.email,
+            email: this.user.email,
             movil: this.movil,
             nameAnimal: this.nameAnimal,
             typeAnimal: this.typeAnimal.text,
             animalAge: this.animalAge.text,
             checkSexo: this.checkSexo,
             selectAnimalAlert: this.selectAnimalAlert,
-            classButton: 'adoption',
+            classButton: '',
             date: this.getFecha(),
             placeMissingAnimal: this.placeMissingAnimal,
             dateMissingAnimal: this.dateMissingAnimal,

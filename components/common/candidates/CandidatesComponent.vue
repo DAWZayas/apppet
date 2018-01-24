@@ -1,23 +1,18 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component 
-        v-for="animal in animals" 
-        v-if="$route.params.catagory? animal.selectAnimalAlert === $route.params.catagory : animal.email === animal.email"
-        :key="animal.name" 
-        :animal="animal" 
-       ></element-component>
+			<element-component v-for="animal in animals" :key="animal.name" :animal="animal" v-if="animal.email === user.email"></element-component>
 		</section>
-    <button-show-candidates-component></button-show-candidates-component>
-  </div>
+    <button-add-component v-if="isAuthenticated"></button-add-component>
+	</div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
   import ElementComponent from '~/components/common/main/ElementComponent'
-  import ButtonShowCandidatesComponent from '~/components/common/buttons/ButtonShowCandidatesComponent'
+  import ButtonAddComponent from '~/components/common/buttons/ButtonAddComponent'
   export default {
     computed: {
-      ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated'})
+      ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated', user: 'getUser'})
     },
     data () {
       return {
@@ -25,7 +20,7 @@
     },
     components: {
       ElementComponent,
-      ButtonShowCandidatesComponent
+      ButtonAddComponent
     }
   }
 </script>

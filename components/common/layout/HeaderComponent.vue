@@ -11,13 +11,19 @@
         <v-icon>search</v-icon>
       </v-btn>
       <div class="hidden-sm-and-down header-menu">
-      <nuxt-link class="menu-link" to="../apppet"> Inicio  </nuxt-link>
-      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> <span>Candidatos </span> </nuxt-link>
-      <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" >Mensajes </nuxt-link>
-      <nuxt-link class="menu-link" to="" >Noticias </nuxt-link>
-      <nuxt-link class="menu-link" to="" >Ayuda </nuxt-link>
-      <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)">Salir <template > ( {{ name }} ) </template> </span>
-      <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
+        <nuxt-link class="menu-link" to="../apppet"> Inicio  </nuxt-link>
+        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> Candidatos </nuxt-link>
+        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" > Mensajes </nuxt-link>
+        <nuxt-link class="menu-link" to=""> Noticias </nuxt-link>
+        <nuxt-link class="menu-link" to=""> Ayuda </nuxt-link>
+        <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)"> Salir </span>
+        <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
+        <v-list-tile-avatar >
+          <img class="img-profile" :src="picProfile" />
+        </v-list-tile-avatar>
+        <template>
+          <span class="name-link"> {{ name }} </span>              
+        </template>
       </div>
     </v-toolbar>
     <v-navigation-drawer
@@ -79,7 +85,7 @@
         drawer: null,
         items: [
           { title: 'Home', icon: 'dashboard', methods: 'home' },
-          { title: 'Candidato', icon: 'pets', methods: 'candidate' },
+          { title: 'Candidatos', icon: 'pets', methods: 'candidate' },
           { title: 'Mensajes', icon: 'question_answer', methods: '' },
           { title: 'Noticias', icon: 'radio', methods: '' },
           { title: 'Ayuda', icon: 'help', methods: '' },
@@ -111,42 +117,50 @@
 <style lang="scss" scoped>
 
   body{
-  overflow: hidden;
-}
-.nom-app {
-	width: 120px;
+    overflow: hidden;
+  }
+  .nom-app {
+    width: 120px;
 
-}
-.header-menu{
-  text-decoration: none;
-  color: white;
-}
-.menu-link {
-  color: #fff;
-  padding: 20px;
-  text-decoration: none;
-  transition:all 0.3s ease;
-  font-weight: 800;
-  margin-right: 10px;
-  cursor: pointer;
-  &.disabled {
-    cursor: default;
-    color: #787c7b;
-    &:hover {
+  }
+  .header-menu{
+    text-decoration: none;
+    color: white;
+  }
+  .menu-link {
+    color: #fff;
+    padding: 20px;
+    text-decoration: none;
+    transition:all 0.3s ease;
+    font-weight: 800;
+    margin-right: 10px;
+    cursor: pointer;
+    &.disabled {
+      cursor: default;
       color: #787c7b;
+      &:hover {
+        color: #787c7b;
+      }
     }
   }
-}
-.menu-link:hover {
+  .menu-link:hover {
     text-decoration: none;
     color: darkcyan;
   }
-.menu {
-  background-color: #4db6ac;
-  width: 100%;
-  margin-bottom: -1em;
-}
-.nom-user {
-  color: white;
-}
+  .name-link {
+    color: #fff;
+    font-weight: 800;
+  }
+  .img-profile {
+    width: 40px;
+    height: 40px;;
+  }
+  .menu {
+    background-color: #4db6ac;
+    width: 100%;
+    margin-bottom: -1em;
+  }
+  .nom-user {
+    color: white;
+  }
 </style>

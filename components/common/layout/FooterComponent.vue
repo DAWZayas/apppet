@@ -12,7 +12,7 @@
       </div>
     </div>
 		<footer>
-      <div class="footer" id="footer">
+      <div class="footer footer-min" id="footer">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-xs-12">
@@ -58,6 +58,9 @@
 <script>
 </script>
 <style lang="scss">
+  p {
+    margin: 0;
+  }
   .footer {
     padding: 30px 0px;
     color: #ccc;
@@ -126,6 +129,12 @@
     color: #FFF;
     font-size: 30px;
     font-weight: 600;
+  }
+
+  @media (max-width: 1000px) {
+    .footer-min {
+      display: none;
+    }
   }
 </style>
 

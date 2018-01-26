@@ -1,7 +1,12 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component v-for="animal in animals" :key="animal.name" :animal="animal" v-if="animal.email === user.email"></element-component>
+			<element-component 
+        v-for="animal in animals"
+        v-if="user.uid == animal.userUid" 
+        :animal="animal"
+        :key="animal.name"
+      ></element-component>
 		</section>
     <button-add-component v-if="isAuthenticated"></button-add-component>
 	</div>

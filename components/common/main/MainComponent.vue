@@ -1,13 +1,14 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component 
-        v-for="animal in animals" 
-        v-if="$route.params.catagory? animal.selectAnimalAlert === $route.params.catagory : animal.email === animal.email"
+			<element-component
+        v-for="animal in animalsDisplayPaginated"
+        v-if="$route.params.catagory? animal.selectAnimalAlert === $route.params.catagory : animal.userUid"
+        :animal="animal"
         :key="animal.name" 
-        :animal="animal" 
-       ></element-component>
-		</section>
+      ></element-component>
+    </section>
+    <button-pagination-component @loadMore="onLoadMore" :hasMore="hasMore"></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
   </div>
 </template>
@@ -15,17 +16,32 @@
   import {mapGetters} from 'vuex'
   import ElementComponent from '~/components/common/main/ElementComponent'
   import ButtonShowCandidatesComponent from '~/components/common/buttons/ButtonShowCandidatesComponent'
+  import ButtonPaginationComponent from '~/components/common/buttons/ButtonPaginationComponent'
   export default {
-    computed: {
-      ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated'})
-    },
     data () {
       return {
+        pageSize: 8,
+        actualAnimalsSize: 8
       }
     },
     components: {
       ElementComponent,
-      ButtonShowCandidatesComponent
+      ButtonShowCandidatesComponent,
+      ButtonPaginationComponent
+    },
+    computed: {
+      ...mapGetters({ animals: 'getAnimals' }),
+      animalsDisplayPaginated () {
+        return this.animals.slice(0, this.actualAnimalsSize)
+      },
+      hasMore () {
+        return this.animals.length > this.actualAnimalsSize
+      }
+    },
+    methods: {
+      onLoadMore () {
+        this.actualAnimalsSize = this.actualAnimalsSize + this.pageSize
+      }
     }
   }
 </script>

@@ -326,7 +326,8 @@
             motiveTakeCareAnimal: this.motiveTakeCareAnimal,
             sinceDateAnimal: this.sinceDateAnimal,
             untilDateAnimal: this.untilDateAnimal,
-            animalPhoto: picUrls
+            animalPhoto: picUrls,
+            userUid: this.user.uid
           }
           this.setAddAnimal(newAnimal)
         })

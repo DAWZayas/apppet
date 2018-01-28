@@ -12,7 +12,7 @@
       </div>
     </div>
 		<footer>
-      <div class="footer footer-min" id="footer">
+      <div class="footer hidden-sm-and-down" id="footer">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-xs-12">
@@ -130,11 +130,11 @@
     font-size: 30px;
     font-weight: 600;
   }
-
-  @media (max-width: 1000px) {
-    .footer-min {
-      display: none;
+  @media only screen and (max-width: 599px) {
+    .container {
+      padding: 15px;
     }
+    
   }
 </style>
 

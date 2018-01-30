@@ -37,6 +37,11 @@ export default {
       commit('setAddAnimal', newAnimal)
     }
   },
+  setAddFavorite ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let addFavorites = db.ref(`/users/` + info.userUid + `/favorites`)
+    addFavorites.child(info.key).set('')
+  },
   /**
    * Creates a new user with given email and password and stores it in the firebase database
    * @param {object} store
@@ -127,23 +132,32 @@ export default {
    * @param {object} store
    */
   bindAuth ({commit, dispatch, state}) {
+    let db = firebaseApp.database()
+    let usersRef = db.ref(`/users`)
     firebaseApp.auth().onAuthStateChanged(user => {
       commit('setUser', user)
       if (user && !user.isAnonymous) {
         let displayName = user.displayName || user.email.split('@')[0]
+        let id = user.uid
         if (!user.displayName) {
           dispatch('updateUserNameFirst', displayName)
         }
         commit('setDisplayName', displayName)
         commit('setEmail', user.email)
         dispatch('bindFirebaseReferences', user)
+        dispatch('bindUserData', {usersRef, id})
+        usersRef.child(user.uid).child('exist').set(true)
       }
       if (!user) {
     /*  dispatch('unbindFirebaseReferences') */
         dispatch('bindFirebaseReferencesAnonymous')
+        dispatch('unbindUserData')
       }
     })
   },
+  bindUserData: firebaseAction(({state, dispatch}, {usersRef, id}) => {
+    dispatch('bindFirebaseReference', {reference: usersRef.child(id), toBind: 'userData'})
+  }),
   /**
    * Binds firebase configuration database reference to the store's corresponding object
    * @param {object} store
@@ -190,5 +204,9 @@ export default {
     } catch (error) {
       return
     }
+  }),
+  unbindUserData: firebaseAction(({state, dispatch, commit}) => {
+    commit('setDisplayName', '')
+    dispatch('unbindFirebaseReferences', {toUnbind: 'userData'})
   })
 }

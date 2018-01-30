@@ -77,7 +77,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .icon {
     font-size: 35px;
   }

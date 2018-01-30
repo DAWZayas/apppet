@@ -5,6 +5,7 @@ const user = null
 const displayName = ''
 const email = ''
 const noUser = 'Usuario no registrado'
+const userData = null
 
 export default {
   animals,
@@ -13,5 +14,6 @@ export default {
   displayName,
   profilePic,
   noUser,
-  email
+  email,
+  userData
 }

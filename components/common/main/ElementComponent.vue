@@ -3,6 +3,11 @@
     <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey" class="spinner"></v-progress-circular>
     <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
     <div>
+      <div class="favorite-icon">
+        <v-btn flat icon color="red" class="button-favorite" @click="favorite">
+          <v-icon>{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
+        </v-btn>
+      </div>
       <div class="element-info">
         <div class="ubication-info">
           <span class="material-icons material-icons-element-info">place</span>
@@ -20,30 +25,54 @@
   </div>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   export default {
     props: ['animal'],
     data () {
       return {
         images: this.animal.src,
         loadingWorkoutImage: true,
-        loadedWorkoutImage: false
+        loadedWorkoutImage: false,
+        heart: false
       }
     },
     computed: {
       ...mapGetters({
-        img: 'getImages'
+        img: 'getImages',
+        user: 'getUser'
       })
     },
     methods: {
+      ...mapActions(['setAddFavorite']),
       handleLoadedImage () {
         this.loadingWorkoutImage = false
         this.loadedWorkoutImage = true
+      },
+      favorite () {
+        this.heart = !this.heart
+        if (this.heart) {
+          let info = {
+            key: this.animal['.key'],
+            userUid: this.user.uid
+          }
+          this.setAddFavorite(info)
+        }
       }
     }
   }
 </script>
 <style scoped>
+
+  .favorite-icon{
+    position: absolute;
+    margin-top: -117px;
+    margin-left: 115px;
+    
+  }
+  .button-favorite{
+    background-color: rgb(250, 0, 0,0.05)!important;
+  }
+
   .one {
     height: 250px;
     width: 400px;
@@ -83,6 +112,8 @@
   .spinner{
     margin: 40px auto;
   }
+ 
+
 
   /* TARGETS */
   .name-pet {

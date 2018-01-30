@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <v-app id="inspire">
-    <v-layout row>
+    <v-layout row class="layout-profile">
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-card-media src="http://papers.co/wallpaper/papers.co-ag77-google-lollipop-january-background-25-wallpaper.jpg" height="330px">
@@ -13,13 +13,20 @@
                 </v-btn>
                 </nuxt-link>
                 <v-spacer></v-spacer>
-                <v-btn dark icon class="">
-                  <v-icon class="">more_vert</v-icon>
-                </v-btn>
+                <v-menu bottom left>
+                  <v-btn dark icon class="" slot="activator">
+                    <v-icon class="">more_vert</v-icon>
+                  </v-btn>
+                  <v-list class="list-margin">
+                    <v-list-tile v-for="item in items" :key="item.title" @click="onClick(item.click)">
+                      <v-list-tile-title >{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                  </v-list>
+                </v-menu>
               </v-card-title>            
                <v-spacer>
               <v-card-title class="white--text mt-3 pt-3">
-                <div class="display-1">{{name}}</div>
+                <div class="headline  ">{{name}}</div>
               </v-card-title>
                </v-spacer>
                <v-spacer>
@@ -51,7 +58,6 @@
                   absolute
                   @click="inputFile"
                 >
-                
                   <v-icon dark>camera_alt</v-icon>
               </v-btn>
                 <img :src="photo" alt="avatar" class="avatar-border">
@@ -98,6 +104,14 @@ import ChangeDisplayNameComponent from '~/components/profile/changes/ChangeDispl
 import ChangeEmailComponent from '~/components/profile/changes/ChangeEmailComponent'
 import {mapGetters} from 'vuex'
 export default {
+  data: () => ({
+    items: [
+      { title: 'Mis candidatos', click: 'likes' },
+      { title: 'Me gustan', click: 'likes' },
+      { title: 'Ayuda', click: 'likes' },
+      { title: 'Desconectar', click: 'likes' }
+    ]
+  }),
   components: {
     ChangeDisplayNameComponent,
     ChangeEmailComponent
@@ -108,6 +122,9 @@ export default {
   methods: {
     inputFile () {
       this.$refs.inputFile.click()
+    },
+    likes: function () {
+      console.log('>>>>>')
     }
   }
 }
@@ -115,6 +132,10 @@ export default {
 <style  scoped>
 .card__title{
   width :100%;
+}
+
+.list-margin{
+ margin:0!important;
 }
 
 .layout{
@@ -125,6 +146,9 @@ export default {
   border-radius: 50%;
 }
 
+.layout-profile{
+  height: 1000px!important;
+}
 
 .avatar{
   margin-top: -75px;

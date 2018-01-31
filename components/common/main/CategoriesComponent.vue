@@ -3,7 +3,7 @@
     <h1>Nuestras Mascotas</h1>
     <div class="categories">
       <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/candidatos/modal3.jpg" alt="Card image cap">
+        <img class="card-img-top" src="~/assets/stories/d1.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">En adopción</h5>
           <p class="card-text">Que un perro o un gato no acabe en la calle depende de nosotros. 
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/candidatos/modal4.jpg" alt="Card image cap">
+        <img class="card-img-top" src="~/assets/stories/d2.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Perdidos</h5>
           <p class="card-text">Encontraste o perdiste una mascota? Aqui tienes todos los aniamles perdidos y encontrados. 
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/candidatos/modal2.jpg" alt="Card image cap">
+        <img class="card-img-top" src="~/assets/stories/d3.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">A cuidar</h5>
           <p class="card-text">¿Tienes que irte de viaje? Encuentra a personas en tu misma situación,
@@ -61,6 +61,7 @@
   }
   .btn {
     width: 10%;
+    background-color: #4db6ac;
   }
   .section {
     text-align: center;
@@ -89,6 +90,10 @@
     background-color: #edf8f7;
     box-shadow: 5px 7px #f2f2f2;
   }
+  .card img {
+    height: 250px;
+  }
+  
   @media (min-width: 1024px){
     .section {
       padding: 2% 0;

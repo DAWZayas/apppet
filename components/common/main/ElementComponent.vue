@@ -4,9 +4,12 @@
     <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
     <div>
       <div class="favorite-icon">
-        <v-btn flat icon color="red" class="button-favorite" @click="favorite">
-          <v-icon>{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
+        <v-btn v-if="!owner" flat icon color="red" class="button-favorite" @click="favorite">
+          <v-icon >{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
         </v-btn>
+        <v-btn v-else flat icon color="light-blue" class="button-favorite" @click="edit">
+          <v-icon>edit</v-icon>
+        </v-btn>          
       </div>
       <div class="element-info">
         <div class="ubication-info">
@@ -33,6 +36,10 @@
           this.heart = true
         }
       }
+      if (this.animal.userUid === this.user.uid) {
+        this.owner = true
+        this.animal.selectAnimalAlert = 'owner'
+      }
     },
     props: ['animal'],
     data () {
@@ -40,7 +47,8 @@
         images: this.animal.src,
         loadingWorkoutImage: true,
         loadedWorkoutImage: false,
-        heart: false
+        heart: false,
+        owner: false
       }
     },
     computed: {
@@ -181,6 +189,16 @@
     background-color: #807777;
     border: 1px solid #959191;
   }
+
+  .owner{
+    background-color: #03a9f4;
+    border: 1px solid #039be5;
+  }
+  .owner:hover{
+    background-color: #039be5;
+    border: 1px solid  #03a9f4;
+  }
+
   .material-icons-main  {
     color: #75ccb9;
     font-size: 1rem;

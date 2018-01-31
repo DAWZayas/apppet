@@ -27,6 +27,13 @@
 <script>
   import { mapGetters, mapActions } from 'vuex'
   export default {
+    mounted () {
+      if (this.favorites != null) {
+        if (this.favorites[this.animal['.key']]) {
+          this.heart = true
+        }
+      }
+    },
     props: ['animal'],
     data () {
       return {
@@ -39,11 +46,12 @@
     computed: {
       ...mapGetters({
         img: 'getImages',
-        user: 'getUser'
+        user: 'getUser',
+        favorites: 'getFavorite'
       })
     },
     methods: {
-      ...mapActions(['setAddFavorite']),
+      ...mapActions(['setAddFavorite', 'unSetAddFavorite']),
       handleLoadedImage () {
         this.loadingWorkoutImage = false
         this.loadedWorkoutImage = true
@@ -53,9 +61,17 @@
         if (this.heart) {
           let info = {
             key: this.animal['.key'],
-            userUid: this.user.uid
+            userUid: this.user.uid,
+            ownerUid: this.animal.userUid
           }
           this.setAddFavorite(info)
+        } else {
+          let info = {
+            key: this.animal['.key'],
+            userUid: this.user.uid,
+            ownerUid: this.animal.userUid
+          }
+          this.unSetAddFavorite(info)
         }
       }
     }

@@ -40,7 +40,12 @@ export default {
   setAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
     let addFavorites = db.ref(`/users/` + info.userUid + `/favorites`)
-    addFavorites.child(info.key).set('')
+    addFavorites.child(info.key).set(info.ownerUid)
+  },
+  unSetAddFavorite ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let addFavorites = db.ref(`/users/` + info.userUid + `/favorites`)
+    addFavorites.child(info.key).remove()
   },
   /**
    * Creates a new user with given email and password and stores it in the firebase database
@@ -139,6 +144,10 @@ export default {
       if (user && !user.isAnonymous) {
         let displayName = user.displayName || user.email.split('@')[0]
         let id = user.uid
+        let addFavorites = db.ref(`/users/` + user.uid + `/favorites`)
+        addFavorites.on('value', function (snapshot) {
+          commit('setFavorite', snapshot.val())
+        })
         if (!user.displayName) {
           dispatch('updateUserNameFirst', displayName)
         }

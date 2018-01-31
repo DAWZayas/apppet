@@ -6,5 +6,6 @@ export default {
   getPhotoURL: state => state.user ? state.user.photoURL : state.profilePic,
   getEmail: state => state.email,
   isAuthenticated: state => state.user,
-  authError: state => state.authError
+  authError: state => state.authError,
+  getFavorite: state => state.favorite
 }

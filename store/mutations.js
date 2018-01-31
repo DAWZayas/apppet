@@ -16,5 +16,8 @@ export default {
   },
   setAuthError (state, value) {
     state.authError = value
+  },
+  setFavorite (state, value) {
+    state.favorite = value
   }
 }

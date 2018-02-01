@@ -119,7 +119,7 @@ h3, p {
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1350px){
 
 	.carousel img {
     width: 70%;

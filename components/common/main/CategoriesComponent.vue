@@ -2,8 +2,7 @@
   <div class="section">
     <h1>Nuestras Mascotas</h1>
     <div class="categories">
-      <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/stories/d1.jpg" alt="Card image cap">
+      <div class="card1">
         <div class="card-body">
           <h5 class="card-title">En adopción</h5>
           <p class="card-text">Que un perro o un gato no acabe en la calle depende de nosotros. 
@@ -11,8 +10,7 @@
           <v-btn class="btn btn-primary" @click="onClick('adoption')">Ver más</v-btn>
         </div>
       </div>
-      <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/stories/d2.jpg" alt="Card image cap">
+      <div class="card2">
         <div class="card-body">
           <h5 class="card-title">Perdidos</h5>
           <p class="card-text">Encontraste o perdiste una mascota? Aqui tienes todos los aniamles perdidos y encontrados. 
@@ -20,8 +18,7 @@
           <v-btn class="btn btn-primary" @click="onClick('lost')">Ver más</v-btn>
         </div>
       </div>
-      <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="~/assets/stories/d3.jpg" alt="Card image cap">
+      <div class="card3">
         <div class="card-body">
           <h5 class="card-title">A cuidar</h5>
           <p class="card-text">¿Tienes que irte de viaje? Encuentra a personas en tu misma situación,
@@ -59,13 +56,14 @@
   :root {
     box-sizing: border-box;
   }
-  .btn {
+  .btn-primary {
     width: 10%;
     background-color: #4db6ac;
+    border: transparent;
   }
   .section {
     text-align: center;
-    padding: 5% 0;
+    padding-top: 5%;
   }
   h1 {
     font-size: 3rem;
@@ -78,32 +76,76 @@
     font-weight: 600;
   }
   .categories {
-    width: 90%;
+    width: 100%;
     margin: auto;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
   }
-  .card {
-    margin: 1%;
-    background-color: #edf8f7;
-    box-shadow: 5px 7px #f2f2f2;
+  .card1,
+  .card2,
+  .card3 {
+    width: 50rem;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
+    color: #fff;
+    height: 260px;
+    padding-top: 18%;
+    //box-shadow: 5px 7px #f2f2f2;
   }
-  .card img {
-    height: 250px;
+  .card1 {
+    background-image: url(~/assets/stories/d1.jpg);
+    background-color: rgb(33, 78, 92);
   }
-  
-  @media (min-width: 1024px){
+  .card2 {
+    background-image: url(~/assets/stories/d2.jpg);
+    background-color: rgb(230, 156, 152);
+  }
+  .card3 {
+    background-image: url(~/assets/stories/d3.jpg);
+    background-color: rgb(129, 98, 88);
+  }
+
+  @media (min-width: 480px){
+    .card1, .card2, .card3 {
+      height: 270px;
+      width: 48rem;
+      padding-top: 15%;
+    }
+  }
+  @media (min-width: 768px){
+    .categories{
+      width: 100%;
+    }
+    .card1, .card2, .card3 {
+      height: 360px;
+      width: 18rem;
+      padding-top: 15%;
+    }
+  }
+  @media (min-width: 1000px){
+    .card1, .card2, .card3 {
+      width: 23rem;
+      padding-top: 12%;
+    }
+    .categories {
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+  @media (min-width: 1350px){
     .section {
       padding: 2% 0;
     }
     .categories {
-      width: 78%;
-      justify-content: space-around;
+      width: 100%;
     }
-    .card {
-    margin: 3%;
+    .card1, .card2, .card3 {
+      width: 30rem;
+      padding-top: 10%;
     }
+
   }
 </style>

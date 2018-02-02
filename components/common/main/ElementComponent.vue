@@ -81,6 +81,8 @@
           }
           this.unSetAddFavorite(info)
         }
+      },
+      edit () {
       }
     }
   }

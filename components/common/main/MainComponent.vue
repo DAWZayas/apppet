@@ -2,13 +2,12 @@
 	<div class="main">
 		<section class="main-elements">
 			<element-component
-        v-for="animal in animalsDisplayPaginated"
-        v-if="$route.params.catagory? animal.selectAnimalAlert === $route.params.catagory : animal.userUid"
+        v-for="(animal, index) in animalsDisplayPaginated"
         :animal="animal"
-        :key="animal.name" 
+        :key="index"
       ></element-component>
     </section>
-    <button-pagination-component @loadMore="onLoadMore" :hasMore="hasMore"></button-pagination-component>
+    <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore"></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
   </div>
 </template>
@@ -20,8 +19,8 @@
   export default {
     data () {
       return {
-        pageSize: 8,
-        actualAnimalsSize: 8
+        pageSize: 6,
+        actualAnimalsSize: 6
       }
     },
     components: {
@@ -32,15 +31,22 @@
     computed: {
       ...mapGetters({ animals: 'getAnimals' }),
       animalsDisplayPaginated () {
-        return this.animals.slice(0, this.actualAnimalsSize)
+        return this.animals.filter(this.typeOfAlert).slice(0, this.actualAnimalsSize)
       },
       hasMore () {
-        return this.animals.length > this.actualAnimalsSize
+        return this.animals.filter(this.typeOfAlert).length > this.actualAnimalsSize
       }
     },
     methods: {
       onLoadMore () {
         this.actualAnimalsSize = this.actualAnimalsSize + this.pageSize
+      },
+      typeOfAlert (f) {
+        if (f.selectAnimalAlert === this.$route.params.catagory || this.$route.params.catagory === undefined) {
+          return true
+        } else {
+          return false
+        }
       }
     }
   }

@@ -1,6 +1,5 @@
 <template>
 <div>
-<v-app>
   <v-stepper v-model="e1">
       <v-stepper-header>
         <v-stepper-step step="1" :complete="e1 > 1">Datos personales 1</v-stepper-step>
@@ -234,7 +233,6 @@
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
-</v-app>
 </div>
 </template>
 <script>

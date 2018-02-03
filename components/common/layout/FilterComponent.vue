@@ -1,21 +1,15 @@
 <template>
-  <v-tabs icons centered class="hidden-md-and-up">
-    <v-tabs-bar dark color="grey lighten-1">
-      <v-tabs-slider color="pink lighten-2"></v-tabs-slider>
-      <v-tabs-item class="frame" @click="onClick('allPets')">
-        <v-icon color="teal lighten-1">pets</v-icon>
-      </v-tabs-item>
-      <v-tabs-item @click="onClick('adoption')">
-        <v-icon>mood</v-icon>
-      </v-tabs-item>
-      <v-tabs-item @click="onClick('lost')">
-        <v-icon>mood_bad</v-icon>
-      </v-tabs-item>
-      <v-tabs-item @click="onClick('takeCare')">
-        <v-icon>sentiment_satisfied</v-icon>
-      </v-tabs-item>
-    </v-tabs-bar>
-  </v-tabs>
+  <div fixed class="footer-top hidden-md-and-up">
+	   <div class="container">
+	      <div class="social-icons">
+          <i class="icon fa fa-heart"></i>
+          <i class="icon fa fa-paw" @click="onClick('allPets')"></i>
+          <i class="icon fa fa-home" @click="onClick('adoption')"></i>
+          <i class="icon fa fa-exclamation-triangle" @click="onClick('lost')"></i>
+          <i class="icon fa fa-eye" @click="onClick('takeCare')"></i>
+        </div>
+      </div>
+    </div>
 </template>
 <script>
   export default {
@@ -41,11 +35,19 @@
   }
 </script>
 <style lang="scss" scoped>
-  .card__text {
-    padding: 0;
+  .footer-top {
+    background-color: #f7f7f7;
+    text-align: center;
   }
-  .icon {
-    font-size: 35px;
-    color: #1e76a8;
+  .footer-top .social-icons {
+    padding: 10px 0px;
+  }
+  .footer-top .social-icons i {
+    padding: 0px 20px;
+    font-size: 2rem;
+    color: #aaa;
+  }
+  .footer-top .social-icons i:hover {
+    color: #FA5858;
   }
 </style>

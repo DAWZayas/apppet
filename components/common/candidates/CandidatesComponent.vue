@@ -8,24 +8,21 @@
         :key="animal.name"
       ></element-component>
 		</section>
-    <button-add-component v-if="isAuthenticated"></button-add-component>
-	</div>
+ 	</div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
   import ElementComponent from '~/components/common/main/ElementComponent'
-  import ButtonAddComponent from '~/components/common/buttons/ButtonAddComponent'
   export default {
     computed: {
-      ...mapGetters({animals: 'getAnimals', isAuthenticated: 'isAuthenticated', user: 'getUser'})
+      ...mapGetters({animals: 'getAnimals', user: 'getUser'})
     },
     data () {
       return {
       }
     },
     components: {
-      ElementComponent,
-      ButtonAddComponent
+      ElementComponent
     }
   }
 </script>
@@ -50,7 +47,6 @@
       display: flex;
       background-image: url("~assets/fondos/fondo-main.jpg");
       background-size: 180%;
-
     }
     .main-elements {
       margin: 50px auto;

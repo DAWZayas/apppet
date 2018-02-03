@@ -5,7 +5,6 @@
 </template>
 <script>
   import { Authentication } from '~/components/landing'
-
   export default {
     data () {
       return {}

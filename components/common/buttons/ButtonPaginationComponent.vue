@@ -1,5 +1,5 @@
 <template>
-  <v-btn block scroll-off-screen flat color="pink lighten-2" class="button" @click="onLoadMore" v-show="hasMore">Cargar más</v-btn>
+  <v-btn block scroll-off-screen flat color="red darken-1" class="button hidden-md-and-up" @click="onLoadMore" v-show="hasMore">Cargar más</v-btn>
 </template>
 <script>
   export default {
@@ -12,9 +12,4 @@
   }
 </script>
 <style lang="scss" scoped>
-  @media(min-width: 1024px) {
-    .button {
-      display: none;
-    }
-  }
 </style>

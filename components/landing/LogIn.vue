@@ -85,6 +85,8 @@
 		border-right: none;
 		border-top: none;
 		border-width: 4px;
+    width: 100%;
+    height: 40px;
 	}
 	.button-submit {
     background-color: white;
@@ -97,7 +99,7 @@
 	}
   #check {
 		color: white;
-		font-size: 0.8rem;
+		font-size: 0.95rem;
 		z-index: 2;
 	}
   .input-text:hover {

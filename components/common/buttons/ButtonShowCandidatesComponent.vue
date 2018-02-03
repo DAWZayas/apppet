@@ -18,13 +18,13 @@
         <v-icon color="white">pets</v-icon>
       </v-btn>
       <v-btn fab dark color="light-blue lighten-3" @click="onClick('adoption')">
-        <v-icon color="white">mood</v-icon>
+        <v-icon color="white">home</v-icon>
       </v-btn>
       <v-btn fab dark color="red lighten-1" @click="onClick('lost')">
-        <v-icon color="white">mood_bad</v-icon>
+        <v-icon color="white">warning</v-icon>
       </v-btn>
       <v-btn fab dark color="grey" @click="onClick('takeCare')">
-        <v-icon color="white">sentiment_satisfied</v-icon>
+        <v-icon color="white">remove_red_eye</v-icon>
       </v-btn>
     </v-speed-dial>
   </v-card>
@@ -59,20 +59,6 @@
         if (f === 'takeCare') {
           this.$router.push('/mainpets/takeCare')
         }
-      }
-    },
-    watch: {
-      top (val) {
-        this.bottom = !val
-      },
-      right (val) {
-        this.left = !val
-      },
-      bottom (val) {
-        this.top = !val
-      },
-      left (val) {
-        this.right = !val
       }
     }
   }

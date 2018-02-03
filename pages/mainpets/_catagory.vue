@@ -3,7 +3,7 @@
     <header-component></header-component>
     <main-component></main-component>
     <filter-component></filter-component>
-    <footer-component></footer-component>    
+    <footer-component class="hidden-sm-and-down"></footer-component>
   </div>
 </template>
 <script>
@@ -17,8 +17,8 @@
     components: {
       HeaderComponent,
       FilterComponent,
-      MainComponent,
-      FooterComponent
+      FooterComponent,
+      MainComponent
     },
     computed: {
       ...mapState(['user']),

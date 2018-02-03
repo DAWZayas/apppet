@@ -101,20 +101,21 @@
 		color: #00acc1 !important;
 	}
 	.text-form {
-		width: 200px;
+		width: 220px;
 		margin: auto;
 		margin-bottom: 2em;
 	}
 	.buttons {
-		background-color: #00acc1;
+		background-color: #00acc1 !important;
 		color: white;
-		width: 200px;
+		width: 220px;
 		height: 30px;
 		border-radius: 3px;
 		font-size: 0.8rem;
 		margin-right: 0;
 	}
-	p{
+	p {
+		font-size: 1.1rem;
 		text-align: right;
 		padding-top: 1em;
 	}

@@ -1,21 +1,20 @@
 <template>
   <div>
    <v-toolbar fixed scroll-off-screen dark color="teal lighten-2">
-      <v-toolbar-side-icon class="hidden-lg-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
        <v-spacer></v-spacer>
       <nuxt-link to="/apppet/" class="logo">
         <img class="nom-app" src="~/assets/logos/nomApp.png">
       </nuxt-link>
       <v-spacer></v-spacer>
-      <v-btn icon class="hidden-lg-and-up">
+      <v-btn icon class="hidden-md-and-up">
         <v-icon>search</v-icon>
       </v-btn>
       <div class="hidden-sm-and-down header-menu">
-        <nuxt-link class="menu-link" to="../apppet"> Inicio  </nuxt-link>
+        <nuxt-link class="menu-link" to="../apppet"> Inicio </nuxt-link>
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> Candidatos </nuxt-link>
-        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" > Mensajes </nuxt-link>
-        <nuxt-link class="menu-link" to=""> Noticias </nuxt-link>
-        <nuxt-link class="menu-link" to=""> Ayuda </nuxt-link>
+        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" > Favoritos </nuxt-link>
+        <nuxt-link class="menu-link" to=""> Notas </nuxt-link>
         <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)"> Salir </span>
         <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
         <v-list-tile-avatar >
@@ -88,11 +87,10 @@
       return {
         drawer: null,
         items: [
-          { title: 'Home', icon: 'dashboard', methods: 'home' },
+          { title: 'Inicio', icon: 'dashboard', methods: 'home' },
           { title: 'Candidatos', icon: 'pets', methods: 'candidate' },
-          { title: 'Mensajes', icon: 'question_answer', methods: '' },
-          { title: 'Noticias', icon: 'radio', methods: '' },
-          { title: 'Ayuda', icon: 'help', methods: '' },
+          { title: 'Favoritos', icon: 'favorite', methods: '' },
+          { title: 'Notas', icon: 'question_answer', methods: '' },
           { title: 'Busqueda', icon: 'search', methods: '' }
         ],
         out: { title: 'Salir', icon: 'close', methods: 'logout' },
@@ -125,7 +123,6 @@
   }
   .nom-app {
     width: 120px;
-
   }
   .header-menu{
     text-decoration: none;

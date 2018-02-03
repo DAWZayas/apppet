@@ -1,16 +1,5 @@
 <template>
   <footer>
-		<div class="footer-top">
-	   <div class="container">
-	      <div class="social-icons">
-          <i class="icon fa fa-twitter"></i>
-          <i class="icon fa fa-facebook"></i>
-          <i class="icon fa fa-google-plus"></i>
-          <i class="icon fa fa-instagram"></i>
-          <i class="icon fa fa-youtube-play"></i>
-        </div>
-      </div>
-    </div>
 		<footer>
       <div class="footer hidden-sm-and-down" id="footer">
         <div class="container">
@@ -50,6 +39,17 @@
         </div>
       </div>
 	  </footer>
+    <div fixed class="footer-icons">
+	   <div class="container">
+	      <div class="social-icons">
+          <i class="icon fa fa-twitter"></i>
+          <i class="icon fa fa-facebook"></i>
+          <i class="icon fa fa-google-plus"></i>
+          <i class="icon fa fa-instagram"></i>
+          <i class="icon fa fa-youtube-play"></i>
+        </div>
+      </div>
+    </div>
     <div class="footer-bottom">
       <p>Copyright © 2017. All right reserved.</p>
     </div>
@@ -62,7 +62,7 @@
     margin: 0;
   }
   .footer {
-    padding: 30px 0px;
+    padding: 30px  0px 0px;
     color: #ccc;
     background-color: #222;
   }
@@ -74,7 +74,7 @@
     width: 80%;
   }
   .footer h3 {
-    color: #FFF;
+    color: #4db6ac;
     font-size:15px;
     font-weight: 600;
     text-transform: uppercase;
@@ -91,7 +91,7 @@
   .footer ul li span {
     padding: 10px 0px;
     display: block;
-    color: #ccc;
+    color: #aaa;
     font-weight: 600;
     font-size: 13px;
   }
@@ -110,23 +110,21 @@
     font-size: 13px;
     color: #FFF;
   }
-  .footer-top{
+  .footer-icons {
     background-color: #f7f7f7;
     text-align: center;
+    padding: 0.5em 0;
   }
-  .footer-top .social-icons {
-    padding: 10px 0px;
-  }
-  .footer-top .social-icons i {
+  .footer-icons .social-icons i {
     padding: 0px 20px;
     font-size: 2rem;
-    color: #aaa;
-  }
-  .footer-top .social-icons i:hover {
     color: #1e76a8;
   }
+  .footer-icons .social-icons i:hover {
+    cursor: pointer;
+  }
   .logo {
-    color: #FFF;
+    color: #4db6ac;
     font-size: 30px;
     font-weight: 600;
   }

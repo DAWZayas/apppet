@@ -57,9 +57,8 @@
 		border-right: none;
 		border-top: none;
 		border-width: 4px;
-	}
-	.group-buttons {
-		margin-left: 0;
+    width: 220px;
+    height: 40px;
 	}
 	.button-submit {
     background-color: white;

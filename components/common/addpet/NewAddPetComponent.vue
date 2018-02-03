@@ -42,6 +42,7 @@
               ></v-text-field>
             </v-form>      
           <v-btn color="primary"  @click.native="e1 = 2">Siguiente</v-btn>
+          <v-btn flat @click="onClick()">Cancelar</v-btn>
         </v-stepper-content>
         <v-stepper-content step="2">
           <span class="form-title"> Datos del animal:</span>
@@ -260,7 +261,7 @@
           { text: 'Perro' },
           { text: 'Gato' },
           { text: 'Pajaro' },
-          { text: 'State 4' },
+          { text: 'Roedor' },
           { text: 'State 5' },
           { text: 'State 6' },
           { text: 'State 7' }
@@ -303,6 +304,9 @@
       filesChange (files) {
         this.pictures = [...files]
         console.log(this.pictures)
+      },
+      onClick () {
+        this.$router.push('/candidates/')
       },
       addAnimal: function () {
         this.uploadImages(this.pictures).then(picUrls => {

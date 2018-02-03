@@ -1,5 +1,6 @@
 <template>
   <div fixed class="footer-top hidden-md-and-up">
+    <hr>
 	   <div class="container">
 	      <div class="social-icons">
           <i class="icon fa fa-heart"></i>
@@ -35,12 +36,17 @@
   }
 </script>
 <style lang="scss" scoped>
+  hr {
+    border: 0.5px solid #aaa;
+    margin: 0px;
+  }
   .footer-top {
     background-color: #f7f7f7;
+    margin-top: 10px;
     text-align: center;
   }
   .footer-top .social-icons {
-    padding: 10px 0px;
+    padding: 0px 0px;
   }
   .footer-top .social-icons i {
     padding: 0px 20px;

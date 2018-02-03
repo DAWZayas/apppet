@@ -18,7 +18,7 @@
 				<figcaption>
 					<h2 > Maya y <span > Pablo </span > </h2 >
 					<div>
-						<p> Ya hará 2 meses que Yala forma parte de nuestra familia</p>
+						<p> Ya hará 2 meses que Maya forma parte de nuestra familia</p>
 						<p> No nos podemos imaginar la familia sin ella</p>
 					</div>
 				</figcaption>			
@@ -26,9 +26,9 @@
 			<figure class = "effect-julia">
 				<img src ="~/assets/stories/3.jpg" />
 				<figcaption>
-					<h2 > Jazz y <span >Nuria</span > </h2 >
+					<h2 > Lia y <span >Nuria</span > </h2 >
 					<div>
-						<p>Jazz forma parte de nuestra familia.</p>
+						<p>Lia forma parte de nuestra familia.</p>
 						<p>Estamos encantados con él.</p>
 						<p>Lo tenemos repleto de besos y abrazos.</p>
 					</div>

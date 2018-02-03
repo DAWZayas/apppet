@@ -6,6 +6,15 @@
           <div class="row">
             <div class="col-lg-3 col-xs-12">
               <span class="logo">AppPet</span>
+              <div class="container">
+                <div class="social-icons-logo">
+                  <i class="icon fa fa-twitter"></i>
+                  <i class="icon fa fa-facebook"></i>
+                  <i class="icon fa fa-google-plus"></i>
+                  <i class="icon fa fa-instagram"></i>
+                  <i class="icon fa fa-youtube-play"></i>
+                </div>
+              </div>
             </div>
             <div class="col-lg-3 col-xs-12">
               <h3>MENU</h3>
@@ -39,8 +48,8 @@
         </div>
       </div>
 	  </footer>
-    <div fixed class="footer-icons">
-	   <div class="container">
+    <div fixed class="footer-icons hidden-md-and-up">
+	    <div class="container">
 	      <div class="social-icons">
           <i class="icon fa fa-twitter"></i>
           <i class="icon fa fa-facebook"></i>
@@ -121,6 +130,14 @@
     color: #1e76a8;
   }
   .footer-icons .social-icons i:hover {
+    cursor: pointer;
+  }
+  /* SOCIAL-ICONS-LOGO */
+  .social-icons-logo i {
+    padding: 0px 5px;
+    color: #1e76a8 !important;
+  }
+  .social-icons-logo i:hover {
     cursor: pointer;
   }
   .logo {

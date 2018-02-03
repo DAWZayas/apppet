@@ -72,7 +72,6 @@
       display: flex;
       background-image: url("~assets/fondos/fondo-main.jpg");
       background-size: 180%;
-
     }
     .main-elements {
       margin: 50px auto;

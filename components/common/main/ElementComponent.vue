@@ -88,17 +88,14 @@
   }
 </script>
 <style scoped>
-
-  .favorite-icon{
+  .favorite-icon {
     position: absolute;
     margin-top: -117px;
     margin-left: 115px;
-    
   }
-  .button-favorite{
+  .button-favorite {
     background-color: rgb(250, 0, 0,0.05)!important;
   }
-
   .one {
     height: 250px;
     width: 400px;
@@ -109,10 +106,10 @@
     width: 100%;
     height: 250px;
   }
-  .modal-title{
+  .modal-title {
     margin: auto;
   }
-  iframe{
+  iframe {
     margin: auto;
     margin-bottom: 1em;
   }
@@ -122,7 +119,7 @@
     flex-direction: column;
     justify-content:center;
     width: 160px;
-    height: 160px;
+    height: 150px;
     margin: 10px 8px 6px 8px;;
     box-shadow: 0px 5px 10px #888888;
     background-color: white;
@@ -134,13 +131,9 @@
     height: 110px;
     border-radius: 5px 5px 0px 0px;
   }
-
-  .spinner{
+  .spinner {
     margin: 40px auto;
   }
- 
-
-
   /* TARGETS */
   .name-pet {
     font-size: 1rem;
@@ -157,12 +150,12 @@
     font-family:  'Josefin Sans', sans-serif;
     border-radius: 0px 0px 5px 5px;
   }
-  .element-info{
+  .element-info {
     font-size: 0.6rem;
     color: #C8C8C8;
     margin-left: 5px;
   }
-  .material-icons-element-info{
+  .material-icons-element-info {
     margin: 0;
     font-size: 0.6rem;
     color: #C8C8C8;
@@ -171,7 +164,7 @@
     background-color: #75ccb9;
     border: 1px solid #6CBDAB;
   }
-  .adoption:hover{
+  .adoption:hover {
     background-color: #6CBDAB;
     border: 1px solid #75ccb9;
   }
@@ -179,7 +172,7 @@
     background-color: #FA5858;
     border: 1px solid #D73B3B;
   }
-  .lost:hover{
+  .lost:hover {
     background-color: #D73B3B;
     border: 1px solid #FA5858;
   }
@@ -187,34 +180,32 @@
     background-color: #959191;
     border: 1px solid #807777;
   }
-  .takeCare:hover{
+  .takeCare:hover {
     background-color: #807777;
     border: 1px solid #959191;
   }
-
-  .owner{
+  .owner {
     background-color: #03a9f4;
     border: 1px solid #039be5;
   }
-  .owner:hover{
+  .owner:hover {
     background-color: #039be5;
     border: 1px solid  #03a9f4;
   }
-
-  .material-icons-main  {
+  .material-icons-main {
     color: #75ccb9;
     font-size: 1rem;
     float: right;
     margin-right: 1em;
     text-shadow: 1px 1px black;
   }
-  .card-text{
+  .card-text {
     margin: 0.1em 2.5em;
     color: #000000;
     font-family: Verdana;
     font-size: 1rem;
   }
-  .material-icons-modal{
+  .material-icons-modal {
     margin-left: 35px;
     color: #75ccb9;
   }
@@ -243,47 +234,51 @@
     .element-info{
       font-size: 0.7rem;
     }
-    .material-icons-element-info{
+    .material-icons-element-info {
       font-size: 0.7rem;
     }
-    .featured .element-info{
+    .featured .element-info {
       display: flex;
       justify-content: space-around;
       font-size: 0.9rem;
     }
-    .featured .material-icons-element-info{
+    .featured .material-icons-element-info {
       font-size: 0.9rem;
     }
   }
-  @media screen and (min-width: 450px){
-    .element{
-      width: 200px;
-      height: 200px;
-    }
-    img{
-      height: 150px;
-    }
-  }
-  @media screen and (min-width: 550px){
-    .element{
+  /* Mobile */
+  @media screen and (min-width: 550px) {
+    .element {
       width: 250px;
       height: 250px;
     }
-    img{
+    img {
       height: 200px;
     }
   }
-  @media screen and (min-width: 650px){
-    .element{
+  /* TABLET */
+  @media screen and (min-width: 650px) {
+    .favorite-icon {
+      margin-top: -240px;
+      margin-left: 230px;
+    }
+    .element {
       width: 300px;
       height: 300px;
     }
-    img{
+    img {
       height: 250px;
     }
     .modal {
       width: 500px;
       margin: auto;
+    }
+    /* DESKTOP */
+    @media screen and (min-width: 1024px) {
+      .favorite-icon {
+        margin-top: -125px;
+        margin-left: 140px;
+      }
     }
   }
 </style>

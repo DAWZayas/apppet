@@ -184,12 +184,12 @@
     border: 1px solid #959191;
   }
   .owner {
-    background-color: #03a9f4;
-    border: 1px solid #039be5;
+    background-color: #03a9f4!important;
+    border: 1px solid #039be5!important;
   }
   .owner:hover {
-    background-color: #039be5;
-    border: 1px solid  #03a9f4;
+    background-color: #039be5!important;
+    border: 1px solid  #03a9f4!important;
   }
   .material-icons-main {
     color: #75ccb9;

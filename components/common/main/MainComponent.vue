@@ -72,22 +72,19 @@
   }
   @media screen and (min-width: 800px) {
     .main{
-      display: flex;
+  
       background-image: url("~assets/fondos/fondo-main.jpg");
-      background-size: 180%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
     .main-elements {
       margin: 50px auto;
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       background-color: rgba(255, 255, 255, 0.5);
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      grid-auto-rows: 1fr;
-      grid-gap: 1em;
-      grid-auto-flow: dense;
-      padding: 1em;
-      padding-right:2em;
+      padding: 2em 0;
+      padding-bottom: 5em;
     }
   }
 </style>

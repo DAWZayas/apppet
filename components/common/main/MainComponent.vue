@@ -7,7 +7,7 @@
         :key="index"
       ></element-component>
     </section>
-    <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore"></button-pagination-component>
+    <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore" class="load-more"></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
   </div>
 </template>
@@ -66,6 +66,9 @@
   }
   .material-icons material-icons-main  {
     margin: 0.2em;
+  }
+  .load-more{
+    margin-bottom: 60px;
   }
   @media screen and (min-width: 800px) {
     .main{

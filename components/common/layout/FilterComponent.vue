@@ -1,21 +1,35 @@
 <template>
   <div fixed class="footer-top hidden-md-and-up">
-    <hr>
-	   <div class="container">
-	      <div class="social-icons">
-          <i class="icon fa fa-heart"></i>
-          <i class="icon fa fa-paw" @click="onClick('allPets')"></i>
-          <i class="icon fa fa-home" @click="onClick('adoption')"></i>
-          <i class="icon fa fa-exclamation-triangle" @click="onClick('lost')"></i>
-          <i class="icon fa fa-eye" @click="onClick('takeCare')"></i>
-        </div>
-      </div>
+    <v-bottom-nav  :value="true"  color="white" :active.sync="e1">
+      <v-btn flat color="teal" value="recent" @click="" class="favorite">
+        <span>Me gustan</span>
+        <v-icon>favorite</v-icon>
+      </v-btn>
+      <v-btn flat color="teal" value='all' @click="onClick('allPets')">
+        <span>Todos</span>
+        <v-icon>pets</v-icon>
+      </v-btn>
+      <v-btn flat color="teal" value="adoption" @click="onClick('adoption')">
+        <span>Adoptar</span>
+        <v-icon>home</v-icon>
+      </v-btn>
+       <v-btn flat color="teal" value="lost" @click="onClick('lost')">
+        <span>Perdidos</span>
+        <v-icon>warning</v-icon>
+      </v-btn>
+       <v-btn flat color="teal" value="takeCare" @click="onClick('takeCare')">
+        <span>Cuidar</span>
+        <v-icon>remove_red_eye</v-icon>
+      </v-btn>
+    </v-bottom-nav>
     </div>
 </template>
 <script>
   export default {
     data () {
-      return {}
+      return {
+        e1: ''
+      }
     },
     methods: {
       onClick (f) {
@@ -32,28 +46,19 @@
           this.$router.push('/mainpets/takeCare')
         }
       }
+    },
+    created () {
+      if (this.$route.params.catagory === undefined) {
+        this.e1 = 'all'
+      } else {
+        this.e1 = this.$route.params.catagory
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  hr {
-    border: 0.5px solid #aaa;
-    margin: 0px;
-  }
-  .footer-top {
-    background-color: #f7f7f7;
-    margin-top: 10px;
-    text-align: center;
-  }
-  .footer-top .social-icons {
-    padding: 0px 0px;
-  }
-  .footer-top .social-icons i {
-    padding: 0px 20px;
-    font-size: 2rem;
-    color: #aaa;
-  }
-  .footer-top .social-icons i:hover {
-    color: #FA5858;
-  }
+
+.favorite{
+  margin-left: 5px;
+}
 </style>

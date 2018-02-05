@@ -21,7 +21,7 @@
           {{ animal.date }}
         </div>
       </div>
-      <button class="button-element" :class="animal.selectAnimalAlert">
+      <button class="button-element" :class="!this.owner ? animal.selectAnimalAlert : animal.selectAnimalAlert + ' owner' ">
         <p class="name-pet"> {{ animal.nameAnimal }} </p>
       </button>
     </div>
@@ -38,7 +38,6 @@
       }
       if (this.animal.userUid === this.user.uid) {
         this.owner = true
-        this.animal.selectAnimalAlert = 'owner'
       }
     },
     props: ['animal'],

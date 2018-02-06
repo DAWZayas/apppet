@@ -383,50 +383,39 @@
     margin-top: 56px;
     z-index: 0;
   }
-
   .input-group{
     width: 90%;
     text-align: center;
   }
-
   .form-title{
     color: rgba(0,0,0,.54);
     font-size: 20px;
   }
-
   .form-span{
     color: rgba(0,0,0,.54);
     font-size: 14px;
-    
   }
   .genero{
     display: flex;
   }
   .genero-p{
     margin: 0 auto;
-
   }
   .genero-l{
     padding: 0;
   }
-
   .image-box{
     display: flex;
   }
-
-  
-
   .image-box-subheader{
     width: 100%;
     
   }
-
-@media screen and (min-width: 800px) {
- .stepper{
-   width: 50%;
-   margin: 0 auto;
-   margin-top: 100px;
- }
-}
-
+  @media screen and (min-width: 800px) {
+    .stepper{
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+  }
 </style>

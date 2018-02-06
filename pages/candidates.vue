@@ -7,7 +7,7 @@
 </template>
 <script>
   import { HeaderComponent } from '~/components/common/layout'
-  import { CandidatesComponent } from '~/components/common/candidates'
+  import { CandidatesComponent } from '~/components/common/post'
   import ButtonAddComponent from '~/components/common/buttons/ButtonAddComponent'
   import { mapState, mapGetters } from 'vuex'
   export default {

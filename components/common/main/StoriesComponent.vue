@@ -56,12 +56,13 @@
 		box-sizing: border-box;
 	}
 	h1 {
-		margin-top: 1em;
+		font-size: 3rem;
+    	font-weight: 700;
 	}
 	.section-two {
 		width: 100%;
-		border: 1px solid;
-		background-color: #333;
+		padding-top: 3em;
+		background-color: #404040;
 		color: #fff;
 		text-align: center;
 	} 
@@ -69,7 +70,7 @@
 		position: relative;
 		clear: both;
 		margin: 0 auto;
-		padding: 1em 0 4em;
+		padding-bottom: 3em;
 		width: 100%;
 		list-style: none;
 		text-align: center;
@@ -81,13 +82,10 @@
 		position: relative;
 		float: left;
 		overflow: hidden;
-		margin: 2%;
-		//min-width: 98%;
-		//max-width: 480px;
+		margin: 1em 2em;
 		max-height: 260px;
-		width: 98%;
+		width: 100%;
 		height: auto;
-		//background: #3085a3;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -136,7 +134,9 @@
 	.grid figure p {
 		margin: 0;
 	}
-	.grid figure p {
+	.grid figure p {h1 {
+			font-size: 2.3rem;
+		}
 		letter-spacing: 1px;
 		font-size: 68.5%;
 	}
@@ -206,32 +206,26 @@
 		-webkit-transform: translate3d(0,0,0);
 		transform: translate3d(0,0,0);
 	}
-	.stories {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.story {
-		margin: 3%;
-		width: 90%;
-	}
-	.stories img {
-		width: 100%;
-		max-width: 270px;
-		max-height: 140px;
-	}
+	
 	/* @MEDIA */
 	@media screen and (min-width: 480px) {
-		h3 {
-			font-size: 2.3rem;
+		.grid figure {
+			width: 70%;
 		}
 	}
-	@media (min-width: 768px){
-		.grid figure{
+	@media (min-width: 650px){
+		.grid {
+			margin: 0.5em 0em;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.grid figure {
 			width: 40%;
 		}
 	}
-	@media (min-width: 1024px){
+	
+	@media (min-width: 1248px){
 		.grid figure {
 			width: 20%;
 		}

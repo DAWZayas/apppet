@@ -63,7 +63,7 @@
   }
   .section {
     text-align: center;
-    padding-top: 5%;
+    padding-top: 3em;
   }
   h1 {
     font-size: 3rem;
@@ -86,14 +86,13 @@
   .card1,
   .card2,
   .card3 {
-    width: 50rem;
+    width: 100%;
     background-size: cover;
     background-position: center;
     background-blend-mode: luminosity;
     color: #fff;
     height: 260px;
     padding-top: 18%;
-    //box-shadow: 5px 7px #f2f2f2;
   }
   .card1 {
     background-image: url(~/assets/stories/d1.jpg);
@@ -110,25 +109,24 @@
 
   @media (min-width: 480px){
     .card1, .card2, .card3 {
-      height: 270px;
-      width: 48rem;
-      padding-top: 15%;
+      height: 280px;
+      padding-top: 8em;
     }
   }
   @media (min-width: 768px){
     .categories{
       width: 100%;
+      justify-content: space-around;
     }
     .card1, .card2, .card3 {
       height: 360px;
-      width: 18rem;
-      padding-top: 15%;
+      width: 33.3%;
+      padding-top: 10em;
     }
   }
   @media (min-width: 1000px){
     .card1, .card2, .card3 {
-      width: 23rem;
-      padding-top: 12%;
+      padding-top: 8em;
     }
     .categories {
       width: 100%;
@@ -137,14 +135,10 @@
   }
   @media (min-width: 1350px){
     .section {
-      padding: 2% 0;
-    }
-    .categories {
-      width: 100%;
+      padding-top: 2em;
     }
     .card1, .card2, .card3 {
-      width: 30rem;
-      padding-top: 10%;
+      padding-top: 12em;
     }
 
   }

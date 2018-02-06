@@ -1,5 +1,6 @@
 <template>
     <v-layout row justify-center>
+      <alert-component :alert="alert"></alert-component>
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-btn dark icon slot="activator" class="ml-5">
           <v-icon color="grey">edit</v-icon>
@@ -27,15 +28,20 @@
         </v-card>
       </v-dialog>
     </v-layout>
-  
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import AlertComponent from '~/components/alerts/AlertComponent'
 export default {
   data () {
     return {
       dialog: false,
-      newDisplayName: ''
+      newDisplayName: '',
+      alert: {
+        text: 'Nombre modificado',
+        color: 'blue-grey darken-2',
+        state: false
+      }
     }
   },
   computed: {
@@ -46,7 +52,11 @@ export default {
     changeDisplayName () {
       this.dialog = false
       this.updateUserName[this.newDisplayName]
+      this.alert.state = true
     }
+  },
+  components: {
+    AlertComponent
   }
 }
 </script>

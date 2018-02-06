@@ -96,19 +96,23 @@
 <script>
 import ChangeDisplayNameComponent from '~/components/profile/changes/ChangeDisplayNameComponent'
 import ChangeEmailComponent from '~/components/profile/changes/ChangeEmailComponent'
+import AlertComponent from '~/components/alerts/AlertComponent'
 import {mapGetters} from 'vuex'
 export default {
-  data: () => ({
-    items: [
-      { title: 'Mis candidatos', click: 'likes' },
-      { title: 'Me gustan', click: 'likes' },
-      { title: 'Ayuda', click: 'likes' },
-      { title: 'Desconectar', click: 'likes' }
-    ]
-  }),
+  data () {
+    return {
+      items: [
+        { title: 'Mis candidatos', click: 'likes' },
+        { title: 'Me gustan', click: 'likes' },
+        { title: 'Ayuda', click: 'likes' },
+        { title: 'Desconectar', click: 'likes' }
+      ]
+    }
+  },
   components: {
     ChangeDisplayNameComponent,
-    ChangeEmailComponent
+    ChangeEmailComponent,
+    AlertComponent
   },
   computed: {
     ...mapGetters({name: 'getDisplayName', photo: 'getPhotoURL', email: 'getEmail'})
@@ -118,7 +122,6 @@ export default {
       this.$refs.inputFile.click()
     },
     likes: function () {
-      console.log('>>>>>')
     }
   }
 }

@@ -1,5 +1,6 @@
 <template>
     <v-layout row justify-center>
+      <alert-component :alert="alert"></alert-component>
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-btn dark icon slot="activator" class="ml-5">
           <v-icon color="grey">edit</v-icon>
@@ -31,11 +32,17 @@
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import AlertComponent from '~/components/alerts/AlertComponent'
 export default {
   data () {
     return {
       dialog: false,
-      newEmail: ''
+      newEmail: '',
+      alert: {
+        text: 'Correo modificado',
+        color: 'blue-grey darken-2',
+        state: false
+      }
     }
   },
   computed: {
@@ -46,7 +53,11 @@ export default {
     changeEmail () {
       this.dialog = false
       this.updateUserEmail[this.newEmail]
+      this.alert.state = true
     }
+  },
+  components: {
+    AlertComponent
   }
 }
 </script>

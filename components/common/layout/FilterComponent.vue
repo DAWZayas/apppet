@@ -1,7 +1,7 @@
 <template>
-  <div fixed class="footer-top hidden-md-and-up">
-    <v-bottom-nav  :value="true"  color="white" :active.sync="e1">
-      <v-btn flat color="teal" value="recent" @click="" class="favorite">
+  <div fixed class="hidden-md-and-up">
+    <v-bottom-nav  :value="true"  color="white" :active.sync="e1" shift>
+      <v-btn flat color="teal" value="recent" @click="">
         <span>Me gustan</span>
         <v-icon>favorite</v-icon>
       </v-btn>
@@ -58,7 +58,4 @@
 </script>
 <style lang="scss" scoped>
 
-.favorite{
-  margin-left: 5px;
-}
 </style>

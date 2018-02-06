@@ -118,7 +118,8 @@
   }
 
   .spinner {
-    margin: 40px auto;
+    margin: auto;
+    padding-top: 1em;
   }
 
   .name-pet {
@@ -371,8 +372,8 @@
       @media screen and (min-width: 800px) {
 
     .favorite-icon {
-      margin-top: -190px;
-      margin-left: 240px;
+      margin-top: -330px;
+      margin-left: 270px;
     }
     .element {
       height: 350px;

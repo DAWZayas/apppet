@@ -164,6 +164,13 @@ export default {
       }
     })
   },
+  petSinglePage ({commit, state}, pet) {
+    let db = firebaseApp.database()
+    let animal = db.ref(`/animals/${pet}`)
+    animal.once('value', function (snapshot) {
+      console.log(snapshot.val())
+    })
+  },
   bindUserData: firebaseAction(({state, dispatch}, {usersRef, id}) => {
     dispatch('bindFirebaseReference', {reference: usersRef.child(id), toBind: 'userData'})
   }),

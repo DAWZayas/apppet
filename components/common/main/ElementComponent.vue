@@ -21,7 +21,7 @@
           <span class="date">{{ animal.date }}</span>
         </div>
       </div>
-      <button class="button-element" :class="!this.owner ? animal.selectAnimalAlert : animal.selectAnimalAlert + ' owner' ">
+      <button class="button-element" :class="!this.owner ? animal.selectAnimalAlert : animal.selectAnimalAlert + ' owner' " @click="petPage">
         <p class="name-pet"> {{ animal.nameAnimal }} </p>
       </button>
     </div>
@@ -82,6 +82,10 @@
         }
       },
       edit () {
+      },
+      petPage () {
+        const key = this.animal['.key']
+        this.$router.push('/pet/' + key)
       }
     }
   }

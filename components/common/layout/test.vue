@@ -1,15 +1,25 @@
 <template>
-  <div @click="pepe">{{this.$route.params.id}}</div>
+  <div>{{ name }}</div>
 </template>
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 export default {
-  methods: {
-    ...mapActions(['petSinglePage']),
-    pepe () {
-      const pet = this.$route.params.id
-      this.petSinglePage(pet)
+  data () {
+    return {
+      name: ''
     }
+  },
+  computed: {
+    ...mapGetters({animal: 'getSingleAnimal'})
+  },
+  methods: {
+    ...mapActions(['petSinglePage'])
+  },
+  created () {
+    this.petSinglePage(this.$route.params.id)
+  },
+  watch: {
+    animal () { this.name = this.animal.nameAnimal }
   }
 }
 </script>

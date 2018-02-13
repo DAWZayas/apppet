@@ -7,5 +7,6 @@ export default {
   getEmail: state => state.email,
   isAuthenticated: state => state.user,
   authError: state => state.authError,
-  getFavorite: state => state.favorite
+  getFavorite: state => state.favorite,
+  getSingleAnimal: state => state.singleAnimal
 }

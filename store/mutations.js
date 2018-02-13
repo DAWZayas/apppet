@@ -19,5 +19,8 @@ export default {
   },
   setFavorite (state, value) {
     state.favorite = value
+  },
+  setSingleAnimal (state, value) {
+    state.singleAnimal = value
   }
 }

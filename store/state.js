@@ -7,6 +7,7 @@ const email = ''
 const noUser = 'Usuario no registrado'
 const userData = null
 const favorite = null
+const singleAnimal = null
 
 export default {
   animals,
@@ -17,5 +18,6 @@ export default {
   noUser,
   email,
   userData,
-  favorite
+  favorite,
+  singleAnimal
 }

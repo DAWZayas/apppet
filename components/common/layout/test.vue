@@ -6,7 +6,8 @@
           :src="photo"
           height="300px"
         >
-          <v-chip class="avatar-owner">
+         <v-btn icon class="left-icon ml-3" right><v-icon color="white">keyboard_arrow_left</v-icon></v-btn>
+          <v-chip class="avatar-owner" disabled>
             <v-avatar>
               <img :src="photo" alt="avatar" class="avatar-border">
             </v-avatar>
@@ -25,15 +26,49 @@
           </div>
         </v-card-title>
         <hr>
-        <v-card-actions>
-          <v-btn flat>Compartir</v-btn>
-          <v-btn flat color="purple">Compartir</v-btn>
-          <v-spacer></v-spacer>
-        </v-card-actions>
-        <hr>
           <v-card-text>
-            Hola
+            <div class="title" >Datos del perro:</div>
+            <v-flex d-flex justify-space-between>
+              <div class="column-1 grey--text">
+                <br>
+                Edad:
+                <br>
+                Sexo:
+                <br>
+                Peso:
+              </div>
+              <div class="column-2 grey--text">
+                <br>
+                <div class="lost" v-if="true">
+                  <p>Hola me llamo *nombreAnimal*  y me he perdido por *lugar* el día *fecha*</p>
+                </div>
+                <div class="adoption" v-if="this.adoption">
+                  Hola me llamo *nombre* y mis dueños me quieren dar en adopción por *motivo*
+                </div>
+                <div class="takecare" v-if="this.takeCare">
+                  Hola me llamo *nombre* y mis dueños buscan a alguien que me cuide por *motivo* los desde *dias antes* hasta *dias despues*
+                </div>                
+              </div>             
+            </v-flex>
           </v-card-text>
+        <hr>
+         <v-card-text>
+          <div class="title" >Datos del dueño/a:</div>
+          <v-flex d-flex justify-space-between>
+            <div class="grey--text">
+              <br>
+              Nombre: *nombre y apellidos*
+              <br>
+              Correo electrónico: *Correo*
+              <br>
+              Teléfono móvil: *telefono*
+            </div>           
+          </v-flex>
+        </v-card-text>
+        <hr>
+        <v-card-actions>
+          <v-btn flat block color="purple">Compartir</v-btn>  
+        </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
@@ -68,6 +103,10 @@ export default {
 
 <style scoped>
 
+.card{
+  border:0;
+}
+
 .layout{
   width: 100%!important;
   margin:0!important;
@@ -77,10 +116,17 @@ export default {
   margin-top: 55px;
 }
 
+.left-icon{
+  margin-top: 10px;
+}
+
+.favorite-icon{
+}
+
 .avatar-owner{
   margin-top: 230px;
   margin-bottom: 30px;
-  margin-left: 20px;
+  margin-left:-20px;
 }
 .avatar-border{
   width: 150%!important;
@@ -99,4 +145,10 @@ hr{
   width: 100%;
 }
 
+.column-1{
+  width: 50%;
+}
+.column-2{
+  width: 50%;
+}
 </style>

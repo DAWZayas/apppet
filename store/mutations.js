@@ -28,5 +28,8 @@ export default {
   },
   setOwnerPhotoURL (state, value) {
     state.ownerPhotoURL = value
+  },
+  setAlert (state, value) {
+    state.alert = value
   }
 }

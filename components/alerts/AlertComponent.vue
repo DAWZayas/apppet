@@ -8,7 +8,7 @@
     
   >
    {{ alert.text }}
-    <v-btn flat color="teal lighten-1" @click.native="snackbar = false">Vale</v-btn>
+    <v-btn flat color="white" @click.native="snackbar = false">Vale</v-btn>
   </v-snackbar>
 </template>
 

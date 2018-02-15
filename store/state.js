@@ -10,6 +10,11 @@ const favorite = null
 const singleAnimal = null
 const ownerDisplayName = null
 const ownerPhotoURL = null
+const alert = {
+  text: '',
+  color: '',
+  state: false
+}
 
 export default {
   animals,
@@ -23,5 +28,6 @@ export default {
   favorite,
   singleAnimal,
   ownerDisplayName,
-  ownerPhotoURL
+  ownerPhotoURL,
+  alert
 }

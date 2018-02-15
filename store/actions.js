@@ -37,15 +37,20 @@ export default {
       commit('setAddAnimal', newAnimal)
     }
   },
+  unSetAddAnimal ({commit, state}, key) {
+    let db = firebaseApp.database()
+    let animals = db.ref('/animals/')
+    animals.child(key).remove()
+  },
   setAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
-    let addFavorites = db.ref(`/users/` + info.userUid + `/favorites`)
-    addFavorites.child(info.key).set(info.ownerUid)
+    let favorites = db.ref(`/users/` + info.userUid + `/favorites`)
+    favorites.child(info.key).set(info.ownerUid)
   },
   unSetAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
-    let addFavorites = db.ref(`/users/` + info.userUid + `/favorites`)
-    addFavorites.child(info.key).remove()
+    let favorites = db.ref(`/users/` + info.userUid + `/favorites`)
+    favorites.child(info.key).remove()
   },
   /**
    * Creates a new user with given email and password and stores it in the firebase database

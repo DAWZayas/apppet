@@ -6,7 +6,7 @@
           :src="photo"
           height="300px"
         >
-        <nuxt-link :to="'../mainpets/' + alert"><v-btn icon class="left-icon"><v-icon color="white">arrow_back</v-icon></v-btn></nuxt-link>
+        <nuxt-link :to="'../mainpets/' + alertAnimal"><v-btn icon class="left-icon"><v-icon color="white">arrow_back</v-icon></v-btn></nuxt-link>
           <v-chip class="avatar-owner" disabled>
             <v-avatar>
               <img :src="ownerPhotoURL" alt="avatar" class="avatar-border">
@@ -21,8 +21,8 @@
         <v-card-title primary-title class="first">
           <div class="d-inline-flex buttons">
             <v-btn small round color="indigo" class="button">Chat</v-btn>
-            <v-btn small round color="green accent-3" class="button">{{  alert === 'adoption' ? '¡Adoptar!': alert === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
-            <v-btn small round color="red darken-4" class="button">Denunciar</v-btn>
+            <v-btn small round color="green accent-3" class="button">{{ alertAnimal === 'adoption' ? '¡Adoptar!': alertAnimal === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
+            <v-btn small round color="red darken-4" class="button" @click="redButton(owner)">{{ owner ? 'Eliminar' : 'Denunciar' }} </v-btn>
           </div>
           <div>
             <div class="headline">{{ nameAnimal }} - {{ typeAnimal }}</div>
@@ -41,13 +41,13 @@
               </div>
               <div class="column-2 grey--text ml-3">
                 <br>
-                <div class="lost" v-if="alert == 'lost'">
+                <div class="lost" v-if="alertAnimal == 'lost'">
                   <p>Hola me llamo <b>{{ nameAnimal }}</b> y me he perdido por <b>{{ lostPlace }}</b> el día <b>{{ lostDate }} </b></p>
                 </div>
-                <div class="adoption" v-if="alert == 'adoption'">
+                <div class="adoption" v-if="alertAnimal == 'adoption'">
                   <p>Hola me llamo <b>{{ nameAnimal }}</b> y mis dueños me quieren dar en adopción por <b>{{ adoptionMotive }}.</b></p>
                 </div>
-                <div class="takecare" v-if="alert == 'takeCare'">
+                <div class="takecare" v-if="alertAnimal == 'takeCare'">
                   <p>Hola me llamo <b>{{ nameAnimal }}</b> y mis dueños buscan a alguien que me cuide por <b>{{ takeCareMotive }}</b> los desde <b>{{ takeCareSince }}</b> hasta <b>{{ takeCareUntil }}</b></p>
                 </div>                
               </div>             
@@ -76,7 +76,7 @@
   </v-layout>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapActions, mapGetters, mapMutations} from 'vuex'
 export default {
   data () {
     return {
@@ -86,7 +86,7 @@ export default {
       datePublication: '',
       age: '',
       sex: '',
-      alert: '',
+      alertAnimal: '',
       lostPlace: '',
       lostDate: '',
       adoptionMotive: '',
@@ -101,14 +101,27 @@ export default {
       owner: false,
       ownerUid: '',
       animalKey: this.$route.params.id,
-      heart: false
+      heart: false,
+      alert: {
+        text: '',
+        color: '',
+        state: true
+      }
+    }
+  },
+  mounted () {
+    if (this.favorites != null) {
+      if (this.favorites[this.animalKey]) {
+        this.heart = true
+      }
     }
   },
   computed: {
     ...mapGetters({animal: 'getSingleAnimal', ownerDisplayName: 'getOwnerDisplayName', ownerPhotoURL: 'getOwnerPhotoURL', favorites: 'getFavorite', user: 'getUser'})
   },
   methods: {
-    ...mapActions(['petSinglePage', 'setAddFavorite', 'unSetAddFavorite']),
+    ...mapActions(['petSinglePage', 'setAddFavorite', 'unSetAddFavorite', 'unSetAddAnimal']),
+    ...mapMutations(['setAlert']),
     favorite () {
       this.heart = !this.heart
       if (this.heart) {
@@ -126,6 +139,16 @@ export default {
         }
         this.unSetAddFavorite(info)
       }
+    },
+    redButton (owner) {
+      if (owner) {
+        this.alert.text = 'Publicación elminada'
+        this.alert.color = 'red lighten-1'
+        this.alert.state = true
+        this.setAlert(this.alert)
+        this.$router.push('../mainpets/' + this.alertAnimal)
+        this.unSetAddAnimal(this.animalKey)
+      }
     }
   },
   created () {
@@ -139,7 +162,7 @@ export default {
       this.datePublication = this.animal.date
       this.age = this.animal.animalAge
       this.sex = this.animal.checkSexo
-      this.alert = this.animal.selectAnimalAlert
+      this.alertAnimal = this.animal.selectAnimalAlert
       this.lostPlace = this.animal.placeMissingAnimal
       this.lostDate = this.animal.dateMissingAnimal
       this.adoptionMotive = this.animal.motiveAdoptionAnimal
@@ -151,13 +174,6 @@ export default {
       this.email = this.animal.email
       this.mobile = this.animal.movil
       this.ownerUid = this.animal.userUid
-    },
-    favoriteLoad () {
-      if (this.favorites != null) {
-        if (this.favorites[this.animalKey]) {
-          this.heart = true
-        }
-      }
       if (this.ownerUid === this.user.uid) {
         this.owner = true
       }

@@ -10,5 +10,6 @@ export default {
   getFavorite: state => state.favorite,
   getSingleAnimal: state => state.singleAnimal,
   getOwnerDisplayName: state => state.ownerDisplayName,
-  getOwnerPhotoURL: state => state.ownerPhotoURL
+  getOwnerPhotoURL: state => state.ownerPhotoURL,
+  getAlert: state => state.alert
 }

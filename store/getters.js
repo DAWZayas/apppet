@@ -8,5 +8,7 @@ export default {
   isAuthenticated: state => state.user,
   authError: state => state.authError,
   getFavorite: state => state.favorite,
-  getSingleAnimal: state => state.singleAnimal
+  getSingleAnimal: state => state.singleAnimal,
+  getOwnerDisplayName: state => state.ownerDisplayName,
+  getOwnerPhotoURL: state => state.ownerPhotoURL
 }

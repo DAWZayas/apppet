@@ -156,6 +156,8 @@ export default {
         dispatch('bindFirebaseReferences', user)
         dispatch('bindUserData', {usersRef, id})
         usersRef.child(user.uid).child('exist').set(true)
+        usersRef.child(user.uid).child('displayName').set(user.displayName)
+        usersRef.child(user.uid).child('photoUrl').set(user.photoURL)
       }
       if (!user) {
     /*  dispatch('unbindFirebaseReferences') */
@@ -169,6 +171,11 @@ export default {
     let animal = db.ref(`/animals/${pet}`)
     animal.on('value', function (snapshot) {
       commit('setSingleAnimal', snapshot.val())
+      let owner = db.ref(`users/${snapshot.val().userUid}`)
+      owner.on('value', function (snapshot) {
+        commit('setOwnerDisplayName', snapshot.val().displayName)
+        commit('setOwnerPhotoURL', snapshot.val().photoUrl)
+      })
     })
   },
   bindUserData: firebaseAction(({state, dispatch}, {usersRef, id}) => {

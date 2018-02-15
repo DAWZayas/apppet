@@ -22,5 +22,11 @@ export default {
   },
   setSingleAnimal (state, value) {
     state.singleAnimal = value
+  },
+  setOwnerDisplayName (state, value) {
+    state.ownerDisplayName = value
+  },
+  setOwnerPhotoURL (state, value) {
+    state.ownerPhotoURL = value
   }
 }

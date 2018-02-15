@@ -1,6 +1,6 @@
 <template>
   <div>
-   <v-toolbar fixed scroll-off-screen dark color="teal lighten-2">
+   <v-toolbar fixed dark color="teal lighten-2">
       <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
        <v-spacer></v-spacer>
       <nuxt-link to="/apppet/" class="logo">

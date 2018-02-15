@@ -4,7 +4,7 @@
     <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
     <div>
       <div class="favorite-icon">
-        <v-btn v-if="!owner" flat icon color="red" class="button-favorite" @click="favorite">
+        <v-btn v-if="!owner" flat icon :color="this.heart ? 'red' : 'white'" class="button-favorite" @click="favorite">
           <v-icon :class="'favorite-' + this.heart">{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
         </v-btn>
         <v-btn v-else flat icon color="light-blue" class="button-favorite" @click="edit">
@@ -99,6 +99,7 @@
 
   .favorite-true {
     font-size: 1.9rem;
+    color:red;
   }
 
   .element {

@@ -1,7 +1,8 @@
 <template>
   <div class="element">
+    <over-element-component v-if="dialog" :animal="animal" :dialog="dialog" :owner="owner" :heart="heart"></over-element-component>
     <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey" class="spinner"></v-progress-circular>
-    <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]">
+    <img v-show="loadedWorkoutImage" @load="handleLoadedImage" :src="animal.animalPhoto ? animal.animalPhoto[0] : img[this.images]"  @click="petPage" id="imagen" @contextmenu="openModal">
     <div>
       <div class="favorite-icon">
         <v-btn v-if="!owner" flat icon :color="this.heart ? 'red' : 'white'" class="button-favorite" @click="favorite">
@@ -29,6 +30,7 @@
 </template>
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import OverElementComponent from '~/components/common/main/OverElementComponent'
   export default {
     mounted () {
       if (this.favorites != null) {
@@ -47,7 +49,8 @@
         loadingWorkoutImage: true,
         loadedWorkoutImage: false,
         heart: false,
-        owner: false
+        owner: false,
+        dialog: false
       }
     },
     computed: {
@@ -86,7 +89,18 @@
       petPage () {
         const key = this.animal['.key']
         this.$router.push('/pet/' + key)
+      },
+      openModal () {
+        this.dialog = true
+        document.addEventListener('touchend', this.closeModal)
+      },
+      closeModal () {
+        this.dialog = false
+        document.removeEventListener('touchend', this.closeModal)
       }
+    },
+    components: {
+      OverElementComponent
     }
   }
 </script>
@@ -99,7 +113,6 @@
 
   .favorite-true {
     font-size: 1.9rem;
-    color:red;
   }
 
   .element {
@@ -258,6 +271,7 @@
     background-color: #75ccb9;
   }
 
+  
 
   /* Mobile */
     @media screen and (min-width: 375px) {

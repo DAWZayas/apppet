@@ -6,10 +6,10 @@
           :src="photo"
           height="300px"
         >
-        <nuxt-link :to="'../mainpets/' + alertAnimal"><v-btn icon class="left-icon"><v-icon color="white">arrow_back</v-icon></v-btn></nuxt-link>
+        <v-btn icon class="left-icon" @click="goBack"><v-icon color="white">arrow_back</v-icon></v-btn>
           <v-chip class="avatar-owner" disabled>
             <v-avatar>
-              <img :src="ownerPhotoURL" alt="avatar" class="avatar-border">
+              <img :src="ownerPhotoURL" alt="avatar" class="avatar-border" >
             </v-avatar>
             <span class="black--text">{{ownerDisplayName}}</span>
           </v-chip>
@@ -120,7 +120,7 @@ export default {
     ...mapGetters({animal: 'getSingleAnimal', ownerDisplayName: 'getOwnerDisplayName', ownerPhotoURL: 'getOwnerPhotoURL', favorites: 'getFavorite', user: 'getUser'})
   },
   methods: {
-    ...mapActions(['petSinglePage', 'setAddFavorite', 'unSetAddFavorite', 'unSetAddAnimal']),
+    ...mapActions(['setInfoSingleAnimal', 'setAddFavorite', 'unSetAddFavorite', 'unSetAddAnimal']),
     ...mapMutations(['setAlert']),
     favorite () {
       this.heart = !this.heart
@@ -149,10 +149,13 @@ export default {
         this.$router.push('../mainpets/' + this.alertAnimal)
         this.unSetAddAnimal(this.animalKey)
       }
+    },
+    goBack () {
+      this.$router.push('../mainpets/' + this.alertAnimal)
     }
   },
   created () {
-    this.petSinglePage(this.$route.params.id)
+    this.setInfoSingleAnimal(this.$route.params.id)
   },
   watch: {
     animal () {

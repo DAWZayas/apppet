@@ -171,7 +171,7 @@ export default {
       }
     })
   },
-  petSinglePage ({commit, state}, pet) {
+  setInfoSingleAnimal ({commit, state}, pet) {
     let db = firebaseApp.database()
     let animal = db.ref(`/animals/${pet}`)
     animal.on('value', function (snapshot) {

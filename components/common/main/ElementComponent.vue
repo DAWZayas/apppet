@@ -92,7 +92,7 @@
       },
       openModal () {
         this.dialog = true
-        document.addEventListener('contextmenu', event => event.preventDefault())        
+        document.addEventListener('contextmenu', event => event.preventDefault())
         document.addEventListener('touchend', this.closeModal)
       },
       closeModal () {

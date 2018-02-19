@@ -19,7 +19,7 @@
 <style lang="scss" scoped>
   .button-desktop {
     position: fixed;
-    bottom: 4.5em;
+    bottom: 1.5em;
     right: 6em;
     border: none;
   }

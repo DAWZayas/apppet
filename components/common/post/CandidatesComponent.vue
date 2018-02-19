@@ -1,18 +1,18 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component 
+			<element-pets-component 
         v-for="animal in animals"
         v-if="user.uid == animal.userUid" 
         :animal="animal"
         :key="animal.name"
-      ></element-component>
+      ></element-pets-component>
 		</section>
  	</div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import ElementComponent from '~/components/common/main/ElementComponent'
+  import ElementPetsComponent from '~/components/common/element/ElementPetsComponent'
   export default {
     computed: {
       ...mapGetters({animals: 'getAnimals', user: 'getUser'})
@@ -22,7 +22,7 @@
       }
     },
     components: {
-      ElementComponent
+      ElementPetsComponent
     }
   }
 </script>

@@ -1,22 +1,19 @@
 <template>
   <div>
     <header-component></header-component>
-    <candidates-component></candidates-component>
-    <button-add-component></button-add-component>
+    <New-post-component></New-post-component>
   </div>
 </template>
 <script>
   import { HeaderComponent } from '~/components/common/layout'
-  import { CandidatesComponent } from '~/components/common/post'
-  import ButtonAddComponent from '~/components/common/buttons/ButtonAddComponent'
+  import { NewPostComponent } from '~/components/common/addPost'
   export default {
     data () {
       return {}
     },
     components: {
       HeaderComponent,
-      CandidatesComponent,
-      ButtonAddComponent
+      NewPostComponent
     }
   }
 </script>

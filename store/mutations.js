@@ -2,6 +2,9 @@ export default {
   setAddAnimal (state, newAnimal) {
     state.animals.push(newAnimal)
   },
+  setAddPost (state, newPost) {
+    state.notes.push(newPost)
+  },
   setAnimalsRef (state, value) {
     state.animalsRef = value
   },

@@ -1,7 +1,7 @@
 <template>
-  <nuxt-link to="/addpet/">
+  <nuxt-link to="/addpost/">
     <button class="mdc-fab material-icons app-fab--absolute" aria-label="Favorite">
-      <span class="mdc-fab__icon">add</span>
+      <span class="mdc-fab__icon">note_add</span>
     </button>
   </nuxt-link>
 </template>

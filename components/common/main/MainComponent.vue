@@ -1,11 +1,11 @@
 <template>
 	<div class="main">
 		<section class="main-elements">
-			<element-component
+			<element-pets-component
         v-for="(animal, index) in animalsDisplayPaginated"
         :animal="animal"
         :key="index"
-      ></element-component>
+      ></element-pets-component>
     </section>
     <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore" class="load-more"></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
@@ -13,7 +13,7 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import ElementComponent from '~/components/common/main/ElementComponent'
+  import ElementPetsComponent from '~/components/common/element/ElementPetsComponent'
   import ButtonShowCandidatesComponent from '~/components/common/buttons/ButtonShowCandidatesComponent'
   import ButtonPaginationComponent from '~/components/common/buttons/ButtonPaginationComponent'
   export default {
@@ -24,7 +24,7 @@
       }
     },
     components: {
-      ElementComponent,
+      ElementPetsComponent,
       ButtonShowCandidatesComponent,
       ButtonPaginationComponent
     },

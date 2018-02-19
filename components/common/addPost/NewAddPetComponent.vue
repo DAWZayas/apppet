@@ -1,92 +1,92 @@
 <template>
-<div>
-  <v-stepper v-model="e1">
-      <v-stepper-header>
-        <v-stepper-step step="1" :complete="e1 > 1">Datos personales 1</v-stepper-step>
-        <v-divider></v-divider>
-        <v-stepper-step step="2" :complete="e1 > 2">Datos del animal 2</v-stepper-step>
-        <v-divider></v-divider>
-        <v-stepper-step step="3">Tipo de alerta 3</v-stepper-step>
-      </v-stepper-header>
-      <v-stepper-items>
-        <v-stepper-content step="1">
-          <span class="form-title"> Datos personales </span>
-            <v-form v-model="valid">
-              <v-text-field
-                label="Nombre"
-                v-model="namePerson"
-                :rules="nameRules"
-                :counter="10"
-                required
-              ></v-text-field>
-              <v-text-field
-                label="Apellidos"
-                v-model="lastnamePerson"
-                :rules="nameRules"
-                :counter="20"
-                required
-              ></v-text-field>
+  <div>
+    <v-stepper v-model="e1">
+        <v-stepper-header>
+          <v-stepper-step step="1" :complete="e1 > 1">Datos personales 1</v-stepper-step>
+          <v-divider></v-divider>
+          <v-stepper-step step="2" :complete="e1 > 2">Datos del animal 2</v-stepper-step>
+          <v-divider></v-divider>
+          <v-stepper-step step="3">Tipo de alerta 3</v-stepper-step>
+        </v-stepper-header>
+        <v-stepper-items>
+          <v-stepper-content step="1">
+            <span class="form-title"> Datos personales </span>
+              <v-form v-model="valid">
                 <v-text-field
-                :label="user.email"
-                disabled
-                v-model="email"
-                :rules="emailRules"
-                required
-                :value="user.email"
-              ></v-text-field>
-              <v-text-field
-                label="Teléfono móvil"
-                v-model="movil"
-                :rules="emailRules"
-                required
-              ></v-text-field>
-            </v-form>      
-          <v-btn color="primary"  @click.native="e1 = 2">Siguiente</v-btn>
-          <v-btn flat @click="onClick()">Cancelar</v-btn>
-        </v-stepper-content>
-        <v-stepper-content step="2">
-          <span class="form-title"> Datos del animal:</span>
-            <v-form v-model="valid">
-              <v-text-field
-                label="Nombre de la mascota"
-                v-model="nameAnimal"
-                :rules="nameRules"
-                :counter="10"
-                required
-              ></v-text-field>
-              <v-layout row wrap>
+                  label="Nombre"
+                  v-model="namePerson"
+                  :rules="nameRules"
+                  :counter="10"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  label="Apellidos"
+                  v-model="lastnamePerson"
+                  :rules="nameRules"
+                  :counter="20"
+                  required
+                ></v-text-field>
+                  <v-text-field
+                  :label="user.email"
+                  disabled
+                  v-model="email"
+                  :rules="emailRules"
+                  required
+                  :value="user.email"
+                ></v-text-field>
+                <v-text-field
+                  label="Teléfono móvil"
+                  v-model="movil"
+                  :rules="emailRules"
+                  required
+                ></v-text-field>
+              </v-form>      
+            <v-btn color="primary"  @click.native="e1 = 2">Siguiente</v-btn>
+            <v-btn flat @click="onClick()">Cancelar</v-btn>
+          </v-stepper-content>
+          <v-stepper-content step="2">
+            <span class="form-title"> Datos del animal:</span>
+              <v-form v-model="valid">
+                <v-text-field
+                  label="Nombre de la mascota"
+                  v-model="nameAnimal"
+                  :rules="nameRules"
+                  :counter="10"
+                  required
+                ></v-text-field>
+                <v-layout row wrap>
+                  <v-flex xs6>
+                    <v-subheader>Tipo de mascota:</v-subheader>
+                  </v-flex>
+                  <v-flex xs6>
+                    <v-select
+                      v-bind:items="selectTypeAnimal"
+                      v-model="typeAnimal"
+                      label="Selecciona"
+                      single-line
+                      bottom
+                  ></v-select>
+                </v-flex>
                 <v-flex xs6>
-                  <v-subheader>Tipo de mascota:</v-subheader>
+                  <v-subheader>Edad de la mascota</v-subheader>
                 </v-flex>
                 <v-flex xs6>
                   <v-select
-                    v-bind:items="selectTypeAnimal"
-                    v-model="typeAnimal"
+                    v-bind:items="selectAnimalAge"
+                    v-model="animalAge"
                     label="Selecciona"
                     single-line
                     bottom
                 ></v-select>
-              </v-flex>
-              <v-flex xs6>
-                <v-subheader>Edad de la mascota</v-subheader>
-              </v-flex>
-              <v-flex xs6>
-                <v-select
-                  v-bind:items="selectAnimalAge"
-                  v-model="animalAge"
-                  label="Selecciona"
-                  single-line
-                  bottom
-              ></v-select>
-              </v-flex>
-            </v-layout>
-             <v-flex xs6 >
-                  <v-subheader class="genero-l">Género mascota:</v-subheader>
                 </v-flex>
-            <div class="genero">
-              <div class="genero-p"><label for="one" class="form-span"> Hembra </label> <v-checkbox name="genderrr" value="female" v-model="checkSexo" id="one"></v-checkbox></div>
-              <div class="genero-p"><label for="two" class="form-span"> Macho </label> <v-checkbox  name="gender" value="male" v-model="checkSexo" id="two"></v-checkbox></div>
-            </div>
+              </v-layout>
+              <v-flex xs6 >
+                    <v-subheader class="genero-l">Género mascota:</v-subheader>
+                  </v-flex>
+              <div class="genero">
+                <div class="genero-p"><label for="one" class="form-span"> Hembra </label> <v-checkbox name="genderrr" value="female" v-model="checkSexo" id="one"></v-checkbox></div>
+                <div class="genero-p"><label for="two" class="form-span"> Macho </label> <v-checkbox  name="gender" value="male" v-model="checkSexo" id="two"></v-checkbox></div>
+              </div>
               <div class="image-box">
                   <v-subheader class="image-box-subheader m-auto p-0">Imagen de la mascota:</v-subheader>                
                 <div>
@@ -94,147 +94,147 @@
                   <v-btn color="primary" @click="inputFile">Subir</v-btn>
                 </div>
               </div>
-          </v-form> 
-          <v-btn color="primary" @click.native="e1 = 3">Siguiente</v-btn>
-          <v-btn flat @click.native="e1 = 1">Atrás</v-btn>
-        </v-stepper-content>
-        <v-stepper-content step="3">
-          <span class="form-title"> Otros datos </span>
-          <v-layout row wrap>
-            <v-flex xs6>
-              <v-subheader>Tipo de alerta:</v-subheader>
-            </v-flex>
-            <v-flex xs6>
-              <v-select
-                v-bind:items="typeAnimalsAlert"
-                v-model="selectAnimalAlert"
-                label="Selecciona"
-                single-line
-                bottom
-              ></v-select>
-            </v-flex>
-            <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
-              <v-subheader>Lugar perdida:</v-subheader>
-            </v-flex>
+            </v-form> 
+            <v-btn color="primary" @click.native="e1 = 3">Siguiente</v-btn>
+            <v-btn flat @click.native="e1 = 1">Atrás</v-btn>
+          </v-stepper-content>
+          <v-stepper-content step="3">
+            <span class="form-title"> Otros datos </span>
+            <v-layout row wrap>
+              <v-flex xs6>
+                <v-subheader>Tipo de alerta:</v-subheader>
+              </v-flex>
+              <v-flex xs6>
+                <v-select
+                  v-bind:items="typeAnimalsAlert"
+                  v-model="selectAnimalAlert"
+                  label="Selecciona"
+                  single-line
+                  bottom
+                ></v-select>
+              </v-flex>
               <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
-                <v-text-field
-                label="Lugar desaparecido"
-                v-model="placeMissingAnimal"
-                :rules="nameRules"
-                :counter="10"
-                required
-              ></v-text-field>
+                <v-subheader>Lugar perdida:</v-subheader>
               </v-flex>
-               <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
-              <v-subheader>Fecha perdida:</v-subheader>
-            </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
-                 <v-menu
-        lazy
-        :close-on-content-click="false"
-        v-model="menu"
-        transition="scale-transition"
-        offset-y
-        full-width
-        :nudge-right="40"
-        max-width="290px"
-        min-width="290px"
-      >
-        <v-text-field
-          slot="activator"
-          label="Picker in menu"
-          v-model="dateMissingAnimal"
-          prepend-icon="event"
-          readonly
-        ></v-text-field>
-        <v-date-picker v-model="dateMissingAnimal" no-title scrollable actions autosave>
-        </v-date-picker>
-      </v-menu>
+                <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+                  <v-text-field
+                  label="Lugar desaparecido"
+                  v-model="placeMissingAnimal"
+                  :rules="nameRules"
+                  :counter="10"
+                  required
+                ></v-text-field>
+                </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+                <v-subheader>Fecha perdida:</v-subheader>
               </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
-              <v-subheader>Motivo:</v-subheader>
-            </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
-                <v-text-field
-                label="Motivo:"
-                v-model="motiveAdoptionAnimal"
-                :rules="nameRules"
-                :counter="10"
-                required
-              ></v-text-field>
+                <v-flex xs6 v-if="selectAnimalAlert === 'lost'">
+                  <v-menu
+          lazy
+          :close-on-content-click="false"
+          v-model="menu"
+          transition="scale-transition"
+          offset-y
+          full-width
+          :nudge-right="40"
+          max-width="290px"
+          min-width="290px"
+        >
+          <v-text-field
+            slot="activator"
+            label="Picker in menu"
+            v-model="dateMissingAnimal"
+            prepend-icon="event"
+            readonly
+          ></v-text-field>
+          <v-date-picker v-model="dateMissingAnimal" no-title scrollable actions autosave>
+          </v-date-picker>
+        </v-menu>
+                </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
+                <v-subheader>Motivo:</v-subheader>
               </v-flex>
-               <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-              <v-subheader>Motivo:</v-subheader>
-            </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-                <v-text-field
-                label="Motivo:"
-                v-model="motiveTakeCareAnimal"
-                :rules="nameRules"
-                :counter="10"
-                required
-              ></v-text-field>
+                <v-flex xs6 v-if="selectAnimalAlert === 'adoption'">
+                  <v-text-field
+                  label="Motivo:"
+                  v-model="motiveAdoptionAnimal"
+                  :rules="nameRules"
+                  :counter="10"
+                  required
+                ></v-text-field>
+                </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                <v-subheader>Motivo:</v-subheader>
+              </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                  <v-text-field
+                  label="Motivo:"
+                  v-model="motiveTakeCareAnimal"
+                  :rules="nameRules"
+                  :counter="10"
+                  required
+                ></v-text-field>
 
+                </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                <v-subheader>Desde:</v-subheader>
               </v-flex>
-               <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-              <v-subheader>Desde:</v-subheader>
-            </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-                 <v-menu
-        lazy
-        :close-on-content-click="false"
-        v-model="menuSince"
-        transition="scale-transition"
-        offset-y
-        full-width
-        :nudge-right="40"
-        max-width="290px"
-        min-width="290px"
-      >
-        <v-text-field
-          slot="activator"
-          label="Picker in menu"
-          v-model="sinceDateAnimal"
-          prepend-icon="event"
-          readonly
-        ></v-text-field>
-        <v-date-picker v-model="sinceDateAnimal" no-title scrollable actions autosave>
-        </v-date-picker>
-      </v-menu>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                  <v-menu
+          lazy
+          :close-on-content-click="false"
+          v-model="menuSince"
+          transition="scale-transition"
+          offset-y
+          full-width
+          :nudge-right="40"
+          max-width="290px"
+          min-width="290px"
+        >
+          <v-text-field
+            slot="activator"
+            label="Picker in menu"
+            v-model="sinceDateAnimal"
+            prepend-icon="event"
+            readonly
+          ></v-text-field>
+          <v-date-picker v-model="sinceDateAnimal" no-title scrollable actions autosave>
+          </v-date-picker>
+        </v-menu>
+                </v-flex>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                <v-subheader>Hasta:</v-subheader>
               </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-              <v-subheader>Hasta:</v-subheader>
-            </v-flex>
-              <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
-                 <v-menu
-        lazy
-        :close-on-content-click="false"
-        v-model="menuUntil"
-        transition="scale-transition"
-        offset-y
-        full-width
-        :nudge-right="40"
-        max-width="290px"
-        min-width="290px"
-      >
-        <v-text-field
-          slot="activator"
-          label="Picker in menu"
-          v-model="untilDateAnimal"
-          prepend-icon="event"
-          readonly
-        ></v-text-field>
-        <v-date-picker v-model="untilDateAnimal" no-title scrollable actions autosave>
-        </v-date-picker>
-      </v-menu>
-              </v-flex>
-          </v-layout>
-          <nuxt-link to="/candidates"><v-btn color="primary"  @click="addAnimal">Enviar</v-btn></nuxt-link>
-          <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
-        </v-stepper-content>
-      </v-stepper-items>
-    </v-stepper>
-</div>
+                <v-flex xs6 v-if="selectAnimalAlert === 'takeCare'">
+                  <v-menu
+          lazy
+          :close-on-content-click="false"
+          v-model="menuUntil"
+          transition="scale-transition"
+          offset-y
+          full-width
+          :nudge-right="40"
+          max-width="290px"
+          min-width="290px"
+        >
+          <v-text-field
+            slot="activator"
+            label="Picker in menu"
+            v-model="untilDateAnimal"
+            prepend-icon="event"
+            readonly
+          ></v-text-field>
+          <v-date-picker v-model="untilDateAnimal" no-title scrollable actions autosave>
+          </v-date-picker>
+        </v-menu>
+                </v-flex>
+            </v-layout>
+            <nuxt-link to="/candidates"><v-btn color="primary"  @click="addAnimal">Enviar</v-btn></nuxt-link>
+            <v-btn flat @click.native="e1 = 2">Atrás</v-btn>
+          </v-stepper-content>
+        </v-stepper-items>
+      </v-stepper>
+  </div>
 </template>
 <script>
   import {mapGetters, mapActions} from 'vuex'
@@ -293,7 +293,7 @@
       }
     },
     computed: {
-      ...mapGetters({ animals: 'getAnimals', user: 'getUser' })
+      ...mapGetters({ user: 'getUser' })
     },
     mounted: function () {
       this.$nextTick(function () {
@@ -379,40 +379,40 @@
   }
 </script>
 <style lang="scss" scoped>
-  .stepper{
+  .stepper {
     margin-top: 56px;
     z-index: 0;
   }
-  .input-group{
+  .input-group {
     width: 90%;
     text-align: center;
   }
-  .form-title{
+  .form-title {
     color: rgba(0,0,0,.54);
     font-size: 20px;
   }
-  .form-span{
+  .form-span {
     color: rgba(0,0,0,.54);
     font-size: 14px;
   }
-  .genero{
+  .genero {
     display: flex;
   }
-  .genero-p{
+  .genero-p {
     margin: 0 auto;
   }
-  .genero-l{
+  .genero-l {
     padding: 0;
   }
-  .image-box{
+  .image-box {
     display: flex;
+    padding-bottom: 1em;
   }
-  .image-box-subheader{
+  .image-box-subheader {
     width: 100%;
-    
   }
   @media screen and (min-width: 800px) {
-    .stepper{
+    .stepper {
       width: 50%;
       margin: 0 auto;
       margin-top: 100px;

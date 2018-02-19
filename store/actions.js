@@ -42,6 +42,11 @@ export default {
     let animals = db.ref('/animals/')
     animals.child(key).remove()
   },
+  setAddPost ({commit, state}, newPost) {
+    let db = firebaseApp.database()
+    let notes = db.ref(`/notes`)
+    notes.push(newPost)
+  },
   setAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
     let favorites = db.ref(`/users/` + info.userUid + `/favorites`)

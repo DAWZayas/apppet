@@ -14,7 +14,7 @@
         <nuxt-link class="menu-link" to="../apppet"> Inicio </nuxt-link>
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> Candidatos </nuxt-link>
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" > Favoritos </nuxt-link>
-        <nuxt-link class="menu-link" to=""> Notas </nuxt-link>
+        <nuxt-link class="menu-link" to="../notes"> Notas </nuxt-link>
         <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)"> Salir </span>
         <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
         <v-list-tile-avatar >
@@ -88,9 +88,9 @@
         drawer: null,
         items: [
           { title: 'Inicio', icon: 'dashboard', methods: 'home' },
-          { title: 'Candidatos', icon: 'pets', methods: 'candidate' },
+          { title: 'Candidatos', icon: 'pets', methods: 'candidates' },
           { title: 'Favoritos', icon: 'favorite', methods: '' },
-          { title: 'Notas', icon: 'question_answer', methods: '' },
+          { title: 'Notas', icon: 'question_answer', methods: 'notes' },
           { title: 'Busqueda', icon: 'search', methods: '' }
         ],
         out: { title: 'Salir', icon: 'close', methods: 'logout' },
@@ -109,8 +109,11 @@
         if (f === 'home') {
           this.$router.push('/apppet')
         }
-        if (f === 'candidate') {
+        if (f === 'candidates') {
           this.$router.push('/candidates')
+        }
+        if (f === 'notes') {
+          this.$router.push('/notes')
         }
       }
     }

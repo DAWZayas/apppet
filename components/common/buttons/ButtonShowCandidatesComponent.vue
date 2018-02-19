@@ -70,7 +70,7 @@
   #create .speed-dial {
     display: inline;
     position: fixed;
-    bottom: 4.5em;
+    bottom: 1.5em;
     right: 1.5em;
     color: white;
   }

@@ -20,7 +20,8 @@
     data () {
       return {
         pageSize: 6,
-        actualAnimalsSize: 6
+        actualAnimalsSize: 6,
+        heart: false
       }
     },
     components: {
@@ -28,8 +29,13 @@
       ButtonShowCandidatesComponent,
       ButtonPaginationComponent
     },
+    mounted () {
+    },
     computed: {
-      ...mapGetters({ animals: 'getAnimals' }),
+      ...mapGetters({
+        animals: 'getAnimals',
+        favorites: 'getFavorite'
+      }),
       animalsDisplayPaginated () {
         return this.animals.filter(this.typeOfAlert).slice(0, this.actualAnimalsSize)
       },
@@ -42,7 +48,9 @@
         this.actualAnimalsSize = this.actualAnimalsSize + this.pageSize
       },
       typeOfAlert (f) {
-        if (f.selectAnimalAlert === this.$route.params.catagory || this.$route.params.catagory === undefined) {
+        if (this.$route.params.catagory === 'favorites' && this.favorites != null && this.favorites[f['.key']]) {
+          return true
+        } else if (f.selectAnimalAlert === this.$route.params.catagory || this.$route.params.catagory === undefined) {
           return true
         } else {
           return false

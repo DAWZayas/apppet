@@ -7,7 +7,7 @@
             </v-avatar>
             <span class="title white--text">{{ ownerDisplayName }}</span>
             <v-spacer></v-spacer>
-            <v-btn v-if="!owner" flat icon color="white" class="button-favorite" @click="favorite">
+            <v-btn v-if="!owner" flat icon color="white" class="button-favorite">
               <v-icon :class="'favorite-' + this.heart">{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
             </v-btn>
               </v-card-actions>

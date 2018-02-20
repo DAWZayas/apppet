@@ -158,6 +158,10 @@ export default {
         addFavorites.on('value', function (snapshot) {
           commit('setFavorite', snapshot.val())
         })
+        let notes = db.ref(`/notes`)
+        notes.on(`value`, function (snapshot) {
+          commit(`setNotes`, snapshot.val())
+        })
         if (!user.displayName) {
           dispatch('updateUserNameFirst', displayName)
         }

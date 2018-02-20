@@ -1,5 +1,6 @@
 export default {
   getAnimals: state => state.animals,
+  getNotes: state => state.notes,
   getImages: state => state.images,
   getUser: state => state.user,
   getDisplayName: state => state.user ? state.displayName : state.noUser,

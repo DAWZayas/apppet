@@ -172,24 +172,24 @@
     display: flex;
   }
 
-  .date, .ubication{
+  .date, .ubication {
     width: 50%;
     justify-content: center;
   }
 
-  .ubication{
+  .ubication {
     padding-left: 1em;
   }
 
-  .date{
+  .date {
     padding-left: 3.5em;
   }
 
-  .background-none{
+  .background-none {
     background-color: rgba(220, 220, 220, 0.5);
   }
 
-  .icons-info{
+  .icons-info {
     display: flex;
   }
 
@@ -202,7 +202,7 @@
     color: #75ccb9;
   }
 
-  .lost-data{
+  .lost-data {
     color: #FA5858;
   }
 

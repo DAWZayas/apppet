@@ -3,7 +3,7 @@
     <v-stepper v-model="e13" vertical>
       <v-stepper-step step="1" complete> Datos </v-stepper-step>
       <v-stepper-content step="1">
-        <span class="form-title"> Escribe los datos </span>
+        <span class="form-title"> Rellena los campos </span>
         <v-form v-model="valid">
           <v-text-field
             :label="user.email"
@@ -23,24 +23,55 @@
           <v-text-field
             label="Teléfono móvil"
             v-model="movil"
-            required
           ></v-text-field>
+          <div class="image-box">
+            <v-subheader class="image-box-subheader m-auto p-0">Imagen:</v-subheader>                
+            <div>
+              <input class="d-none" type="file" ref="inputFile" value="0" @change="filesChange($event.target.files)">
+              <v-btn color="primary" @click="inputFile">Subir</v-btn>
+            </div>
+          </div>
         </v-form>      
         <v-btn color="primary"  @click.native="e13 = 2"> Siguiente </v-btn>
         <v-btn flat @click="onClick()"> Cancelar </v-btn>
       </v-stepper-content>
       <v-stepper-step step="2" complete> Información </v-stepper-step>
       <v-stepper-content step="2">
-        <span class="form-title"> Escribe la información </span>
+        <span class="form-title"> Escoge tu fondo del post </span>
+        <v-flex xs12 sm5 md5 class="colors">
+          <v-switch 
+            label="blue-grey"
+            v-model="bgColor"
+            color="blue-grey darken-2"
+            value="blue-grey darken-2"
+            hide-details
+          ></v-switch>
+          <v-switch 
+            label="cyan"
+            v-model="bgColor"
+            color="cyan darken-2"
+            value="cyan darken-2"
+            hide-details
+          ></v-switch>
+          <v-switch 
+            label="purple"
+            v-model="bgColor"
+            color="purple"
+            value="purple"
+            hide-details
+            ></v-switch>
+        </v-flex>
         <v-form v-model="valid">
             <v-text-field
-            label="Post"
+            label="Escribe..."
             v-model="textPost"
+            :counter="500"
+            :rules="textRules"
             textarea
             required
           ></v-text-field>
         </v-form>
-        <nuxt-link to="/notes"><v-btn color="primary"  @click="addPost"> Enviar </v-btn></nuxt-link>
+        <v-btn color="primary"  @click="addPost" :disabled="!formIsValid"> Enviar </v-btn>
         <v-btn flat @click.native="e13 = 1"> Atrás </v-btn>
       </v-stepper-content>
     </v-stepper>
@@ -64,27 +95,58 @@
           (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
         ],
         movil: '',
-        textPost: ''
+        pictures: [],
+        bgColor: '',
+        textPost: '',
+        textRules: [
+          (v) => !!v || 'Ingrese un texto',
+          (v) => v.length >= 150 || 'Texto minimo 150 caracteres',
+          (v) => v.length <= 500 || 'Texto maximo 500 caracteres'
+        ]
       }
     },
     computed: {
-      ...mapGetters({ user: 'getUser' })
+      ...mapGetters({ user: 'getUser' }),
+      formIsValid () {
+        if (this.textPost.length >= 150 && this.textPost.length <= 500) {
+          return (
+            this.namePet && this.textPost
+          )
+        }
+      }
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        this.$vuetify.theme.primary = '#4db6ac'
+      })
     },
     methods: {
+      filesChange (files) {
+        this.pictures = [...files]
+        console.log(this.pictures)
+      },
       addPost: function () {
-        const newPost = {
-          namePet: this.namePet,
-          movil: this.movil,
-          email: this.user.email,
-          textPost: this.textPost,
-          userUid: this.user.uid
-        }
-        this.setAddPost(newPost)
+        this.uploadImages(this.pictures).then(picUrls => {
+          const newPost = {
+            namePet: this.namePet,
+            movil: this.movil,
+            email: this.user.email,
+            textPost: this.textPost,
+            userUid: this.user.uid,
+            photoPost: picUrls,
+            bgColor: this.bgColor
+          }
+          this.setAddPost(newPost)
+        })
+        this.$router.push('/notes/')
+      },
+      inputFile () {
+        this.$refs.inputFile.click()
       },
       onClick () {
         this.$router.push('/notes/')
       },
-      ...mapActions(['setAddPost', 'uploadImagenes'])
+      ...mapActions(['setAddPost', 'uploadImages'])
     }
   }
 </script>
@@ -96,6 +158,16 @@
   .form-title {
     color: rgba(0,0,0,.54);
     font-size: 20px;
+  }
+  .image-box {
+    display: flex;
+    padding: 1em 0px;
+  }
+  .image-box-subheader {
+    width: 100%;
+  }
+  .colors {
+    margin-left: 0.5em;
   }
   @media screen and (min-width: 800px) {
     .stepper {

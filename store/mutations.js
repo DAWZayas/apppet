@@ -5,6 +5,9 @@ export default {
   setAddPost (state, newPost) {
     state.notes.push(newPost)
   },
+  setNotes (state, value) {
+    state.notes = value
+  },
   setAnimalsRef (state, value) {
     state.animalsRef = value
   },

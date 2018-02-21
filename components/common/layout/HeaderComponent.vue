@@ -13,7 +13,7 @@
       <div class="hidden-sm-and-down header-menu">
         <nuxt-link class="menu-link" to="../apppet"> Inicio </nuxt-link>
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> Candidatos </nuxt-link>
-        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '' : ''" > Favoritos </nuxt-link>
+        <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../mainpets/favorites' : ''" > Favoritos </nuxt-link>
         <nuxt-link class="menu-link" to="../notes"> Notas </nuxt-link>
         <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)"> Salir </span>
         <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
@@ -89,7 +89,7 @@
         items: [
           { title: 'Inicio', icon: 'dashboard', methods: 'home' },
           { title: 'Candidatos', icon: 'pets', methods: 'candidates' },
-          { title: 'Favoritos', icon: 'favorite', methods: '' },
+          { title: 'Favoritos', icon: 'favorite', methods: 'favorites' },
           { title: 'Notas', icon: 'question_answer', methods: 'notes' },
           { title: 'Busqueda', icon: 'search', methods: '' }
         ],
@@ -114,6 +114,9 @@
         }
         if (f === 'notes') {
           this.$router.push('/notes')
+        }
+        if (f === 'favorites') {
+          this.$router.push('/mainpets/favorites')
         }
       }
     }

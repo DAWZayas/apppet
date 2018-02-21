@@ -1,7 +1,7 @@
 <template>
   <div fixed class="hidden-md-and-up">
     <v-bottom-nav  :value="true"  color="white" :active.sync="e1" shift>
-      <v-btn flat color="teal" value="recent" @click="favorite">
+      <v-btn flat color="teal" value="favorites" @click="favorite">
         <span>Me gustan</span>
         <v-icon>favorite</v-icon>
       </v-btn>

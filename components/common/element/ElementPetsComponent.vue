@@ -82,9 +82,6 @@
             ownerUid: this.animal.userUid
           }
           this.unSetAddFavorite(info)
-          if (this.$route.params.catagory === 'favorites') {
-            this.heart = true
-          }
         }
       },
       edit () {

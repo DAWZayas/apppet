@@ -1,12 +1,12 @@
 <template>
 	<div class="main">
-		<section class="main-elements">
+      <transition-group name="fade" class="main-elements">
 			<element-pets-component
-        v-for="(animal, index) in animalsDisplayPaginated"
+        v-for="animal in animalsDisplayPaginated"
         :animal="animal"
-        :key="index"
+        :key="animal['.key']"
       ></element-pets-component>
-    </section>
+      </transition-group>
     <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore" class="load-more"></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
   </div>
@@ -20,8 +20,7 @@
     data () {
       return {
         pageSize: 6,
-        actualAnimalsSize: 6,
-        heart: false
+        actualAnimalsSize: 6
       }
     },
     components: {
@@ -36,6 +35,9 @@
         animals: 'getAnimals',
         favorites: 'getFavorite'
       }),
+      invertArray () {
+        this.animals.reverse()
+      },
       animalsDisplayPaginated () {
         return this.animals.filter(this.typeOfAlert).slice(0, this.actualAnimalsSize)
       },
@@ -60,6 +62,13 @@
   }
 </script>
 <style lang="scss" scoped>
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 1s
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
   .info {
     background-color: #ccc;
     border-radius: 8px;

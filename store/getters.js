@@ -1,5 +1,5 @@
 export default {
-  getAnimals: state => state.animals,
+  getAnimals: state => state.animals.reverse(),
   getNotes: state => state.notes,
   getImages: state => state.images,
   getUser: state => state.user,

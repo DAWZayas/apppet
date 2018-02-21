@@ -68,6 +68,7 @@
 }
 .fade-enter, .fade-leave-to{
   opacity: 0;
+  transform: scale(0.9)
 }
   .info {
     background-color: #ccc;

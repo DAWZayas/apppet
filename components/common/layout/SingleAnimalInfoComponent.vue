@@ -21,7 +21,8 @@
         <v-card-title primary-title class="first">
           <div class="d-inline-flex buttons">
             <v-btn small round color="indigo" class="button">Chat</v-btn>
-            <v-btn small round color="green accent-3" class="button">{{ alertAnimal === 'adoption' ? '¡Adoptar!': alertAnimal === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
+            <v-btn small round color="green accent-3" class="button" @click="notify">{{ alertAnimal === 'adoption' ? '¡Adoptar!': alertAnimal === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
+            <notification-component :animal="animal" :open="openNotify"></notification-component>
             <v-btn small round color="red darken-4" class="button" @click="redButton(owner)">{{ owner ? 'Eliminar' : 'Denunciar' }} </v-btn>
           </div>
           <div>
@@ -77,6 +78,7 @@
 </template>
 <script>
 import {mapActions, mapGetters, mapMutations} from 'vuex'
+import NotificationComponent from '~/components/notifications/NotificationComponent'
 export default {
   data () {
     return {
@@ -102,6 +104,7 @@ export default {
       ownerUid: '',
       animalKey: this.$route.params.id,
       heart: false,
+      openNotify: false,
       alert: {
         text: '',
         color: '',
@@ -152,6 +155,9 @@ export default {
     },
     goBack () {
       this.$router.push('../mainpets/' + this.alertAnimal)
+    },
+    notify () {
+      this.openNotify = !this.openNotify
     }
   },
   created () {
@@ -181,6 +187,9 @@ export default {
         this.owner = true
       }
     }
+  },
+  components: {
+    NotificationComponent
   }
 }
 </script>

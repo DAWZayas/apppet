@@ -192,6 +192,8 @@ export default {
       })
     })
   },
+  sendNotification ({commit}, object1, object2) {
+  },
   bindUserData: firebaseAction(({state, dispatch}, {usersRef, id}) => {
     dispatch('bindFirebaseReference', {reference: usersRef.child(id), toBind: 'userData'})
   }),

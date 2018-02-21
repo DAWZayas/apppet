@@ -111,11 +111,9 @@
     margin-top: -140px;
     margin-left: 110px;
   }
-
   .favorite-true {
     font-size: 1.9rem;
   }
-
   .element {
     border-radius: 5px;
     display: flex;
@@ -127,7 +125,6 @@
     box-shadow: 0px 5px 10px #888888;
     background-color: white;
   }
-
   img {
     flex: 1;
     object-fit: cover;
@@ -135,12 +132,10 @@
     height: 110px;
     border-radius: 5px 5px 0px 0px;
   }
-
   .spinner {
     margin: auto;
     padding-top: 1em;
   }
-
   .name-pet {
     font-size: 1rem;
     color: white;
@@ -149,7 +144,6 @@
     letter-spacing: 2px;
     font-weight: 800;
   }
-
   .button-element {
     color: #392E2E;
     width: 100%;
@@ -157,96 +151,76 @@
     font-family:  'Josefin Sans', sans-serif;
     border-radius: 0px 0px 5px 5px;
   }
-
   .element-info {
     margin-top: -30px;
     font-size: 0.5rem;
     color: #212121;
     background-color: rgba(220, 220, 220, 0.5);
   }
-
   .info-data{
     display: flex;
   }
-
   .date, .ubication {
     width: 50%;
     justify-content: center;
   }
-
   .ubication {
     padding-left: 1em;
   }
-
   .date {
     padding-left: 3.5em;
   }
-
   .background-none {
     background-color: rgba(220, 220, 220, 0.5);
   }
-
   .icons-info {
     display: flex;
   }
-
   .time, .place {
     width: 50%;
   font-size: 1.6em;
   }
-
-   .adoption-data {
+  .adoption-data {
     color: #75ccb9;
   }
-
   .lost-data {
     color: #FA5858;
   }
-
-    .takeCare-data {
+  .takeCare-data {
     color: #2F4F4F;
   }
-
   .adoption {
     background-color: #75ccb9;
     border: 1px solid #6CBDAB;
   }
-
   .adoption:hover {
     background-color: #6CBDAB;
     border: 1px solid #75ccb9;
   }
-
   .lost {
     background-color: #FA5858;
     border: 1px solid #D73B3B;
   }
-
   .lost:hover {
     background-color: #D73B3B;
     border: 1px solid #FA5858;
   }
-
   .takeCare {
     background-color: #959191;
     border: 1px solid #807777;
   }
-
   .takeCare:hover {
     background-color: #807777;
     border: 1px solid #959191;
   }
-
   .owner {
     background-color: #03a9f4!important;
     border: 1px solid #039be5!important;
   }
-
   .owner:hover {
     background-color: #039be5!important;
     border: 1px solid  #03a9f4!important;
   }
-
   .material-icons-main {
     color: #75ccb9;
     font-size: 1rem;
@@ -254,28 +228,22 @@
     margin-right: 1em;
     text-shadow: 1px 1px black;
   }
-  
   .card-text {
     margin: 0.1em 2.5em;
     color: #000000;
     font-family: Verdana;
     font-size: 1rem;
   }
-
   .material-icons-modal {
     margin-left: 35px;
     color: #75ccb9;
   }
-
   .modal-header,
   .modal-footer {
     background-color: #75ccb9;
   }
-
-  
-
   /* Mobile */
-    @media screen and (min-width: 375px) {
+  @media screen and (min-width: 375px) {
     .element {
       width: 162.5px;
       height: 162.5px;
@@ -309,7 +277,7 @@
       font-size: 1.8rem;
     }
   }
-    @media screen and (min-width: 425px) {
+  @media screen and (min-width: 425px) {
     .element {
       width: 187.5px;
       height: 187.5px;
@@ -323,7 +291,7 @@
       margin-left: 140px;
     }
   }
-   @media screen and (min-width: 450px) {
+  @media screen and (min-width: 450px) {
     .element {
       width: 205px;
       height: 205px;
@@ -342,7 +310,7 @@
       margin-left: 160px;
     }
   }
-   @media screen and (min-width: 500px) {
+  @media screen and (min-width: 500px) {
     .element {
       width: 230px;
       height: 230px;
@@ -356,7 +324,7 @@
       margin-left: 180px;
     }
   }
-   @media screen and (min-width: 550px) {
+  @media screen and (min-width: 550px) {
     .element {
       width: 255px;
       height: 255px;
@@ -389,20 +357,19 @@
     .favorite-false{
       font-size: 2.3rem;
     }
-      @media screen and (min-width: 800px) {
-
-    .favorite-icon {
-      margin-top: -330px;
-      margin-left: 270px;
+    @media screen and (min-width: 800px) {
+      .favorite-icon {
+        margin-top: -330px;
+        margin-left: 270px;
+      }
+      .element {
+        height: 350px;
+        width: 350px;
+      }
+      img {
+        height: 270px;
+      }
     }
-    .element {
-      height: 350px;
-      width: 350px;
-    }
-    img {
-      height: 270px;
-    }
-  }
     /* DESKTOP */
     @media screen and (min-width: 1024px) {
       .favorite-icon {
@@ -416,9 +383,8 @@
       img {
         height: 200px;
       }
-      
-       .ubication, .date{
-         font-size: 0.9rem;
+      .ubication, .date{
+        font-size: 0.9rem;
       }
       .time, .place {
         font-size: 0.9rem;

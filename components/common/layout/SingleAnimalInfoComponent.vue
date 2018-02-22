@@ -131,7 +131,7 @@ export default {
         let info = {
           key: this.animalKey,
           userUid: this.user.uid,
-          ownerUid: this.ownerUid
+          ownerUid: this.uid
         }
         this.setAddFavorite(info)
       } else {

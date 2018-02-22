@@ -192,7 +192,31 @@ export default {
       })
     })
   },
-  sendNotification ({commit}, object1, object2) {
+  sendNotification ({commit}, infoSolicitude) {
+    let db = firebaseApp.database()
+    let owner = db.ref(`/notifications/owner/${infoSolicitude.ownerUid}`)
+    owner.child(infoSolicitude.animalKey).push(infoSolicitude)
+    let sender = db.ref(`/notifications/send/${infoSolicitude.senderUid}`)
+    sender.child(infoSolicitude.animalKey).push(infoSolicitude)
+  },
+  readNotification ({commit}, uid) {
+    let db = firebaseApp.database()
+    let owner = db.ref(`/notifications/owner/${uid}`)
+    owner.on('value', function (snapshot) {
+      if (snapshot.val()) {
+        console.log('si --commitshowNotifications')
+      } else {
+        console.log('no')
+      }
+    })
+    let send = db.ref(`/notifications/send/${uid}`)
+    send.on('value', function (snapshot) {
+      if (snapshot.val()) {
+        console.log(snapshot)
+      } else {
+        console.log('no')
+      }
+    })
   },
   bindUserData: firebaseAction(({state, dispatch}, {usersRef, id}) => {
     dispatch('bindFirebaseReference', {reference: usersRef.child(id), toBind: 'userData'})

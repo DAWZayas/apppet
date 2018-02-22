@@ -2,11 +2,12 @@
 	<div class="main">
 		<section class="main-elements">
       <element-post-component
-        v-for="note in notes"
+        v-for="(note, key) in notes"
         :note="note"
-        :key="note.namePets"
+        :key="note['.key']"
+        :noteKey="key"
       ></element-post-component>
-		</section>
+   	</section>
  	</div>
 </template>
 <script>

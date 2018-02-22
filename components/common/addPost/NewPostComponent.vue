@@ -14,7 +14,7 @@
             :value="user.email"
           ></v-text-field>
           <v-text-field
-            label="Nombre de la mascota"
+            label="Mascota o asunto"
             v-model="namePet"
             :rules="nameRules"
             :counter="10"

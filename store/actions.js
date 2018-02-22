@@ -47,6 +47,11 @@ export default {
     let notes = db.ref(`/notes`)
     notes.push(newPost)
   },
+  unSetAddPost ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let notes = db.ref(`/notes`)
+    notes.child(info).remove()
+  },
   setAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
     let favorites = db.ref(`/users/` + info.userUid + `/favorites`)

@@ -15,8 +15,8 @@
           ></v-text-field>
           <v-text-field
             label="Mascota o asunto"
-            v-model="namePet"
-            :rules="nameRules"
+            v-model="affair"
+            :rules="affairRules"
             :counter="10"
             required
           ></v-text-field>
@@ -84,8 +84,8 @@
       return {
         e13: 0,
         valid: false,
-        namePet: '',
-        nameRules: [
+        affair: '',
+        affairRules: [
           (v) => !!v || 'Ingrese el nombre de su mascota',
           (v) => v.length <= 10 || 'El nombre debe tener menos de 10 letras'
         ],
@@ -111,7 +111,7 @@
       formIsValid () {
         if (this.textPost.length >= 150 && this.textPost.length <= 500) {
           return (
-            this.namePet && this.textPost
+            this.affair && this.textPost
           )
         }
       }
@@ -129,14 +129,16 @@
       addPost: function () {
         this.uploadImages(this.pictures).then(picUrls => {
           const newPost = {
-            namePet: this.namePet,
+            affair: this.affair,
             movil: this.movil,
             email: this.user.email,
             textPost: this.textPost,
             userUid: this.user.uid,
             photoPost: picUrls,
             bgColor: this.bgColor,
-            date: this.getFecha()
+            date: this.getFecha(),
+            nameUser: this.user.displayName,
+            photoURL: this.user.photoURL
           }
           this.setAddPost(newPost)
         })

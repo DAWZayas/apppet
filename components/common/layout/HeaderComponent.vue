@@ -160,7 +160,7 @@
   }
   .img-profile {
     width: 40px;
-    height: 40px;;
+    height: 40px;
   }
   .menu {
     background-color: #4db6ac;

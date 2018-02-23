@@ -13,17 +13,32 @@
         <v-flex xs12>
           <v-card :color="note.bgColor || 'blue-grey darken-2'" class="white--text">
             <v-container fluid grid-list-lg>
-              <v-btn flat icon class="close-icon" @click="deletePost()">
+              <v-btn 
+                flat 
+                icon 
+                class="close-icon" 
+                @click="deletePost()"
+                v-if="userPost"
+              >
                 <v-icon color="black">close</v-icon>
               </v-btn>
               <v-layout row>
                 <v-flex xs12>
                   <div>
-                    <div class="headline"> 
-                      {{ note.namePet }} 
+                    <div class="headline">
+                      <v-list-tile-avatar >
+                        <img class="img-user" :src="note.photoURL" />
+                      </v-list-tile-avatar>
+                      <template>
+                        <span class="name-user"> {{ note.nameUser }} </span>              
+                      </template>
+                      <p class="date"> {{ note.date }} </p>
                       <hr color="white">
                     </div>
                     <div style="text-align: justify;">
+                      <div class="headline"> 
+                        {{ note.affair }} 
+                      </div>
                       <v-flex xs5 v-if="note.photoPost" class="frame-image">
                         <v-progress-circular v-show="loadingWorkoutImage" indeterminate color="grey" class="spinner"></v-progress-circular>
                         <img
@@ -33,7 +48,7 @@
                       </v-flex>
                       {{ note.textPost }}
                     </div>
-                    <div class="buttons">
+                    <div class="frame-down">
                       <v-btn flat icon>
                         <v-icon color="red lighten-1">thumb_up</v-icon>
                       </v-btn>
@@ -46,7 +61,6 @@
                     </div>
                   </div>
                 </v-flex>
-                
               </v-layout>
             </v-container>
           </v-card>
@@ -56,14 +70,23 @@
   </div>
 </template>
 <script>
-  import {mapActions} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
   export default {
     props: ['note', 'noteKey'],
     data () {
       return {
         loadingWorkoutImage: true,
-        loadedWorkoutImage: false
+        loadedWorkoutImage: false,
+        userPost: false
       }
+    },
+    mounted () {
+      if (this.user.uid === this.note.userUid) {
+        this.userPost = true
+      }
+    },
+    computed: {
+      ...mapGetters({user: 'getUser'})
     },
     methods: {
       ...mapActions(['unSetAddPost']),
@@ -100,9 +123,25 @@
   .icon {
     font-size: 1.5rem;
   }
-  .buttons {
+  .frame-down {
     margin-left: -14px;
+    margin-top: 1em;
     font-size: 2rem;
+  }
+  .name-user {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .img-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+  .date {
+    font-size: 0.7rem;
+    float: right;
+    margin-top: 30px;
   }
   @media screen and (min-width: 370px) {
     .close-icon {
@@ -130,6 +169,13 @@
     .close-icon {
       margin-top: -20px;
       margin-left: 620px;
+    }
+    .name-user {
+      margin-left: 1em;
+    }
+    .date {
+      font-size: 1rem;
+      margin-top: 25px;
     }
   }
 </style>

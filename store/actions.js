@@ -52,6 +52,30 @@ export default {
     let notes = db.ref(`/notes`)
     notes.child(info).remove()
   },
+  setMoreLike ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let moreLike = db.ref(`/notes/` + info.noteKey)
+    moreLike.child('likes').set(info.likes)
+    let listUser = db.ref(`/notes/` + info.noteKey + `/listLikeUser`)
+    listUser.child(info.userUid).set(info.nameUser)
+  },
+  unSetMoreLike ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let moreLike = db.ref(`/notes/` + info.noteKey)
+    moreLike.child('likes').set(info.likes)
+    let listUser = db.ref(`/notes/` + info.noteKey + `/listLikeUser`)
+    listUser.child(info.userUid).remove()
+  },
+  setAddLikePost ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let likes = db.ref(`/users/` + info.userUid + '/likes')
+    likes.child(info.noteKey).set(info.ownerUid)
+  },
+  unSetAddLikePost ({commit, state}, info) {
+    let db = firebaseApp.database()
+    let likes = db.ref(`/users/` + info.userUid + `/likes`)
+    likes.child(info.noteKey).remove()
+  },
   setAddFavorite ({commit, state}, info) {
     let db = firebaseApp.database()
     let favorites = db.ref(`/users/` + info.userUid + `/favorites`)
@@ -162,6 +186,10 @@ export default {
         let addFavorites = db.ref(`/users/` + user.uid + `/favorites`)
         addFavorites.on('value', function (snapshot) {
           commit('setFavorite', snapshot.val())
+        })
+        let addLikes = db.ref(`/users/` + user.uid + `/likes`)
+        addLikes.on('value', function (snapshot) {
+          commit('setLikes', snapshot.val())
         })
         let notes = db.ref(`/notes`)
         notes.on(`value`, function (snapshot) {

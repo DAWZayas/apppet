@@ -8,6 +8,9 @@ export default {
   setNotes (state, value) {
     state.notes = value
   },
+  setLikes (state, value) {
+    state.like = value
+  },
   setAnimalsRef (state, value) {
     state.animalsRef = value
   },

@@ -13,19 +13,19 @@
         <v-flex xs12>
           <v-card :color="note.bgColor || 'blue-grey darken-2'" class="white--text">
             <v-container fluid grid-list-lg>
-              <v-btn 
-                flat 
-                icon 
-                class="close-icon" 
-                @click="deletePost()"
-                v-if="userPost"
-              >
-                <v-icon color="black">close</v-icon>
-              </v-btn>
               <v-layout row>
                 <v-flex xs12>
                   <div>
                     <div class="headline">
+                      <v-btn 
+                        flat 
+                        icon 
+                        class="close-icon" 
+                        @click="deletePost()"
+                        v-if="userPost"
+                      >
+                        <v-icon color="black">close</v-icon>
+                      </v-btn>
                       <v-list-tile-avatar >
                         <img class="img-user" :src="note.photoURL" />
                       </v-list-tile-avatar>
@@ -49,9 +49,16 @@
                       {{ note.textPost }}
                     </div>
                     <div class="frame-down">
-                      <v-btn flat icon>
-                        <v-icon color="red lighten-1">thumb_up</v-icon>
+                      <v-btn 
+                        :color="this.like ? 'red lighten-1' : 'grey lighten-1'"
+                        class="button-like"
+                        @click="isLike"
+                        flat 
+                        icon 
+                      >
+                          <v-icon>thumb_up</v-icon>
                       </v-btn>
+                      <i class="num-likes"> {{ note.likes }} </i>
                       <v-btn flat icon>
                         <v-icon color="grey lighten-1">chat</v-icon>
                       </v-btn>
@@ -72,30 +79,63 @@
 <script>
   import {mapActions, mapGetters} from 'vuex'
   export default {
+    mounted () {
+      if (this.user.uid === this.note.userUid) {
+        this.userPost = true
+      }
+      if (this.likes != null) {
+        if (this.likes[this.noteKey]) {
+          this.like = true
+        }
+      }
+    },
     props: ['note', 'noteKey'],
     data () {
       return {
         loadingWorkoutImage: true,
         loadedWorkoutImage: false,
-        userPost: false
-      }
-    },
-    mounted () {
-      if (this.user.uid === this.note.userUid) {
-        this.userPost = true
+        userPost: false,
+        like: false
       }
     },
     computed: {
-      ...mapGetters({user: 'getUser'})
+      ...mapGetters({user: 'getUser', likes: 'getLikes'})
     },
     methods: {
-      ...mapActions(['unSetAddPost']),
+      ...mapActions(['unSetAddPost', 'setAddLikePost', 'unSetAddLikePost', 'setMoreLike', 'unSetMoreLike']),
       handleLoadedImage () {
         this.loadingWorkoutImage = false
         this.loadedWorkoutImage = true
       },
       deletePost () {
         this.unSetAddPost(this.noteKey)
+      },
+      isLike () {
+        this.like = !this.like
+        let info = {
+          noteKey: this.noteKey,
+          userUid: this.user.uid,
+          ownerUid: this.note.userUid
+        }
+        if (this.like) {
+          let infoLike = {
+            noteKey: this.noteKey,
+            userUid: this.user.uid,
+            nameUser: this.user.displayName,
+            likes: this.note.likes + 1
+          }
+          this.setAddLikePost(info)
+          this.setMoreLike(infoLike)
+        } else {
+          let infoLike = {
+            noteKey: this.noteKey,
+            userUid: this.user.uid,
+            nameUser: this.user.displayName,
+            likes: this.note.likes - 1
+          }
+          this.unSetAddLikePost(info)
+          this.unSetMoreLike(infoLike)
+        }
       }
     }
   }
@@ -142,6 +182,11 @@
     font-size: 0.7rem;
     float: right;
     margin-top: 30px;
+  }
+  .num-likes {
+    font-size: 0.8rem;
+    margin-left: -1.5em;
+    color: rgb(201, 198, 198);
   }
   @media screen and (min-width: 370px) {
     .close-icon {

@@ -12,5 +12,6 @@ export default {
   getSingleAnimal: state => state.singleAnimal,
   getOwnerDisplayName: state => state.ownerDisplayName,
   getOwnerPhotoURL: state => state.ownerPhotoURL,
-  getAlert: state => state.alert
+  getAlert: state => state.alert,
+  getLikes: state => state.like
 }

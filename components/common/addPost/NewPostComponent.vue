@@ -98,6 +98,7 @@
         pictures: [],
         bgColor: '',
         date: '',
+        likes: 0,
         textPost: '',
         textRules: [
           (v) => !!v || 'Ingrese un texto',
@@ -137,6 +138,7 @@
             photoPost: picUrls,
             bgColor: this.bgColor,
             date: this.getFecha(),
+            likes: this.likes,
             nameUser: this.user.displayName,
             photoURL: this.user.photoURL
           }
@@ -194,5 +196,4 @@
       margin-top: 100px;
     }
   }
-
 </style>

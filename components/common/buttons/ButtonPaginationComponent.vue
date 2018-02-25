@@ -1,8 +1,24 @@
 <template>
   <div>
-    <v-btn block scroll-off-screen flat color="red darken-1" class="hidden-md-and-up" @click="onLoadMore" v-show="hasMore">Cargar más</v-btn>
-    <v-btn fab color="transparent" class="button-desktop hidden-sm-and-down" @click="onLoadMore" v-show="hasMore">
-      <v-icon color="cyan lighten-3">add</v-icon>
+    <v-btn 
+      block 
+      flat 
+      color="red darken-1" 
+      class="hidden-md-and-up" 
+      @click="onLoadMore" 
+      v-show="hasMore"
+    >
+      Cargar más
+    </v-btn>
+    <v-btn 
+      block
+      flat
+      color="red darken-1"
+      class="button-desktop hidden-sm-and-down" 
+      @click="onLoadMore" 
+      v-show="hasMore"
+    >
+      <v-icon>expand_more</v-icon>
     </v-btn>
   </div>
 </template>
@@ -18,10 +34,9 @@
 </script>
 <style lang="scss" scoped>
   .button-desktop {
-    position: fixed;
-    bottom: 1.5em;
-    right: 6em;
-    border: none;
+    margin: auto;
+    width: 30%;
+    margin-top: -7em;
   }
   .icon {
     font-size: 35px;

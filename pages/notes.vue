@@ -3,10 +3,11 @@
     <header-component></header-component>
     <notes-component></notes-component>
     <button-add-post-component v-if="isAuthenticated"></button-add-post-component>
+    <footer-component></footer-component>
   </div>
 </template>
 <script>
-  import { HeaderComponent } from '~/components/common/layout'
+  import { HeaderComponent, FooterComponent } from '~/components/common/layout'
   import { NotesComponent } from '~/components/common/post'
   import { ButtonAddPostComponent } from '~/components/common/buttons'
   import { mapGetters } from 'vuex'
@@ -20,7 +21,8 @@
     components: {
       HeaderComponent,
       NotesComponent,
-      ButtonAddPostComponent
+      ButtonAddPostComponent,
+      FooterComponent
     }
   }
 </script>

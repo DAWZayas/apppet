@@ -42,16 +42,13 @@
   .material-icons material-icons-main  {
     margin: 0.2em;
   }
-  .load-more{
-    margin-bottom: 60px;
-  }
   @media screen and (min-width: 800px) {
     .main{
-  
       background-image: url("~assets/fondos/fondo-main.jpg");
       background-size: 100%;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      padding-bottom: 1em;
     }
     .main-elements {
       margin: 50px auto;

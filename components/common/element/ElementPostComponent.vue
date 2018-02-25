@@ -84,12 +84,12 @@
         this.userPost = true
       }
       if (this.likes != null) {
-        if (this.likes[this.noteKey]) {
+        if (this.likes[this.note.key]) {
           this.like = true
         }
       }
     },
-    props: ['note', 'noteKey'],
+    props: ['note'],
     data () {
       return {
         loadingWorkoutImage: true,
@@ -108,18 +108,18 @@
         this.loadedWorkoutImage = true
       },
       deletePost () {
-        this.unSetAddPost(this.noteKey)
+        this.unSetAddPost(this.note.key)
       },
       isLike () {
         this.like = !this.like
         let info = {
-          noteKey: this.noteKey,
+          noteKey: this.note.key,
           userUid: this.user.uid,
           ownerUid: this.note.userUid
         }
         if (this.like) {
           let infoLike = {
-            noteKey: this.noteKey,
+            noteKey: this.note.key,
             userUid: this.user.uid,
             nameUser: this.user.displayName,
             likes: this.note.likes + 1
@@ -128,7 +128,7 @@
           this.setMoreLike(infoLike)
         } else {
           let infoLike = {
-            noteKey: this.noteKey,
+            noteKey: this.note.key,
             userUid: this.user.uid,
             nameUser: this.user.displayName,
             likes: this.note.likes - 1

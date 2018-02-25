@@ -1,6 +1,8 @@
+import { getArray } from '~/utils/utils'
+
 export default {
   getAnimals: state => state.animals.reverse(),
-  getNotes: state => state.notes,
+  getNotes: state => getArray(state.notes).reverse(),
   getImages: state => state.images,
   getUser: state => state.user,
   getDisplayName: state => state.user ? state.displayName : state.noUser,

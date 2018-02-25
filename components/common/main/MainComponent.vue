@@ -1,13 +1,17 @@
 <template>
 	<div class="main">
-      <transition-group name="fade" class="main-elements">
+    <transition-group name="fade" class="main-elements">
 			<element-pets-component
         v-for="animal in animalsDisplayPaginated"
         :animal="animal"
         :key="animal['.key']"
       ></element-pets-component>
-      </transition-group>
-    <button-pagination-component @loadMore="onLoadMore()" :hasMore="hasMore" class="load-more"></button-pagination-component>
+    </transition-group>
+    <button-pagination-component 
+      @loadMore="onLoadMore()" 
+      :hasMore="hasMore" 
+      class="load-more"
+    ></button-pagination-component>
     <button-show-candidates-component></button-show-candidates-component>
   </div>
 </template>
@@ -62,14 +66,13 @@
   }
 </script>
 <style lang="scss" scoped>
-
-.fade-enter-active, .fade-leave-active {
-  transition: all 1s
-}
-.fade-enter, .fade-leave-to{
-  opacity: 0;
-  transform: scale(0.9)
-}
+  .fade-enter-active, .fade-leave-active {
+    transition: all 1s
+  }
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
+    transform: scale(0.9)
+  }
   .info {
     background-color: #ccc;
     border-radius: 8px;
@@ -90,7 +93,6 @@
   }
   @media screen and (min-width: 800px) {
     .main{
-  
       background-image: url("~assets/fondos/fondo-main.jpg");
       background-size: 100%;
       background-repeat: no-repeat;

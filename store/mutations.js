@@ -40,5 +40,8 @@ export default {
   },
   setAlert (state, value) {
     state.alert = value
+  },
+  setNotification (state, value) {
+    state.notification = value
   }
 }

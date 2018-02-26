@@ -3,16 +3,6 @@
     <v-card>
       <v-card-title class="headline">Adopta</v-card-title>
       <v-card-text></v-card-text>
-        <v-flex xs12 sm6>
-            <v-text-field
-              color="purple darken-2"
-              label="Descripción"
-              v-model="textSolicitude"
-              required
-              full-width
-              multi-line
-            ></v-text-field>
-          </v-flex>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="green darken-1" flat @click.native="sendSolicitude">Cancelar</v-btn>
@@ -30,9 +20,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['sendNotification', 'readNotification']),
+    ...mapActions(['sendNotification']),
     closeNotify () {
       this.open = false
+    },
+    getFecha: function () {
+      var today = new Date()
+      var dd = today.getDate()
+      var mm = today.getMonth() + 1
+      var yyyy = today.getFullYear()
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = dd + '/' + mm + '/' + yyyy
+      return today
     },
     sendSolicitude () {
       const infoSolicitude = {
@@ -41,7 +45,12 @@ export default {
         ownerUid: this.animal.userUid,
         senderUid: this.user.uid,
         answerOwner: false,
-        finalized: false
+        finalized: false,
+        typeSolicitude: this.animal.selectAnimalAlert,
+        animalPhoto: this.animal.animalPhoto[0],
+        nameAnimal: this.animal.nameAnimal,
+        date: this.getFecha(),
+        final: false
       }
       this.sendNotification(infoSolicitude)
     }
@@ -49,9 +58,6 @@ export default {
   props: ['animal', 'open'],
   computed: {
     ...mapGetters({user: 'getUser'})
-  },
-  mounted () {
-    this.readNotification('PAgFqnZyo0SffWJJ4HtCBQwBgUF3')
   }
 }
 </script>

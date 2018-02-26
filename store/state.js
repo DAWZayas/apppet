@@ -17,6 +17,7 @@ const alert = {
   color: '',
   state: false
 }
+const notification = null
 
 export default {
   animals,
@@ -33,5 +34,6 @@ export default {
   ownerDisplayName,
   ownerPhotoURL,
   alert,
-  like
+  like,
+  notification
 }

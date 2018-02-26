@@ -15,5 +15,6 @@ export default {
   getOwnerDisplayName: state => state.ownerDisplayName,
   getOwnerPhotoURL: state => state.ownerPhotoURL,
   getAlert: state => state.alert,
-  getLikes: state => state.like
+  getLikes: state => state.like,
+  getNotification: state => state.notification
 }

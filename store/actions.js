@@ -227,25 +227,24 @@ export default {
   },
   sendNotification ({commit}, infoSolicitude) {
     let db = firebaseApp.database()
-    let owner = db.ref(`/notifications/owner/${infoSolicitude.ownerUid}`)
-    owner.child(infoSolicitude.animalKey).push(infoSolicitude)
-    let sender = db.ref(`/notifications/send/${infoSolicitude.senderUid}`)
-    sender.child(infoSolicitude.animalKey).push(infoSolicitude)
+    let owner = db.ref(`/notifications/${infoSolicitude.ownerUid}`)
+    owner.child(infoSolicitude.animalKey).set(infoSolicitude)
+    let sender = db.ref(`/notifications/${infoSolicitude.senderUid}`)
+    sender.child(infoSolicitude.animalKey).set(infoSolicitude)
   },
-  readNotification ({commit}, uid) {
+  updateNotification ({commit}, infoSolicitude) {
     let db = firebaseApp.database()
-    let owner = db.ref(`/notifications/owner/${uid}`)
+    let owner = db.ref(`/notifications/${infoSolicitude.ownerUid}`)
+    owner.child(infoSolicitude.animalKey).update(infoSolicitude)
+    let sender = db.ref(`/notifications/${infoSolicitude.senderUid}`)
+    sender.child(infoSolicitude.animalKey).update(infoSolicitude)
+  },
+  readNotification ({commit, dispatch}, uid) {
+    let db = firebaseApp.database()
+    let owner = db.ref(`/notifications/${uid}`)
     owner.on('value', function (snapshot) {
       if (snapshot.val()) {
-        console.log('si --commitshowNotifications')
-      } else {
-        console.log('no')
-      }
-    })
-    let send = db.ref(`/notifications/send/${uid}`)
-    send.on('value', function (snapshot) {
-      if (snapshot.val()) {
-        console.log(snapshot)
+        commit('setNotification', (snapshot.val()))
       } else {
         console.log('no')
       }

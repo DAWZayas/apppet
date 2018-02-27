@@ -2,22 +2,23 @@
 <v-layout row class="card">
     <v-flex xs12 sm8 offset-sm2>
       <v-card>
-        <v-card-media
+        <v-card-media class="image"
           :src="photo"
           height="300px"
         >
-        <v-btn icon class="left-icon" @click="goBack"><v-icon color="white">arrow_back</v-icon></v-btn>
-          <v-chip class="avatar-owner" disabled>
-            <v-avatar>
-              <img :src="ownerPhotoURL" alt="avatar" class="avatar-border" >
-            </v-avatar>
-            <span class="black--text">{{ownerDisplayName}}</span>
-          </v-chip>
+          <v-btn icon class="left-icon" @click="goBack"><v-icon color="white">arrow_back</v-icon></v-btn>
+            <v-chip class="avatar-owner" disabled>
+              <v-avatar>
+                <img :src="ownerPhotoURL" alt="avatar" class="avatar-border" >
+              </v-avatar>
+              <span class="black--text">{{ownerDisplayName}}</span>
+            </v-chip>
           <v-spacer></v-spacer>
           <v-btn v-if="!owner" flat icon :color="this.heart ? 'red' : 'white'" class="button-favorite" @click="favorite">
             <v-icon :class="'favorite-' + this.heart">{{ this.heart ? 'favorite' : 'favorite_border' }} </v-icon>
           </v-btn>         
         </v-card-media>
+        <div class="information">
         <v-card-title primary-title class="first">
           <div class="d-inline-flex buttons">
             <v-btn small round color="indigo" class="button">Chat</v-btn>
@@ -72,6 +73,7 @@
         <v-card-actions>
           <v-btn flat block color="purple">Compartir</v-btn>  
         </v-card-actions>
+        </div>
       </v-card>
     </v-flex>
   </v-layout>
@@ -257,5 +259,18 @@ hr{
   .card-image, card__media__content {
     height: 500px!important;
   }
+}
+
+@media (min-width: 1350px){
+  .image{
+    float: left;
+    width: 40%;
+  }
+
+  .information {
+    margin-top: 6em;
+    margin-left: 26em;
+  }
+  
 }
 </style>

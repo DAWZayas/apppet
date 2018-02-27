@@ -216,9 +216,6 @@ export default {
   margin-top: 10px;
 }
 
-.favorite-icon{
-}
-
 .favorite-true {
   font-size: 1.9rem;
 }
@@ -259,6 +256,13 @@ hr{
   .card-image, card__media__content {
     height: 500px!important;
   }
+  .image {
+    min-height: 400px;
+  }
+  .avatar-owner{
+    margin-top: 320px;
+    margin-bottom: 40px;
+  }
 }
 
 @media (min-width: 1350px){
@@ -271,6 +275,23 @@ hr{
     margin-top: 6em;
     margin-left: 26em;
   }
+
+  .avatar-owner{
+    margin-top: 340px;
+    margin-bottom: 20px;
+}
   
+}
+
+@media (min-width: 1500px){
+  .card {
+    width: 70%;
+    margin: auto;
+  }
+
+  .information {
+    margin-top: 6em;
+    margin-left: 25em;
+  }
 }
 </style>

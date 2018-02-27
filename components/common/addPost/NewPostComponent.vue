@@ -17,7 +17,7 @@
             label="Mascota o asunto"
             v-model="affair"
             :rules="affairRules"
-            :counter="10"
+            :counter="25"
             required
           ></v-text-field>
           <v-text-field
@@ -87,7 +87,7 @@
         affair: '',
         affairRules: [
           (v) => !!v || 'Ingrese el nombre de su mascota',
-          (v) => v.length <= 10 || 'El nombre debe tener menos de 10 letras'
+          (v) => v.length <= 25 || 'El nombre debe tener menos de 25 letras'
         ],
         email: '',
         emailRules: [

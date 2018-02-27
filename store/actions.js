@@ -56,14 +56,15 @@ export default {
     let db = firebaseApp.database()
     let moreLike = db.ref(`/notes/` + info.noteKey)
     moreLike.child('likes').set(info.likes)
-    let listUser = db.ref(`/notes/` + info.noteKey + `/listLikeUser`)
-    listUser.child(info.userUid).set(info.nameUser)
+    let listUser = db.ref(`/notes/` + info.noteKey + `/listUserLike/` + info.userUid)
+    listUser.child('nameUser').set(info.nameUser)
+    listUser.child('userURL').set(info.userURL)
   },
   unSetMoreLike ({commit, state}, info) {
     let db = firebaseApp.database()
     let moreLike = db.ref(`/notes/` + info.noteKey)
     moreLike.child('likes').set(info.likes)
-    let listUser = db.ref(`/notes/` + info.noteKey + `/listLikeUser`)
+    let listUser = db.ref(`/notes/` + info.noteKey + `/listUserLike`)
     listUser.child(info.userUid).remove()
   },
   setAddLikePost ({commit, state}, info) {

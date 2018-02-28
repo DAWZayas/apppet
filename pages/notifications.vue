@@ -22,10 +22,8 @@ export default {
   methods: {
     ...mapActions(['readNotification'])
   },
-  watch: {
-    user () {
-      this.readNotification(this.user.uid)
-    }
+  mounted () {
+    this.readNotification(this.user.uid)
   }
 }
 </script>

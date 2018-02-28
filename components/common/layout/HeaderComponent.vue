@@ -15,6 +15,7 @@
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../candidates' : ''"> Candidatos </nuxt-link>
         <nuxt-link class="menu-link" :class="{disabled:!isAuthenticated}" :to="isAuthenticated ? '../mainpets/favorites' : ''" > Favoritos </nuxt-link>
         <nuxt-link class="menu-link" to="../notes"> Notas </nuxt-link>
+        <nuxt-link v-if="isAuthenticated" to="../notifications" class="menu-link" @click="onClick(out.methods)"> Notificaiones </nuxt-link>        
         <span v-if="isAuthenticated" class="menu-link" @click="onClick(out.methods)"> Salir </span>
         <span v-if="!isAuthenticated" class="menu-link" @click="onClick(login.methods)">Identificarse </span>
         <v-list-tile-avatar >
@@ -91,7 +92,7 @@
           { title: 'Candidatos', icon: 'pets', methods: 'candidates' },
           { title: 'Favoritos', icon: 'favorite', methods: 'favorites' },
           { title: 'Notas', icon: 'question_answer', methods: 'notes' },
-          { title: 'Busqueda', icon: 'search', methods: '' }
+          { title: 'Notifications', icon: 'notifications', methods: 'notifications' }
         ],
         out: { title: 'Salir', icon: 'close', methods: 'logout' },
         login: { title: 'Identificarse', icon: 'power_settings_new', methods: 'logout' }
@@ -118,6 +119,9 @@
         if (f === 'favorites') {
           this.$router.push('/mainpets/favorites')
         }
+        if (f === 'notifications') {
+          this.$router.push('/notifications')
+        }
       }
     }
   }
@@ -132,6 +136,7 @@
   }
   .header-menu{
     text-decoration: none;
+    font-size: 0.8em;
     color: white;
   }
   .menu-link {

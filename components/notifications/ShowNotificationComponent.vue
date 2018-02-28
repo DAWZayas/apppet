@@ -4,7 +4,7 @@
       <v-card>
         <v-list two-line>
           <template v-for="notification in notifications" >
-            <v-list-tile avatar ripple :key="notification['.key']" @click="sendSolicitude(notification.animalKey, notification.ownerUid, notification.senderUid)" :disabled="notification.senderUid === user.uid ? notification.answerOwner && !notification.finalized ? false : true : !notification.answerOwner && notification.finalized ? true : false ">
+            <v-list-tile avatar ripple :key="notification['.key']" @click="openDialog(notification)">
               <v-avatar>
                   <img :src="notification.animalPhoto" alt="avatar" class="avatar-border">
                 </v-avatar>
@@ -24,13 +24,17 @@
         </v-list>
       </v-card>
     </v-flex>
+    <info-modal-notification-component v-if="dialog" :user="user" :dialog="dialog" :notification="not" @closeDialog="closeDialog"></info-modal-notification-component>
   </v-layout>
 </template> 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import InfoModalNotificationComponent from '~/components/notifications/InfoModalNotificationComponent'
 export default {
   data () {
     return {
+      dialog: false,
+      not: ''
     }
   },
   methods: {
@@ -44,22 +48,21 @@ export default {
         return ' para cuidar a '
       }
     },
-    sendSolicitude (key, owner, send) {
-      const infoSolicitude = {
-        animalKey: key,
-        ownerUid: owner,
-        senderUid: send,
-        answerOwner: true,
-        finalized: true,
-        final: false
-      }
-      this.updateNotification(infoSolicitude)
+    openDialog (notification) {
+      this.dialog = true
+      this.not = notification
+    },
+    closeDialog (value) {
+      this.dialog = value
     }
   },
   computed: {
     ...mapGetters({user: 'getUser', notifications: 'getNotification', displayName: 'getOwnerDisplayName'})
   },
   mounted () {
+  },
+  components: {
+    InfoModalNotificationComponent
   }
 }
 </script>

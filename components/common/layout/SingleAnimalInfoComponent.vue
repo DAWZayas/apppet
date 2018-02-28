@@ -1,5 +1,6 @@
 <template>
 <v-layout row class="card">
+  <send-notification-component :animal="animal" :open="openNotify" v-if="openNotify" @closeDialog="closeDialog"></send-notification-component>  
     <v-flex xs12 sm8 offset-sm2>
       <v-card>
         <v-card-media class="image"
@@ -21,9 +22,8 @@
         <div class="information">
         <v-card-title primary-title class="first">
           <div class="d-inline-flex buttons">
-            <v-btn small round color="indigo" class="button">Chat</v-btn>
-            <v-btn small round color="green accent-3" class="button" @click="notify">{{ alertAnimal === 'adoption' ? '¡Adoptar!': alertAnimal === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
-            <send-notification-component :animal="animal" :open="openNotify"></send-notification-component>
+            <v-btn small round color="indigo" v-if="!owner" class="button">Chat</v-btn>
+            <v-btn small round color="green accent-3" v-if="!owner" class="button" @click="notify">{{ alertAnimal === 'adoption' ? '¡Adoptar!': alertAnimal === 'lost' ? '¡Encontrado!' : '¡Cuidar!' }} </v-btn>
             <v-btn small round color="red darken-4" class="button" @click="redButton(owner)">{{ owner ? 'Eliminar' : 'Denunciar' }} </v-btn>
           </div>
           <div>
@@ -159,7 +159,10 @@ export default {
       this.$router.push('../mainpets/' + this.alertAnimal)
     },
     notify () {
-      this.openNotify = !this.openNotify
+      this.openNotify = true
+    },
+    closeDialog (value) {
+      this.openNotify = value
     }
   },
   created () {

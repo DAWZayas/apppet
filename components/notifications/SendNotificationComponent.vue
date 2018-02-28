@@ -1,12 +1,14 @@
 <template>
-<v-dialog v-model="open" persistent max-width="290">
+<v-dialog v-model="close" persistent max-width="290">
     <v-card>
-      <v-card-title class="headline">Adopta</v-card-title>
-      <v-card-text></v-card-text>
+      <v-card-title class="headline">Notificaiones</v-card-title>
+      <v-card-text>
+        <v-text-field v-model="textSolicitude" multi-line></v-text-field>
+      </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="green darken-1" flat @click.native="sendSolicitude">Cancelar</v-btn>
-        <v-btn color="green darken-1" flat @click.native="closeNotify">Enviar</v-btn>
+        <v-btn color="green darken-1" flat @click.native="close()">Cancelar</v-btn>
+        <v-btn color="green darken-1" flat @click.native="sendSolicitude">Enviar</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -23,6 +25,9 @@ export default {
     ...mapActions(['sendNotification']),
     closeNotify () {
       this.open = false
+    },
+    close () {
+      this.$emit('closeDialog', !this.close)
     },
     getFecha: function () {
       var today = new Date()
@@ -52,6 +57,7 @@ export default {
         date: this.getFecha(),
         final: false
       }
+      this.close()
       this.sendNotification(infoSolicitude)
     }
   },

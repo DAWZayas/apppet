@@ -2,11 +2,20 @@
 	<div class="main">
 		<section class="main-elements">
 			<element-pets-component 
-        v-for="animal in animals"
+        v-for="(animal) in animals"
         v-if="user.uid == animal.userUid" 
         :animal="animal"
         :key="animal.name"
-      ></element-pets-component>
+      >
+      </element-pets-component>
+       <div style="margin-top:3em" v-if="isEmpty()">
+        <v-alert value="true" outline color="warning" icon="priority_high">
+          No tiene ningún candidato creado
+        </v-alert>
+        <v-alert value="true" outline color="info" icon="info" class="mt-5">
+          Cree uno dándole al boton de abajo
+        </v-alert>
+      </div>
 		</section>
  	</div>
 </template>
@@ -23,6 +32,16 @@
     },
     components: {
       ElementPetsComponent
+    },
+    methods: {
+      isEmpty () {
+        for (let i = 0; i < this.animals; i++) {
+          if (this.animals[0].userUid === this.user.uid) {
+            return false
+          }
+        }
+        return true
+      }
     }
   }
 </script>

@@ -59,9 +59,6 @@
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>Copyright © 2017. All right reserved.</p>
-    </div>
 	</footer>
 </template>
 <script>
@@ -69,11 +66,6 @@
 <style lang="scss">
   p {
     margin: 0;
-  }
-  .footer {
-    padding: 30px  0px 0px;
-    color: #ccc;
-    background-color: #222;
   }
   .footer .container{
     margin: auto;
@@ -127,7 +119,7 @@
   .footer-icons .social-icons i {
     padding: 0px 20px;
     font-size: 2rem;
-    color: #1e76a8;
+    color: #4db6ac;
   }
   .footer-icons .social-icons i:hover {
     cursor: pointer;
@@ -135,7 +127,7 @@
   /* SOCIAL-ICONS-LOGO */
   .social-icons-logo i {
     padding: 0px 5px;
-    color: #1e76a8 !important;
+    color: #4db6ac !important;
   }
   .social-icons-logo i:hover {
     cursor: pointer;
@@ -147,7 +139,7 @@
   }
   @media only screen and (max-width: 599px) {
     .container {
-      padding: 15px;
+      padding: 0.3em;
     }
     
   }

@@ -13,6 +13,7 @@
     "stylus-loader": "^3.0.1",
     "uuid": "^3.1.0",
     "vue-cli": "^2.9.1",
+    "vue-meta": "^1.5.0",
     "vuetify": "^0.17.0"
   },
   "scripts": {

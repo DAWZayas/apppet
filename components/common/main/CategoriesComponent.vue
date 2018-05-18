@@ -1,29 +1,22 @@
 <template>
   <div class="section">
-    <h1>Nuestras Mascotas</h1>
     <div class="categories">
       <div class="card1">
         <div class="card-body">
-          <h5 class="card-title">En adopción</h5>
-          <p class="card-text">Que un perro o un gato no acabe en la calle depende de nosotros. 
-            Ellos buscan una segunda oportunidad</p>
-          <v-btn class="btn btn-primary" @click="onClick('adoption')">Ver más</v-btn>
+          <h5 class="card-title card-title-1">En adopción</h5>
+          <v-btn outline class="btn" color="white"  @click="onClick('adoption')">Ver más</v-btn>
         </div>
       </div>
       <div class="card2">
         <div class="card-body">
-          <h5 class="card-title">Perdidos</h5>
-          <p class="card-text">Encontraste o perdiste una mascota? Aqui tienes todos los aniamles perdidos y encontrados. 
-            ¡Consulta ya los anuncios !.</p>
-          <v-btn class="btn btn-primary" @click="onClick('lost')">Ver más</v-btn>
+          <h5 class="card-title card-title-2">Perdidos</h5>
+          <v-btn outline class="btn" color="white" @click="onClick('lost')">Ver más</v-btn>
         </div>
       </div>
       <div class="card3">
         <div class="card-body">
-          <h5 class="card-title">A cuidar</h5>
-          <p class="card-text">¿Tienes que irte de viaje? Encuentra a personas en tu misma situación,
-            y llega a un acuerdo para cuidar a tu mascota.</p>
-          <v-btn class="btn btn-primary" @click="onClick('takeCare')">Ver más</v-btn>
+          <h5 class="card-title card-title-3">Para cuidar</h5>
+          <v-btn outline class="btn" color="white" @click="onClick('takeCare')">Ver más</v-btn>
         </div>
       </div>
     </div>
@@ -56,18 +49,15 @@
   :root {
     box-sizing: border-box;
   }
-  .btn-primary {
-    width: 10%;
-    background-color: #4db6ac;
-    border: transparent;
-  }
+
   .section {
     text-align: center;
-    padding-top: 3em;
+    padding-top: 4em;
   }
   h1 {
     font-size: 3rem;
     font-weight: 700;
+    margin-top: 1em;
   }
   h5 {
     font-size: 2rem;
@@ -91,8 +81,9 @@
     background-position: center;
     background-blend-mode: luminosity;
     color: #fff;
-    height: 260px;
-    padding-top: 18%;
+    height: 28vh;
+    padding-top: 1em;
+    
   }
   .card1 {
     background-image: url(~/assets/stories/d1.jpg);
@@ -107,6 +98,27 @@
     background-color: rgb(129, 98, 88);
   }
 
+  .card-title{
+    width: 50%;
+    margin: 0.2em auto;
+    padding: 0.3em;
+    border-radius: 0.1em;
+  }
+
+  .card-title-1{
+    background-color:  rgba(33, 78, 92, 0.6);
+  }
+
+  .card-title-2{
+    background-color:  rgba(230, 156, 152, 0.6);
+  }
+  .card-title-3{
+    background-color:  rgba(129, 98, 88, 0.6);
+  }
+
+  .btn{
+    margin-top: 4em;
+  }
   @media (min-width: 480px){
     .card1, .card2, .card3 {
       height: 280px;

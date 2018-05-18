@@ -35,7 +35,7 @@
     >
       <v-list class="pa-1 menu">
         <v-list-tile avatar >
-          <nuxt-link to="/profile" style="text-decoration:none">
+          <nuxt-link to="/profile">
           <v-list-tile-avatar>
             <img :src="picProfile" />
           </v-list-tile-avatar>
@@ -92,7 +92,7 @@
           { title: 'Candidatos', icon: 'pets', methods: 'candidates' },
           { title: 'Favoritos', icon: 'favorite', methods: 'favorites' },
           { title: 'Notas', icon: 'question_answer', methods: 'notes' },
-          { title: 'Notifications', icon: 'notifications', methods: 'notifications' }
+          { title: 'Notificaciones', icon: 'notifications', methods: 'notifications' }
         ],
         out: { title: 'Salir', icon: 'close', methods: 'logout' },
         login: { title: 'Identificarse', icon: 'power_settings_new', methods: 'logout' }

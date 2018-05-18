@@ -1,9 +1,9 @@
 <template>
 <v-dialog v-model="close" persistent max-width="290">
     <v-card>
-      <v-card-title class="headline">Notificaiones</v-card-title>
+      <v-card-title class="headline">Enviar notificación</v-card-title>
       <v-card-text>
-        <v-text-field v-model="textSolicitude" multi-line></v-text-field>
+        <v-text-field v-model="textSolicitude"></v-text-field>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>

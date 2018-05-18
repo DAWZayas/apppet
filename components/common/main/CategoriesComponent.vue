@@ -99,7 +99,7 @@
   }
 
   .card-title{
-    width: 50%;
+    width: 60%;
     margin: 0.2em auto;
     padding: 0.3em;
     border-radius: 0.1em;
@@ -117,7 +117,7 @@
   }
 
   .btn{
-    margin-top: 4em;
+    margin-top: 3em;
   }
   @media (min-width: 480px){
     .card1, .card2, .card3 {

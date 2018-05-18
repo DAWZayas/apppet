@@ -35,7 +35,7 @@
     >
       <v-list class="pa-1 menu">
         <v-list-tile avatar >
-          <nuxt-link to="/profile">
+          <nuxt-link to="/profile" style="text-decoration:none">
           <v-list-tile-avatar>
             <img :src="picProfile" />
           </v-list-tile-avatar>

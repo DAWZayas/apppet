@@ -1,10 +1,10 @@
 <template>
   <v-layout row class="layout-profile">
     <v-flex xs12 sm6 offset-sm3>
-      <v-card>
+      <v-card class="card">
         <v-card-media src="http://papers.co/wallpaper/papers.co-ag77-google-lollipop-january-background-25-wallpaper.jpg" height="330px">
           <v-layout column class="media align-center">
-            <v-card-title>
+            <v-card-title class="header-card">
               <nuxt-link to="/apppet" class="nuxt-link">
               <v-btn dark icon>
                 <v-icon>chevron_left</v-icon>
@@ -29,7 +29,7 @@
               </v-spacer>
               <v-spacer>
             <v-card-title class="white--text pb-5 mb-5 " >
-              <div class="title">Programador Web</div>
+              <div class="title">Modifica tus datos</div>
             </v-card-title>
               </v-spacer>
           </v-layout>
@@ -47,47 +47,39 @@
             <v-avatar
               size="150px"
               class="grey lighten-4"
-            ><input class="d-none" type="file" ref="inputFile" value="0" @change="filesChange($event.target.files)">
-              <v-btn
-                fab
-                small
-                color="cyan accent-2"
-                class="button-image"
-                absolute
-                @click="inputFile"
-              >
-                <v-icon dark>camera_alt</v-icon>
-            </v-btn>
-              <img :src="photo" alt="avatar" class="avatar-border">
-            </v-avatar>
-              </v-flex>
-              <v-list two-line class="name">
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon color="indigo">person</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{name}}</v-list-tile-title>
-            <v-list-tile-sub-title>Nombre de usuario</v-list-tile-sub-title>
-          </v-list-tile-content>
-          <v-list-tile-action>
-            <change-display-name-component></change-display-name-component>
-          </v-list-tile-action>
-        </v-list-tile>
-        <hr class="ml-5 mr-5 mt-0 mb-0">
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon color="indigo">mail</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{email}}</v-list-tile-title>
-            <v-list-tile-sub-title>Email</v-list-tile-sub-title>
-          </v-list-tile-content>
-          <v-list-tile-action>
-            <change-email-component></change-email-component>
-          </v-list-tile-action>
-        </v-list-tile>
-              </v-list>
+            >
+            <input class="d-none" type="file" ref="inputFile" value="0" @change="filesChange($event.target.files)">
+            <img :src="photo" alt="avatar" class="avatar-border">
+          </v-avatar>
+        </v-flex>
+        <v-list two-line class="name data-container">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon color="indigo">person</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{name}}</v-list-tile-title>
+              <v-list-tile-sub-title>Nombre de usuario</v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <change-display-name-component></change-display-name-component>
+              </v-list-tile-action>
+            </v-list-tile>
+            <hr class="ml-5 mr-5 mt-0 mb-0">
+            <v-list-tile @click="">
+              <v-list-tile-action>
+                <v-icon color="indigo">mail</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>{{email}}</v-list-tile-title>
+                <v-list-tile-sub-title>Email</v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <change-email-component></change-email-component>
+              </v-list-tile-action>
+            </v-list-tile>
+            <hr class="ml-5 mr-5 mt-0 mb-0">
+          </v-list>
         </v-layout>
       </v-card>
     </v-flex>
@@ -97,15 +89,15 @@
 import ChangeDisplayNameComponent from '~/components/profile/changes/ChangeDisplayNameComponent'
 import ChangeEmailComponent from '~/components/profile/changes/ChangeEmailComponent'
 import AlertComponent from '~/components/alerts/AlertComponent'
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   data () {
     return {
       items: [
-        { title: 'Mis candidatos', click: 'likes' },
+        { title: 'Mis candidatos', click: 'candidates' },
         { title: 'Me gustan', click: 'likes' },
-        { title: 'Ayuda', click: 'likes' },
-        { title: 'Desconectar', click: 'likes' }
+        { title: 'Mis notificaciones', click: 'notifications' },
+        { title: 'Desconectar', click: 'logout' }
       ]
     }
   },
@@ -121,14 +113,37 @@ export default {
     inputFile () {
       this.$refs.inputFile.click()
     },
-    likes: function () {
+    ...mapActions(['logout']),
+    onClick (f) {
+      if (f === 'candidates') {
+        this.$router.push('/candidates/')
+      }
+      if (f === 'likes') {
+        this.$router.push('mainpets/favorites/')
+      }
+      if (f === 'logout') {
+        this.logout()
+        this.$router.push('/')
+      }
+      if (f === 'notifications') {
+        this.$router.push('/notifications')
+      }
     }
   }
 }
 </script>
 <style  scoped>
+
+.card{
+  height: 100%!important;
+}
+
 .card__title{
   width :100%;
+}
+
+.header-card{
+  padding: 5px;  
 }
 
 .list-margin{
@@ -144,7 +159,7 @@ export default {
 }
 
 .layout-profile{
-  height: 1000px!important;
+  height: auto!important;
 }
 
 .avatar{
@@ -157,10 +172,17 @@ export default {
 
 .name{
   width: 100%;
+  height: 10em;
 }
 
 .nuxt-link{
   text-decoration: none;
+}
+
+
+
+.data-container{
+
 }
 
 </style>
